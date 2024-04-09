@@ -1,12 +1,28 @@
 //import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:async' show Timer;
 import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:hive_flutter/hive_flutter.dart';
+import 'user_model.dart'; // Import the User class
+import 'dart:developer' as developer;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+  await Hive.initFlutter(appDocumentDir.path);
+  Hive.registerAdapter(UserAdapter()); // Register the TypeAdapter for User
   runApp(const MyApp());
 }
+/*void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  //await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  //await loadFont();
+  runApp(const MyApp());
+}*/
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -149,7 +165,7 @@ class _SecondPageState extends State<SecondPage> {
                   child: Text(
                     'Get Started',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),
@@ -273,7 +289,7 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 60),
           // Link to the login page
           Padding(
             padding: const EdgeInsets.only(bottom: 16),
@@ -296,16 +312,24 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          //const SizedBox(height: 20),
         ],
       ),
     );
   }
 }
 
-class FourthPage extends StatelessWidget {
+class FourthPage extends StatefulWidget {
   const FourthPage({Key? key}) : super(key: key);
-  
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _FourthPageState createState() => _FourthPageState();
+}
+class _FourthPageState extends State<FourthPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -327,6 +351,7 @@ class FourthPage extends StatelessWidget {
             ),
             const SizedBox(height: 20.0),
             TextFormField(
+              controller: _emailController,
               decoration: const InputDecoration(
                 hintText: 'Email Address',
               ),
@@ -335,14 +360,13 @@ class FourthPage extends StatelessWidget {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email address';
                 }
-                if (!isValidEmail(value)) {
-                  return 'Please enter a valid email address';
-                }
+                // You can add more validation logic here if needed
                 return null;
               },
             ),
             const SizedBox(height: 10.0),
             TextFormField(
+              controller: _passwordController,
               decoration: const InputDecoration(
                 hintText: 'Password',
               ),
@@ -351,6 +375,7 @@ class FourthPage extends StatelessWidget {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
                 }
+                // You can add more validation logic here if needed
                 return null;
               },
             ),
@@ -366,7 +391,9 @@ class FourthPage extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    // Implement Forgot Password logic here
+                  },
                 ),
               ],
             ),
@@ -375,10 +402,32 @@ class FourthPage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       // Validate the form before proceeding
-                      if (Form.of(context).validate()) {
-                        // Perform login logic here
+                      if (_validateForm()) {
+                        // Retrieve user from Hive
+                        final userBox = await Hive.openBox<User>('users');
+                        final user = userBox.values.firstWhere(
+                          (user) => user.email == _emailController.text,
+                          orElse: () => User('', ''), 
+                        );
+
+                        // Check if user exists and password matches
+                        // ignore: unnecessary_null_comparison
+                        if (user != null && user.password == _passwordController.text) {
+                          // Show snackbar
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Logged in successfully')),
+                          );
+
+                          // Navigate to the next screen
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard()));
+                        } else {
+                          // Show snackbar for invalid credentials
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Invalid email or password. Please sign up.')),
+                          );
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -421,16 +470,33 @@ class FourthPage extends StatelessWidget {
     );
   }
 
-  bool isValidEmail(String email) {
-    // Use a regular expression to validate email format
-    return RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").hasMatch(email);
+  bool _validateForm() {
+    if (_emailController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter your email address')));
+      return false;
+    }
+    if (_passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter your password')));
+      return false;
+    }
+    return true;
   }
 }
 
+class SignupPage extends StatefulWidget {
+  //final BuildContext context; // Add this line
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({Key? key}) : super(key: key);
-  
+ const SignupPage({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SignupPage createState() => _SignupPage();
+}
+class _SignupPage extends State<SignupPage> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -455,6 +521,7 @@ class SignupPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 20.0),
                       TextFormField(
+                        controller: _nameController,
                         decoration: const InputDecoration(
                           hintText: 'Name',
                           border: OutlineInputBorder(
@@ -464,15 +531,25 @@ class SignupPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 10.0),
                       TextFormField(
+                        controller: _emailController,
                         decoration: const InputDecoration(
                           hintText: 'Email Address',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
                         ),
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email address';
+                          }
+                          // You can add more validation logic here if needed
+                          return null;
+                        },
                       ),
                       const SizedBox(height: 10.0),
                       TextFormField(
+                        controller: _passwordController,
                         decoration: const InputDecoration(
                           hintText: 'Password (8+ characters)',
                           border: OutlineInputBorder(
@@ -480,19 +557,51 @@ class SignupPage extends StatelessWidget {
                           ),
                         ),
                         obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          // Check if password has at least 8 characters
+                          if (value.length < 8) {
+                            return 'Password must be at least 8 characters long';
+                          }
+                          // You can add more validation logic here if needed
+                          return null;
+                        },
                       ),
                       const SizedBox(height: 20.0),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () => {},
+                          onPressed: () async {
+                            // Validate the form before proceeding
+                            bool isValid = await _validateForm();
+                            if (isValid) {
+                              // Store user data using HiveDB
+                              final userBox = await Hive.openBox<User>('users');
+                              final user = User(_emailController.text, _passwordController.text);
+                              userBox.put(user.email, user);
+                             //userBox.add(user);
+                              // Show snackbar
+                              // ignore: use_build_context_synchronously
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Account created successfully')),
+                              );
+                              // Navigate to the next screen
+                              final List<User> users = userBox.values.toList();
+                              for (var user in users) {
+                                developer.log('User email: ${user.email}, Password: ${user.password}');
+                              }
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemographicsPage(userEmail: _emailController.text)));
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color.fromARGB(255, 46, 196, 234),
                           ),
                           child: const Text('Create Account', style: TextStyle(color: Colors.black)),
                         ),
                       ),
-                      const SizedBox(height: 10.0),
+                     const SizedBox(height: 10.0),
                       const Center(
                         child: Text('or'),
                       ),
@@ -501,7 +610,7 @@ class SignupPage extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () => {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DemographicsPage())),
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemographicsPage(userEmail: _emailController.text))),
                           },
                           style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 46, 196, 234)),
                           child: const Text('Continue with Apple', style: TextStyle(color: Colors.black))
@@ -528,7 +637,7 @@ class SignupPage extends StatelessWidget {
                   TextButton(
                     child: const Text('Already have an account? Log in', style:TextStyle(color:Color.fromARGB(255, 33, 222, 243), decoration: TextDecoration.underline)),
                     onPressed: () => {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DemographicsPage())),
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FourthPage())),
                     },
                   ),
                 ],
@@ -539,10 +648,75 @@ class SignupPage extends StatelessWidget {
       ),
     );
   }
+
+
+  Future<bool> _validateForm() async
+  {
+    // Check if name is empty
+    if (_nameController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter your name')));
+      return false;
+    }
+
+    // Check if email is empty
+    if (_emailController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter your email address')));
+      return false;
+    }
+
+    // Check if password is empty
+    if (_passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter your password')));
+      return false;
+    }
+
+    // Check if email format is valid
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(_emailController.text)) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter a valid email address')));
+      return false;
+    }
+
+    // Check if password has at least 8 characters
+    if (_passwordController.text.length < 8) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password must be at least 8 characters long')));
+      return false;
+    }
+
+    final userBox = await Hive.openBox<User>('users');
+
+  // Check if user already exists with the same email
+  
+
+  // Check if user already exists with the same email
+  final List<User> users = userBox.values.toList();
+  bool userExists = false;
+  for (var user in users) {
+    if (user.email == _emailController.text) {
+      userExists = true;
+      break;
+    }
+  }
+
+  if (userExists) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('User with this email already exists')));
+    return false;
+  }
+
+  // Store user data using HiveDB
+  final user = User(_emailController.text, _passwordController.text);
+  userBox.add(user);
+
+  // Show snackbar
+  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Account created successfully')));
+
+  return true;
+  }
 }
 
 class DemographicsPage extends StatefulWidget {
-  const DemographicsPage({Key? key}) : super(key: key);
+  final String userEmail;
+  const DemographicsPage({Key? key, required this.userEmail}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -551,9 +725,12 @@ class DemographicsPage extends StatefulWidget {
 
 class _DemographicsPageState extends State<DemographicsPage> {
   String? selectedGender;
+  String? selectedDateOfBirth;
+  String? selectedRace;
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('User email passed to DemographicsPage: ${widget.userEmail}');
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -575,7 +752,7 @@ class _DemographicsPageState extends State<DemographicsPage> {
             const SizedBox(height: 20),
             _buildRaceSelection(),
             const Spacer(),
-            _buildNextButton(context),
+            _buildNextButton(context,widget.userEmail),
             const SizedBox(height: 8.0),
           ],
         ),
@@ -681,30 +858,42 @@ class _DemographicsPageState extends State<DemographicsPage> {
   }
 
   Widget _buildDateOfBirthSelection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Select your date of birth:',
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 30),
-        TextFormField(
-          keyboardType: TextInputType.datetime,
-          decoration: const InputDecoration(
-            hintText: 'MM/DD/YYYY',
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            ),
+  late TextEditingController _dateController;
+ 
+
+  _dateController = TextEditingController();
+
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const Text(
+        'Select your date of birth:',
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      ),
+      const SizedBox(height: 30),
+      TextFormField(
+        controller: _dateController,
+        keyboardType: TextInputType.datetime,
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9/]')), // Allow only numbers and '/'
+        ],
+        onChanged: (value) {
+          selectedDateOfBirth = value;
+        },
+        decoration: const InputDecoration(
+          hintText: 'MM/DD/YYYY',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 
   Widget _buildRaceSelection() {
     final List<String> raceOptions = ['Asian', 'Black', 'Hispanic', 'White', 'Other'];
-    String? selectedRace;
+    
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -738,22 +927,82 @@ class _DemographicsPageState extends State<DemographicsPage> {
     );
   }
 
-  Widget _buildNextButton(BuildContext context) {
+  /*Widget _buildNextButton(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhysicalCharacteristicsPage()));
+      onPressed: () async{
+        final userBox = Hive.box<User>('users');
+        // Get the user object from the box
+        final User? user = userBox.get('email');
+
+        if (user != null) {
+          // Update the demographic data fields in the user object
+          user.gender = selectedGender;
+          user.dateOfBirth = selectedDateOfBirth;
+          user.race = selectedRace;
+
+          // Save the updated user object back to Hive
+          await user.save();
+
+          // Navigate to the next page
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhysicalCharacteristicsPage()));
+        } else {
+          // Handle case when user is not found
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Error'),
+              content: const Text('User not found.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            ),
+          );
+        };
       },
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.black,
         backgroundColor: const Color.fromARGB(255, 26, 219, 241), // Text color
-        minimumSize: const Size(double.infinity, 50), // Full width button
+        minimumSize: const Size(double.infinity, 40), // Full width button
       ),
       child: const Text('Next'),
     );
   }
+}*/
+Widget _buildNextButton(BuildContext context, String userEmail) {
+  debugPrint('User email passed : ${userEmail}');
+  return ElevatedButton(
+    onPressed: () async {
+      final userBox = await Hive.openBox<User>('users');
+      final User? user = userBox.get(userEmail);
+      debugPrint('User email passed : ${user}');
+      if (user != null) {
+        // Update the demographics data fields in the user object
+        user.gender = selectedGender;
+        user.dateOfBirth = selectedDateOfBirth;
+        user.race = selectedRace;
+
+        // Save the updated user object back to Hive
+        await user.save();
+
+        // Navigate to the next page
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhysicalCharacteristicsPage()));
+      }
+    },
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 26, 219, 241), // Text color
+      minimumSize: const Size(double.infinity, 40), // Full width button
+    ),
+    child: const Text('Next'),
+  );
 }
-
-
+}
 
 class PhysicalCharacteristicsPage extends StatefulWidget {
   const PhysicalCharacteristicsPage({Key? key}) : super(key: key);
@@ -869,7 +1118,7 @@ class _PhysicalCharacteristicsPageState extends State<PhysicalCharacteristicsPag
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226)),
                 ),
-                child: const Text('Next', style: TextStyle(color: Colors.white)),
+                child: const Text('Next', style: TextStyle(color: Colors.black)),
               ),
             ),
             const SizedBox(height: 20.0),
@@ -1696,7 +1945,7 @@ class _ExerciseLocationPageState extends State<ExerciseLocationPage> {
                 alignment: Alignment.bottomCenter,
                 child: SizedBox(
                   width: double.infinity,
-                  height: 50.0,
+                  height: 40.0,
                   child: ElevatedButton(
                     onPressed: () {
                       // Handle the next button action
@@ -1762,7 +2011,7 @@ class _ConnectWithFriendsPageState extends State<ConnectWithFriendsPage> {
             const SizedBox(height: 40.0),
             const Text(
               'Invite friends and compare your progress',
-              style: TextStyle(fontSize: 16.0),
+              style: TextStyle(fontSize: 16.0, fontFamily: 'Outfit'),
             ),
             const SizedBox(height: 20.0),
             Row(
@@ -1811,7 +2060,7 @@ class _ConnectWithFriendsPageState extends State<ConnectWithFriendsPage> {
                 onPressed: () {
                   // Handle the finish button action
                   // This is where you would navigate to the next page
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const WorkoutDurationSelectionPage()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard()));
 
                 },
                 style: ButtonStyle(
@@ -1822,6 +2071,553 @@ class _ConnectWithFriendsPageState extends State<ConnectWithFriendsPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Dashboard extends StatefulWidget {
+  @override
+  _Dashboard createState() => _Dashboard();
+}
+
+class _Dashboard extends State<Dashboard> {
+  int _selectedIndex = 0;
+
+  // ignore: prefer_final_fields
+  static List<Widget> _widgetOptions = <Widget>[
+    const Text('Home Page'),
+    const Text('Exercise Page'),
+    const Text('Achievements Page'),
+    const Text('Profile Page'),
+  ];
+
+  
+   void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (_selectedIndex == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProgramDetails()),
+        );
+      }
+      else if (_selectedIndex == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScrollableHomePage()),
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dashboard Page'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                   // backgroundImage: AssetImage('assets/profile_photo.jpg'), // Replace with actual image
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'John Doe', // Replace with actual name
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home', style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+                // Close the drawer
+                 Navigator.push(context,MaterialPageRoute(builder: (context) => const HomeScrollableHomePage()),);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.fitness_center),
+              title: const Text('Exercise',style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+                 Navigator.push(context,MaterialPageRoute(builder: (context) => const ProgramDetails()),);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.star),
+              title: const Text('Achievements', style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications),
+              title: const Text('Notifications',style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.arrow_upward),
+              title: const Text('Above',style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings',style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+              height: 0.09,
+              letterSpacing: 0.20,),),
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // Set to fixed
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.fitness_center),
+            label: 'Exercise',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Achievements',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class HomeScrollableHomePage extends StatelessWidget {
+  const HomeScrollableHomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            // Add your navigation drawer functionality here
+          },
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Recent Exercises',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0x59464E61),
+                borderRadius: BorderRadius.circular(12),
+                border: const Border(
+                  left: BorderSide(),
+                  top: BorderSide(),
+                  right: BorderSide(),
+                  bottom: BorderSide(width: 1),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            'images/Picture2.png',
+                            width: 65,
+                            height: 52,
+                          ),
+                          const SizedBox(width: 12),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Today',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontFamily: 'Outfit',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                'Dumbells',
+                                style: TextStyle(
+                                  color: Color(0xFFB6BDCC),
+                                  fontSize: 12,
+                                  fontFamily: 'Outfit',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                '20 min. High intensity',
+                                style: TextStyle(
+                                  color: Color(0xFFB6BDCC),
+                                  fontSize: 12,
+                                  fontFamily: 'Outfit',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '+100',
+                            style: TextStyle(
+                              color: Color(0xFF94EB19),
+                              fontSize: 14.5,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            'Points Earned',
+                            style: TextStyle(
+                              color: Color(0xFFB6BDCC),
+                              fontSize: 12,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 18),
+                  const Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '15:00',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14.5,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Time',
+                            style: TextStyle(
+                              color: Color(0xFFB6BDCC),
+                              fontSize: 12,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 30),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Complete',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14.5,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Status',
+                            style: TextStyle(
+                              color: Color(0xFFB6BDCC),
+                              fontSize: 12,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 30),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '87.5%',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14.5,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Avg Success %',
+                            style: TextStyle(
+                              color: Color(0xFFB6BDCC),
+                              fontSize: 12,
+                              fontFamily: 'Outfit',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Achievements',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                _buildAchievement(
+                  title: 'Finish 5 workouts',
+                  description: '2 times',
+                  points: '+100',
+                ),
+                _buildAchievement(
+                  title: '5 days regular',
+                  description: '2 times',
+                  points: '+200',
+                ),
+                _buildAchievement(
+                  title: '1 Week Daily ',
+                  description: '2 times',
+                  points: '+400',
+                ),
+              ],
+              
+            ),
+            
+            ElevatedButton(
+              onPressed: () {
+                // Add your view all functionality here
+              },
+              child: const Text('View All',style: TextStyle(color: Colors.white),),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              ' Invite Friends',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Image.asset(
+              'images/Picture1.png',
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.fitHeight,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Add your invite friends functionality here
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.cyan),
+              ),
+              child: const Text('Invite', style: TextStyle(color: Colors.black)),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAchievement({
+    required String title,
+    required String description,
+    required String points,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: const Color(0x59464E61),
+        borderRadius: BorderRadius.circular(12),
+        border: const Border(
+          left: BorderSide(),
+          top: BorderSide(),
+          right: BorderSide(),
+          bottom: BorderSide(width: 1),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.5,
+                  fontFamily: 'Outfit',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                description,
+                style: const TextStyle(
+                  color: Color(0xFFB6BDCC),
+                  fontSize: 12,
+                  fontFamily: 'Outfit',
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+          Column(
+          crossAxisAlignment:CrossAxisAlignment.end,
+          children:[
+            Text(
+            points,
+            style: const TextStyle(
+              color: Color(0xFF94EB19),
+              fontSize: 14.5,
+              fontFamily: 'Outfit',
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const Text(
+                'Points Earned',
+                style: TextStyle(
+                  color: Color(0xFFB6BDCC),
+                  fontSize: 12,
+                  fontFamily: 'Outfit',
+                  fontWeight: FontWeight.w400,
+                ),
+          )
+          ]
+          )
+        ],
       ),
     );
   }
@@ -2149,6 +2945,7 @@ class WorkoutCompletionPage extends StatelessWidget {
           ],
         ),
       ),
+    
     );
   }
 }
@@ -2299,4 +3096,452 @@ Widget _buildOptionsWrap(List<String> options) {
 }
 }
 
-  
+class ProgramDetails extends StatelessWidget {
+  const ProgramDetails({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Program Details'),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            decoration: ShapeDecoration(
+              color: const Color(0xFF1E2021),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 314.91,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 334,
+                        height: 220.91,
+                        decoration: ShapeDecoration(
+                          image: const DecorationImage(
+                            image: AssetImage("images/ExercisePic.png"),
+                            fit: BoxFit.fill,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.20),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Container(
+                        width: double.infinity,
+                        height: 72,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Built by Science',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFFE9ECF5),
+                                fontSize: 15,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w600,
+                                height: 0.11,
+                                letterSpacing: 0.20,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Container(
+                              width: double.infinity,
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: SizedBox(
+                                      child: Text.rich(
+                                        TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: 'This two-week program is all about higher reps and short rest periods to help you build a ... ',
+                                              style: TextStyle(
+                                                color: Color(0xFFB6BDCC),
+                                                fontSize: 12,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.w400,
+                                                height: 0,
+                                                letterSpacing: 0.20,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: 'View more',
+                                              style: TextStyle(
+                                                color: Color(0xFFB6BDCC),
+                                                fontSize: 12,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.w600,
+                                                height: 0,
+                                                letterSpacing: 0.20,
+                                                decoration: TextDecoration.underline, // Remove this line
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                //Expanded(
+                Container(
+                height: 200,
+                width: MediaQuery.of(context).size.width - 52,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                decoration: ShapeDecoration(
+                  color: const Color(0xFF1E2021),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Exercise overview',
+                          style: TextStyle(
+                            color: Color(0xFFE9ECF5),
+                            fontSize: 18,
+                            fontFamily: 'Outfit',
+                            fontWeight: FontWeight.w600,
+                            height: 0.11,
+                            letterSpacing: 0.20,
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '10',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.08,
+                                      letterSpacing: -0.20,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Total Workouts',
+                                    style: TextStyle(
+                                      color: Color(0xFFB6BDCC),
+                                      fontSize: 10,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                     
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '2',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.08,
+                                      letterSpacing: -0.20,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Number of weeks',
+                                    style: TextStyle(
+                                      color: Color(0xFFB6BDCC),
+                                      fontSize: 10,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                      
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Moderate',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.08,
+                                      letterSpacing: -0.20,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'Intensity',
+                                    style: TextStyle(
+                                      color: Color(0xFFB6BDCC),
+                                      fontSize: 10,
+                                      fontFamily: 'Outfit',
+                                      fontWeight: FontWeight.w500,
+                                    
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Avg. exercise duration',
+                              style: TextStyle(
+                                color: Color(0xFFB6BDCC),
+                                fontSize: 12,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w500,
+                                height: 0.17,
+                              ),
+                            ),
+                            
+                            Text(
+                              
+                              '32 mins',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w500,
+                                height: 0.17,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Equipment',
+                              style: TextStyle(
+                                color: Color(0xFFB6BDCC),
+                                fontSize: 12,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w500,
+                                height: 0.17,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                const Text(
+                                  'Required',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: 'Outfit',
+                                    fontWeight: FontWeight.w500,
+                                    height: 0.17,
+                                  ),
+                                ),
+                                Container(
+                                  width: 16,
+                                  height: 16,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    // Your decoration here
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Exercise category',
+                              style: TextStyle(
+                                color: Color(0xFFB6BDCC),
+                                fontSize: 12,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w500,
+                                height: 0.17,
+                              ),
+                            ),
+                            Text(
+                              'Build muscle',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.w500,
+                                height: 0.17,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    
+                 )
+                ),
+              
+                
+                Container(
+                      width: 366,
+                      height: 382.91,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF1E2021),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 334.91,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height: 52,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Workout schedule',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Color(0xFFE9ECF5),
+                                          fontSize: 18,
+                                          fontFamily: 'Outfit',
+                                          fontWeight: FontWeight.w600,
+                                          height: 0.11,
+                                          letterSpacing: 0.20,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 20),
+                                      Container(
+                                        child: const Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Tap a date to see workout program details',
+                                              style: TextStyle(
+                                                color: Color(0xFFB6BDCC),
+                                                fontSize: 12,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.w400,
+                                                height: 0.11,
+                                                letterSpacing: 0.20,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                  const SizedBox(height: 16),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 266.91,
+                                    decoration: ShapeDecoration(
+                                      image: const DecorationImage(
+                                        image: NetworkImage("https://via.placeholder.com/334x267"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                        const SizedBox(height: 20), // Add some space
+                        const Text(
+                          'You can select the start date when you start the program.',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontFamily: 'Outfit',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 20), // Add some space
+                        SizedBox(
+                          width: double.infinity,
+                          child:ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const WorkoutDurationSelectionPage()));
+                            },
+                            style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226))),
+                            child: const Text('Done',style: TextStyle(color:Colors.black),),
+                          ),
+                        ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    
+                  ),
+                );
+              }
+            }
