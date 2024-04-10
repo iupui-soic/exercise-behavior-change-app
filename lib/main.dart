@@ -13,16 +13,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDir.path);
-  Hive.registerAdapter(UserAdapter()); // Register the TypeAdapter for User
+  //Hive.registerAdapter(UserAdapter()); // Register the TypeAdapter for User
   runApp(const MyApp());
 }
-/*void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  //await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  //await loadFont();
-  runApp(const MyApp());
-}*/
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Behaviour Change App',
+      title: 'Behavior Change Exercise App',
       theme: ThemeData(
         //colorScheme: ColorScheme.fromSeed(
             //seedColor: Color.fromARGB(255, 7, 2, 16)),
@@ -40,7 +33,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Behaviour Change App'),
+      home: const MyHomePage(title: 'Behavior Change Exercise App'),
     );
   }
 }
@@ -54,40 +47,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(widget.title, style: const TextStyle(color: Colors.black,)),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                  return const SecondPage();
-                }));
-              },
-              child: const Text('Click Here'),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatefulWidget {
-  const SecondPage({Key? key}) : super(key: key);
-
-  @override
-  State<SecondPage> createState() => _SecondPageState();
-}
-
-class _SecondPageState extends State<SecondPage> {
   int _currentIndex = 0;
 
   @override
@@ -671,7 +630,7 @@ class _SignupPage extends State<SignupPage> {
     }
 
     // Check if email format is valid
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    final emailRegex = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+\.[a-zA-Z]+");
     if (!emailRegex.hasMatch(_emailController.text)) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter a valid email address')));
       return false;
@@ -858,10 +817,10 @@ class _DemographicsPageState extends State<DemographicsPage> {
   }
 
   Widget _buildDateOfBirthSelection() {
-  late TextEditingController _dateController;
+  late TextEditingController dateController;
  
 
-  _dateController = TextEditingController();
+  dateController = TextEditingController();
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -872,7 +831,7 @@ class _DemographicsPageState extends State<DemographicsPage> {
       ),
       const SizedBox(height: 30),
       TextFormField(
-        controller: _dateController,
+        controller: dateController,
         keyboardType: TextInputType.datetime,
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r'[0-9/]')), // Allow only numbers and '/'
@@ -974,12 +933,12 @@ class _DemographicsPageState extends State<DemographicsPage> {
   }
 }*/
 Widget _buildNextButton(BuildContext context, String userEmail) {
-  debugPrint('User email passed : ${userEmail}');
+  debugPrint('User email passed : $userEmail');
   return ElevatedButton(
     onPressed: () async {
       final userBox = await Hive.openBox<User>('users');
       final User? user = userBox.get(userEmail);
-      debugPrint('User email passed : ${user}');
+      debugPrint('User email passed : $user');
       if (user != null) {
         // Update the demographics data fields in the user object
         user.gender = selectedGender;
@@ -2489,7 +2448,7 @@ class HomeScrollableHomePage extends StatelessWidget {
             ),
             ListView(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 _buildAchievement(
                   title: 'Finish 5 workouts',

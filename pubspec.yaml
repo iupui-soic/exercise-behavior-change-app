@@ -1,5 +1,5 @@
-name: exercise_behaviour_change_app
-description: "Behaviour Change Exercise App"
+name: exercise_behavior_change_app
+description: "Behavior Change Exercise App"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -34,6 +34,7 @@ dev_dependencies:
     sdk: flutter
   hive_generator: ^1.1.1
   build_runner: ^2.1.2
+  flutter_launcher_icons: "^0.13.1"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -46,17 +47,13 @@ flutter:
   fonts:
     - family: Outfit
       fonts:
-        - asset: Fonts/Outfit-Regular.ttf
-        - asset: Fonts/Outfit-Bold.ttf
-
-
+        - asset: fonts/Outfit-Regular.ttf
+        - asset: fonts/Outfit-Bold.ttf
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-
-      
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -66,4 +63,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
-  
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/icon/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
