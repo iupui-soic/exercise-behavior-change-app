@@ -8,13 +8,26 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:hive_flutter/hive_flutter.dart';
 import 'user_model.dart'; // Import the User class
 import 'dart:developer' as developer;
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDir.path);
-  //Hive.registerAdapter(UserAdapter()); // Register the TypeAdapter for User
+  Hive.registerAdapter(UserAdapter()); // Register the TypeAdapter for User
   runApp(const MyApp());
+}
+
+class EmailControllerProvider extends ChangeNotifier {
+  final TextEditingController emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -568,9 +581,22 @@ class _SignupPage extends State<SignupPage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () => {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemographicsPage(userEmail: _emailController.text))),
-                          },
+                          onPressed: () async {
+                          final credential = await SignInWithApple.getAppleIDCredential(scopes: [
+                            AppleIDAuthorizationScopes.email,
+                            AppleIDAuthorizationScopes.fullName,
+                          ]);
+
+                          // You can access the authorization status from the credential
+                          if (credential.authorizationCode != null) {
+                            // Apple sign-in succeeded, navigate to the next screen
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemographicsPage(userEmail: _emailController.text)));
+                          } else {
+                            // Handle case where Apple sign-in failed
+                          }
+                        },
+
+
                           style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 46, 196, 234)),
                           child: const Text('Continue with Apple', style: TextStyle(color: Colors.black))
                         ),
@@ -579,7 +605,15 @@ class _SignupPage extends State<SignupPage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () => {},
+                          onPressed: () async {
+                            final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+                            if (googleUser != null) {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemographicsPage(userEmail: _emailController.text)));
+                            } else {
+                              // Google sign-in failed
+                            }
+
+                          },
                           style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 46, 196, 234)),
                           child: const Text('Continue with Google', style: TextStyle(color: Colors.black) ),
                         ),
@@ -664,7 +698,7 @@ class _SignupPage extends State<SignupPage> {
 
   // Store user data using HiveDB
   final user = User(_emailController.text, _passwordController.text);
-  userBox.add(user);
+  userBox.put(user.email, user);
 
   // Show snackbar
   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Account created successfully')));
@@ -886,52 +920,6 @@ class _DemographicsPageState extends State<DemographicsPage> {
     );
   }
 
-  /*Widget _buildNextButton(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async{
-        final userBox = Hive.box<User>('users');
-        // Get the user object from the box
-        final User? user = userBox.get('email');
-
-        if (user != null) {
-          // Update the demographic data fields in the user object
-          user.gender = selectedGender;
-          user.dateOfBirth = selectedDateOfBirth;
-          user.race = selectedRace;
-
-          // Save the updated user object back to Hive
-          await user.save();
-
-          // Navigate to the next page
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhysicalCharacteristicsPage()));
-        } else {
-          // Handle case when user is not found
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('Error'),
-              content: const Text('User not found.'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            ),
-          );
-        };
-      },
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: const Color.fromARGB(255, 26, 219, 241), // Text color
-        minimumSize: const Size(double.infinity, 40), // Full width button
-      ),
-      child: const Text('Next'),
-    );
-  }
-}*/
 Widget _buildNextButton(BuildContext context, String userEmail) {
   debugPrint('User email passed : $userEmail');
   return ElevatedButton(
@@ -950,7 +938,7 @@ Widget _buildNextButton(BuildContext context, String userEmail) {
 
         // Navigate to the next page
         // ignore: use_build_context_synchronously
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhysicalCharacteristicsPage()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PhysicalCharacteristicsPage()));
       }
     },
     style: ElevatedButton.styleFrom(
@@ -1069,10 +1057,19 @@ class _PhysicalCharacteristicsPageState extends State<PhysicalCharacteristicsPag
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  // Handle the next button action
-                  // This is where you would navigate to the next page
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const  ComorbiditiesPage()));
+                onPressed: () async {
+                  final userBox = Hive.box<User>('users');
+                  final User? user = userBox.get('users');
+                  debugPrint('User email passed Physical Characteristics Page : $user');
+                  if (user != null) {
+                user.heightFeet = selectedHeightFeet;
+                user.heightInches = selectedHeightInches;
+                if (weightValue.isNotEmpty) {
+                  user.weight = int.parse(weightValue);
+                }
+                await user.save();
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ComorbiditiesPage()));
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226)),
@@ -1179,11 +1176,21 @@ class _ComorbiditiesPageState extends State<ComorbiditiesPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  // Handle the next button action
-                  // This is where you would navigate to the next page
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const GoalsPage()));
+                onPressed: () async {
+                  final userBox = Hive.box<User>('users');
+                  final User? user = userBox.get('email');
+
+                  // Update the user object with selected health conditions
+                  if (user != null) {
+                    user.selectedHealthConditions = selectedHealthConditions;
+
+                    // Save the updated user object back to Hive
+                    await user.save();
+
+                    // Navigate to the next page
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GoalsPage()));
+                  }
+                  
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -1417,8 +1424,20 @@ ElevatedButton(
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final userBox = Hive.box<User>('users');
+                    final User? user = userBox.get('email');
+
+                    // Update the user object with selected fitness data
+                    if (user != null) {
+                      user.fitnessLevel = selectedFitnessLevel;
+                      user.fitnessGoals = selectedFitnessGoals;
+                      user.workoutProgram = selectedProgram;
+
+                      // Save the updated user object back to Hive
+                      await user.save();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ExercisePage()));
+                    }
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 55, 200, 226)),
@@ -1626,8 +1645,20 @@ class _ExercisePageState extends State<ExercisePage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const  PreferencesPage()));  
+                onPressed: () async {
+                  final userBox = Hive.box<User>('users');
+                  final User? user = userBox.get('email');
+
+                  // Update the user object with selected preferences
+                  if (user != null) {
+                    user.trackingFrequency = selectedTrackingFrequency;
+                    user.dailyAvailability = selectedDays;
+
+                    // Save the updated user object back to Hive
+                    await user.save();
+
+                }
+                  
                 },
                 style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226)),
@@ -1777,10 +1808,21 @@ class _PreferencesPageState extends State<PreferencesPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  // Handle the next button action
-                  // This is where you would navigate to the next page
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ExerciseLocationPage()));
+                onPressed: () async {
+                  final userBox = Hive.box<User>('users');
+                  final User? user = userBox.get('email');
+
+                  // Update the user object with selected preferences
+                  if (user != null) {
+                    user.exercisePreferences = selectedExercises;
+
+                    // Save the updated user object back to Hive
+                    await user.save();
+
+                    // Navigate to the next page
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ExerciseLocationPage()));
+                  } 
+                
                 },
                 style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226)),
@@ -1906,10 +1948,20 @@ class _ExerciseLocationPageState extends State<ExerciseLocationPage> {
                   width: double.infinity,
                   height: 40.0,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // Handle the next button action
-                      // This is where you would navigate to the next page
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ConnectWithFriendsPage()));
+                    onPressed: () async{
+                  final userBox = Hive.box<User>('users');
+                  final User? user = userBox.get('email');
+
+                  // Update the user object with selected preferences
+                  if (user != null) {
+                    user.exerciseLocations = selectedLocations;
+
+                    // Save the updated user object back to Hive
+                    await user.save();
+
+                    // Navigate to the next page
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ConnectWithFriendsPage()));
+                  }
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 55, 200, 226)),
@@ -2288,7 +2340,7 @@ class HomeScrollableHomePage extends StatelessWidget {
                       Row(
                         children: [
                           Image.asset(
-                            'images/Picture2.png',
+                            'images/Picture1.png',
                             width: 65,
                             height: 52,
                           ),
@@ -2486,7 +2538,7 @@ class HomeScrollableHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Image.asset(
-              'images/Picture1.png',
+              'images/Picture2.png',
               height: 200,
               width: double.infinity,
               fit: BoxFit.fitHeight,
