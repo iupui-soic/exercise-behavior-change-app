@@ -1,0 +1,52 @@
+Total number of studies,1158,,,Type Intervention,,Total number of patients
+Study status,,,,BEHAVIORAL,exercise,22
+COMPLETED                  ,870,,,BEHAVIORAL,"The Physical Activity for The Heart (PATH) intervention, Be Active Your Way Booklet",19
+RECRUITING                  ,97,,,BEHAVIORAL,Health coaching,10
+TERMINATED                  ,60,,,BEHAVIORAL,Peer Support Dyad Intervention,10
+UNKNOWN                     ,57,,,DEVICE,BodyMedia ,9
+ACTIVE_NOT_RECRUITING       ,50,,,BEHAVIORAL,HHMB ,
+ENROLLING_BY_INVITATION     ,9,,,GENETIC,Genetic risk counseling,1
+NOT_YET_RECRUITING           ,7,,,BEHAVIORAL,Standard risk assessment,1
+WITHDRAWN                    ,6,,,OTHER,"Simulation-based Mastery Learning (SBML), Health Services Redesign, Clinical Staff Training, Patient and Community Engagement",1
+SUSPENDED                    ,2,,,DEVICE,myTAP oral appliance plus mouth shield|DEVICE: myTAP oral appliance alone for first 4 weeks,1
+Condition,Patients enrolled,,,DRUG,"Carbidopa, Placebo",1
+Obesity,146,,,,,
+Diabetes,57,,,,,
+Cardiovascular Disease,56,,,,,
+Stroke,29,,,,,
+Osteoarthritis,20,,,,,
+Hypertension,11,,,,,
+Prediabetes,32,,,,,
+Dementia/Alzheimer's,27,,,,,
+Heart Failure,25,,,,,
+Type 2 Diabetes,15,,,,,
+Physical Inactivity,11,,,,,
+Obesity in Children,11,,,,,
+Overweight,10,,,,,
+Gestational Diabetes,8,,,,,
+Healthy Volunteers,7,,,,,
+Mild Cognitive Impairment,5,,,,,
+Spinal Cord Injury,4,,,,,
+Knee Osteoarthritis,4,,,,,
+Premature Birth Complications,3,,,,,
+Macular Degeneration,3,,,,,
+Rheumatoid Arthritis,3,,,,,
+Aortic Valve Stenosis,2,,,,,
+Chronic Kidney Disease,5,,,,,
+Atrial Fibrillation,5,,,,,
+Glycemic Control Issues,4,,,,,
+Leg Length Inequality,4,,,,,
+Metabolic Syndrome,4,,,,,
+Tobacco Use,4,,,,,
+Congestive Heart Failure,3,,,,,
+Acute Coronary Syndrome,2,,,,,
+Breast Cancer,2,,,,,
+Polycystic Ovary Syndrome,1,,,,,
+Carotid Artery Plaque,1,,,,,
+Orthostatic Hypotension,1,,,,,
+Coronary Artery Calcification,1,,,,,
+Aortic Aneurysm,1,,,,,
+End Stage Kidney Disease,1,,,,,
+HIV/AIDS,1,,,,,
+Obstructive Sleep Apnea,1,,,,,
+Total patients,530,,,,,
