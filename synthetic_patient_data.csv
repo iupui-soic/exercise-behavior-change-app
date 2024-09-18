@@ -1,0 +1,2001 @@
+Age,Sex,Medical History,Preferred Exercise,Exercise Frequency,Exercise Duration,Race,Weekly Goal,Strength Training,Start Preference,Exercise Variety,Exercise Location,Exercise Buddy,Cardio Preference,Strength Preference,Coach Appearance
+45,Male,Alzheimer’s,flexibility,3,75-90,Hispanic,180,1,1,1,3,1,9,0,4
+26,Male,back pain,cardio,4,60-75,Black,174,1,0,1,2,1,10,0,4
+57,Non-Binary,none,flexibility,6,45-60,Other,152,0,1,0,4,0,10,1,4
+72,Non-Binary,cardiac disease,strength,7,45-60,Hispanic,118,1,1,1,2,0,10,1,4
+29,Male,kidney disease,flexibility,6,90-105,Other,169,0,0,1,4,0,5,0,4
+30,Male,spondylitis,strength,5,60-75,Asian,179,0,0,0,2,0,9,0,2
+62,Male,obesity,strength,5,45-60,Other,147,1,0,0,4,0,4,1,4
+20,Female,hypertension,flexibility,6,90-105,Asian,176,0,1,1,1,0,1,0,4
+78,Prefer not to say,Alzheimer’s,flexibility,7,90-105,Black,137,0,1,1,4,0,1,0,3
+65,Male,stroke,strength,6,75-90,Hispanic,169,1,0,0,4,1,9,1,2
+25,Female,obesity,strength,6,30-45,Hispanic,194,1,0,1,4,1,9,1,1
+80,Male,kidney disease,cardio,4,75-90,Other,196,0,0,1,4,1,1,0,4
+34,Female,stroke,cardio,4,60-75,Other,140,1,1,1,3,0,9,1,4
+59,Male,hypertension,strength,6,60-75,Asian,131,1,1,0,2,1,4,1,3
+73,Prefer not to say,Alzheimer’s,cardio,6,105-120,Black,103,1,1,1,4,0,1,0,1
+63,Prefer not to say,stroke,flexibility,7,105-120,Black,115,0,0,1,0,0,8,1,4
+48,Prefer not to say,COPD,cardio,4,105-120,White,108,0,1,0,3,1,4,0,1
+24,Non-Binary,stroke,strength,3,90-105,Asian,161,0,1,0,0,1,10,1,1
+50,Female,osteoarthritis,cardio,4,105-120,Black,130,0,0,0,4,1,10,1,2
+51,Non-Binary,Alzheimer’s,cardio,7,60-75,Hispanic,118,0,0,0,3,0,7,0,3
+30,Male,none,strength,6,45-60,Black,171,1,0,0,0,0,10,0,2
+24,Female,COPD,cardio,6,45-60,Black,201,1,1,1,0,1,1,0,1
+38,Female,back pain,flexibility,7,45-60,Asian,182,1,1,1,1,0,7,1,3
+25,Male,high cholesterol,cardio,6,45-60,Hispanic,152,1,0,0,4,1,6,0,2
+64,Female,kidney disease,flexibility,3,105-120,White,190,1,0,0,1,1,7,0,2
+68,Prefer not to say,Alzheimer’s,flexibility,7,90-105,Other,170,1,1,1,4,0,3,0,4
+46,Non-Binary,spondylitis,cardio,3,90-105,Asian,159,1,0,0,2,0,9,0,3
+62,Non-Binary,diabetes,flexibility,7,75-90,Hispanic,192,0,0,0,1,1,7,1,3
+21,Female,COPD,flexibility,4,60-75,Other,101,0,1,1,3,0,2,1,4
+62,Non-Binary,high cholesterol,flexibility,6,105-120,Other,183,1,0,1,4,1,1,0,3
+45,Prefer not to say,high cholesterol,strength,5,75-90,Hispanic,147,0,0,1,4,0,9,0,2
+57,Prefer not to say,stroke,flexibility,5,45-60,Black,167,0,0,0,3,0,4,0,3
+33,Non-Binary,back pain,flexibility,4,60-75,Asian,125,0,1,1,1,1,7,0,3
+36,Non-Binary,obesity,cardio,5,105-120,White,170,1,1,0,1,1,6,0,3
+57,Female,kidney disease,flexibility,7,60-75,Black,185,0,0,0,3,0,4,1,4
+63,Male,obesity,flexibility,6,45-60,White,102,1,0,1,4,1,1,1,2
+61,Male,kidney disease,strength,7,45-60,Hispanic,163,0,0,0,4,1,5,0,1
+51,Female,COPD,cardio,5,60-75,Hispanic,118,0,1,0,2,0,3,0,3
+47,Non-Binary,high cholesterol,flexibility,3,90-105,White,131,1,0,0,0,1,8,0,3
+19,Non-Binary,kidney disease,strength,4,105-120,Other,130,0,1,1,0,0,5,0,3
+46,Male,diabetes,strength,3,90-105,Hispanic,105,1,0,0,4,1,8,1,2
+25,Prefer not to say,none,cardio,5,60-75,Asian,188,1,1,0,2,1,9,1,1
+49,Prefer not to say,obesity,strength,7,45-60,Black,210,0,0,0,2,1,6,1,3
+36,Male,diabetes,flexibility,3,105-120,Hispanic,205,0,1,1,4,1,3,0,4
+18,Male,COPD,strength,6,60-75,Asian,94,1,0,0,1,0,10,1,1
+35,Non-Binary,stroke,flexibility,5,60-75,Other,90,1,0,0,4,0,1,1,3
+80,Female,back pain,cardio,3,90-105,Black,122,1,1,1,1,1,4,0,1
+22,Male,diabetes,strength,7,105-120,Hispanic,161,1,1,1,3,1,8,1,4
+66,Non-Binary,COPD,flexibility,3,90-105,Hispanic,109,1,0,0,2,0,1,0,3
+65,Non-Binary,Alzheimer’s,strength,4,60-75,Hispanic,134,1,1,1,2,0,7,0,4
+31,Prefer not to say,Alzheimer’s,cardio,6,75-90,Other,168,0,1,0,1,1,5,0,1
+75,Female,COPD,flexibility,6,45-60,Hispanic,169,0,0,1,2,1,7,1,1
+62,Non-Binary,diabetes,flexibility,5,60-75,White,163,1,1,1,1,1,1,1,1
+28,Female,obesity,strength,7,60-75,White,144,0,0,1,0,1,10,0,1
+55,Male,spondylitis,flexibility,4,105-120,Black,166,1,0,0,0,1,5,1,1
+46,Female,obesity,cardio,3,90-105,Hispanic,180,0,0,0,1,0,9,0,3
+29,Female,stroke,cardio,4,75-90,Black,159,0,0,0,2,1,10,0,4
+60,Male,none,cardio,4,90-105,Black,186,0,0,0,4,1,9,0,4
+75,Prefer not to say,cardiac disease,cardio,3,90-105,Asian,117,0,1,1,3,0,8,1,4
+50,Non-Binary,spondylitis,cardio,7,105-120,White,150,1,1,1,3,0,5,1,1
+41,Non-Binary,diabetes,flexibility,4,105-120,Other,106,0,0,0,2,0,8,0,4
+21,Prefer not to say,high cholesterol,strength,5,90-105,Black,181,0,1,0,3,1,2,0,3
+59,Male,none,flexibility,6,60-75,Hispanic,148,1,1,1,2,1,6,0,3
+40,Male,none,cardio,4,90-105,Black,109,1,1,0,1,1,1,0,4
+80,Female,cardiac disease,cardio,5,105-120,White,168,0,0,0,3,0,5,0,3
+77,Female,spondylitis,strength,6,60-75,White,142,1,0,0,4,0,10,0,2
+46,Non-Binary,back pain,cardio,7,90-105,Other,158,0,1,0,3,1,10,1,4
+61,Male,Alzheimer’s,cardio,6,60-75,Hispanic,144,0,0,1,3,1,2,1,4
+55,Non-Binary,obesity,flexibility,7,105-120,White,163,1,1,1,2,0,5,1,4
+37,Male,COPD,strength,4,105-120,Other,190,1,1,0,4,1,2,1,4
+55,Female,obesity,cardio,5,90-105,Asian,136,0,1,1,2,1,5,1,2
+31,Female,diabetes,cardio,7,90-105,Other,176,1,1,1,3,1,4,0,2
+64,Male,diabetes,cardio,5,90-105,Other,170,1,0,1,4,0,1,0,3
+76,Non-Binary,osteoarthritis,flexibility,3,90-105,White,158,0,0,1,0,1,9,1,3
+74,Prefer not to say,spondylitis,strength,7,75-90,White,126,1,1,1,4,0,8,1,3
+79,Prefer not to say,diabetes,flexibility,7,60-75,Other,208,1,1,0,1,0,4,0,3
+34,Non-Binary,high cholesterol,strength,7,30-45,White,94,1,0,1,4,0,2,1,2
+66,Female,Alzheimer’s,strength,3,105-120,White,184,0,1,1,1,1,4,0,3
+47,Prefer not to say,cardiac disease,flexibility,6,45-60,Asian,138,0,0,1,1,1,7,0,4
+64,Female,obesity,flexibility,6,105-120,Hispanic,190,0,0,0,4,1,1,1,3
+58,Prefer not to say,kidney disease,strength,5,75-90,Asian,144,0,0,0,3,0,7,0,2
+37,Female,none,cardio,3,90-105,Black,156,0,1,1,4,1,3,1,3
+26,Non-Binary,cardiac disease,strength,4,90-105,White,123,0,0,0,4,1,5,0,1
+57,Prefer not to say,high cholesterol,flexibility,3,105-120,White,129,0,0,1,1,1,7,1,4
+79,Non-Binary,obesity,strength,4,105-120,Asian,97,1,1,0,4,1,8,0,2
+61,Prefer not to say,Alzheimer’s,flexibility,4,105-120,White,194,1,0,0,1,1,3,0,4
+26,Female,COPD,flexibility,3,90-105,Black,158,1,0,1,2,1,3,0,1
+65,Non-Binary,obesity,flexibility,4,75-90,Hispanic,176,1,0,1,2,1,10,1,3
+74,Male,Alzheimer’s,cardio,4,90-105,Black,120,0,1,1,3,1,5,1,2
+72,Male,stroke,strength,3,90-105,Other,120,0,1,1,0,1,1,0,4
+24,Female,spondylitis,flexibility,3,105-120,White,199,0,1,0,3,0,4,0,3
+57,Female,high cholesterol,flexibility,5,45-60,Other,97,1,0,0,3,1,1,1,2
+63,Female,obesity,cardio,5,45-60,Asian,176,0,0,1,4,0,6,1,3
+59,Female,obesity,strength,3,90-105,Black,110,0,0,1,0,1,3,1,2
+52,Male,COPD,strength,6,75-90,White,140,1,1,0,0,0,8,0,3
+46,Prefer not to say,Alzheimer’s,strength,6,90-105,White,124,0,0,0,4,0,8,1,2
+68,Female,none,cardio,5,75-90,Asian,149,0,0,1,2,0,4,0,1
+72,Prefer not to say,obesity,flexibility,6,60-75,Other,198,0,0,0,1,1,7,0,4
+40,Non-Binary,Alzheimer’s,cardio,6,75-90,Hispanic,96,1,0,0,0,0,4,1,3
+74,Male,COPD,strength,6,105-120,Other,109,0,0,0,1,1,3,1,4
+39,Prefer not to say,back pain,strength,6,60-75,Other,97,0,1,1,3,1,1,1,3
+52,Male,high cholesterol,flexibility,5,75-90,Black,119,1,1,0,2,1,8,1,2
+51,Male,none,flexibility,7,45-60,White,187,1,1,0,1,1,1,1,3
+19,Female,spondylitis,strength,3,105-120,Other,159,0,0,1,4,1,2,0,3
+40,Non-Binary,cardiac disease,flexibility,5,105-120,Hispanic,94,1,0,0,0,1,9,1,1
+56,Male,obesity,cardio,7,90-105,Hispanic,159,1,1,1,2,0,5,1,3
+18,Female,none,flexibility,4,105-120,Other,95,0,0,0,2,1,7,1,4
+51,Female,obesity,cardio,4,105-120,Other,123,0,1,1,4,1,9,1,1
+21,Prefer not to say,COPD,cardio,3,105-120,Black,140,1,1,1,3,1,1,0,1
+78,Prefer not to say,cardiac disease,strength,6,75-90,Hispanic,110,0,1,1,2,0,8,0,1
+28,Male,high cholesterol,strength,7,75-90,White,145,0,1,0,0,1,1,0,1
+72,Female,back pain,flexibility,4,75-90,Asian,206,0,0,1,1,0,4,1,2
+55,Male,back pain,cardio,6,60-75,Hispanic,197,1,0,0,4,0,4,1,4
+41,Non-Binary,COPD,strength,7,75-90,White,139,0,0,0,1,1,8,0,1
+32,Male,COPD,cardio,4,90-105,Asian,115,1,0,0,3,1,10,0,3
+55,Prefer not to say,osteoarthritis,strength,7,30-45,White,117,0,1,1,3,1,8,1,2
+78,Female,hypertension,strength,5,45-60,Hispanic,148,0,0,0,3,0,1,0,2
+35,Non-Binary,osteoarthritis,flexibility,3,90-105,Other,172,0,0,0,0,1,4,0,3
+43,Male,none,strength,4,75-90,Other,130,1,1,1,1,0,9,0,2
+62,Female,spondylitis,flexibility,6,45-60,Other,107,0,1,0,4,0,10,1,2
+58,Prefer not to say,diabetes,strength,4,90-105,Black,140,1,0,1,4,1,7,0,4
+70,Prefer not to say,hypertension,cardio,3,105-120,Asian,188,0,1,1,3,1,8,0,4
+22,Female,obesity,cardio,5,75-90,Asian,209,0,1,1,3,1,9,1,4
+72,Prefer not to say,Alzheimer’s,cardio,7,30-45,White,190,1,0,1,3,1,5,0,2
+43,Male,stroke,strength,4,105-120,Other,204,0,0,0,0,1,8,0,2
+22,Female,COPD,flexibility,7,90-105,White,210,0,1,1,0,1,3,0,2
+60,Female,diabetes,flexibility,4,60-75,Hispanic,182,1,0,1,4,1,3,0,4
+47,Female,diabetes,strength,7,45-60,White,152,0,0,0,2,0,2,1,4
+20,Female,COPD,strength,4,60-75,Black,138,1,0,1,0,1,1,0,3
+71,Female,hypertension,flexibility,5,105-120,Other,184,0,1,0,4,0,7,0,3
+24,Female,back pain,strength,5,105-120,Black,178,1,0,1,4,0,6,0,2
+18,Prefer not to say,high cholesterol,cardio,6,75-90,Black,105,1,1,1,3,1,5,0,4
+58,Male,kidney disease,strength,3,105-120,Hispanic,109,0,1,1,2,1,9,0,2
+64,Male,diabetes,flexibility,6,30-45,White,199,1,1,1,0,1,3,1,3
+60,Prefer not to say,hypertension,cardio,4,105-120,White,145,0,0,0,3,1,4,1,1
+24,Female,COPD,cardio,7,30-45,Asian,154,0,0,1,3,1,4,0,1
+52,Male,COPD,flexibility,7,105-120,Other,117,0,0,0,3,0,1,1,3
+34,Male,high cholesterol,cardio,3,90-105,Other,140,1,0,0,4,1,1,1,2
+22,Prefer not to say,obesity,flexibility,4,105-120,Hispanic,92,0,1,0,3,1,10,0,1
+55,Non-Binary,diabetes,cardio,5,60-75,White,189,0,0,0,3,1,7,0,2
+40,Female,diabetes,strength,5,90-105,White,171,1,1,0,4,0,3,1,3
+42,Prefer not to say,back pain,cardio,4,90-105,Asian,208,1,1,1,3,1,9,1,2
+47,Non-Binary,high cholesterol,flexibility,6,105-120,Black,118,0,0,0,3,1,9,1,4
+52,Female,high cholesterol,flexibility,5,75-90,Black,112,1,0,1,2,1,9,0,1
+27,Non-Binary,none,strength,3,90-105,Black,149,0,0,0,0,0,6,0,1
+29,Male,Alzheimer’s,flexibility,7,105-120,Black,133,0,1,1,0,1,8,0,1
+45,Non-Binary,diabetes,strength,6,90-105,Asian,200,0,0,0,2,1,7,1,1
+69,Prefer not to say,diabetes,flexibility,3,90-105,Other,209,0,1,0,1,1,4,0,2
+46,Female,high cholesterol,flexibility,6,60-75,Hispanic,144,1,1,0,4,0,4,0,2
+22,Female,back pain,cardio,4,75-90,Other,182,1,0,1,1,0,7,1,2
+71,Female,hypertension,flexibility,4,90-105,Asian,94,0,0,1,3,0,1,1,4
+43,Male,cardiac disease,cardio,7,105-120,White,138,0,1,1,3,1,4,0,2
+45,Female,none,flexibility,4,60-75,Asian,171,0,1,0,1,0,3,1,4
+33,Non-Binary,hypertension,cardio,3,75-90,Black,158,1,1,1,0,0,2,0,2
+39,Female,diabetes,flexibility,7,30-45,Black,127,1,1,0,0,0,3,0,2
+47,Female,kidney disease,cardio,7,45-60,Black,115,0,0,1,3,0,3,1,2
+58,Non-Binary,COPD,flexibility,6,75-90,Hispanic,203,1,1,0,2,0,5,0,4
+19,Male,diabetes,strength,6,105-120,Other,121,0,0,0,3,0,8,1,1
+56,Non-Binary,kidney disease,flexibility,5,90-105,White,92,1,0,1,0,1,8,0,3
+27,Male,obesity,flexibility,4,75-90,Hispanic,159,0,0,1,2,1,5,0,1
+38,Prefer not to say,cardiac disease,flexibility,6,75-90,Black,199,0,1,1,0,1,4,0,2
+75,Prefer not to say,diabetes,flexibility,7,60-75,White,190,1,0,0,1,1,8,1,1
+68,Male,cardiac disease,flexibility,3,90-105,Asian,182,0,1,0,4,0,6,1,3
+42,Female,cardiac disease,cardio,3,75-90,Asian,109,1,1,1,4,0,6,1,1
+18,Prefer not to say,Alzheimer’s,strength,6,90-105,White,146,0,1,0,3,0,10,0,1
+22,Male,obesity,strength,6,60-75,Black,204,0,0,0,4,0,2,0,3
+37,Male,osteoarthritis,strength,3,90-105,White,179,0,1,1,4,1,7,1,4
+20,Female,COPD,strength,6,30-45,Black,162,1,0,0,3,1,2,1,4
+19,Prefer not to say,spondylitis,cardio,7,30-45,Other,108,0,0,1,1,1,10,0,1
+41,Prefer not to say,COPD,flexibility,4,90-105,Black,168,0,1,0,4,1,5,1,2
+58,Female,obesity,flexibility,7,30-45,Hispanic,168,0,1,0,0,1,3,0,1
+21,Male,cardiac disease,cardio,5,105-120,Hispanic,115,1,0,1,0,0,1,1,2
+47,Female,kidney disease,strength,7,90-105,Black,150,1,0,0,4,0,1,1,2
+43,Non-Binary,kidney disease,flexibility,3,75-90,Asian,192,1,0,0,1,1,5,1,3
+41,Female,Alzheimer’s,strength,6,105-120,Hispanic,207,0,1,0,4,0,8,0,4
+40,Female,COPD,cardio,7,45-60,Black,107,0,0,1,2,0,3,1,4
+41,Female,obesity,flexibility,5,45-60,Hispanic,176,1,0,0,0,1,7,1,1
+75,Male,back pain,strength,3,90-105,White,162,1,0,0,2,0,4,1,1
+46,Female,Alzheimer’s,strength,3,90-105,White,118,0,1,0,2,1,9,1,1
+36,Prefer not to say,high cholesterol,cardio,7,30-45,Black,179,1,1,0,0,1,6,0,1
+77,Non-Binary,kidney disease,cardio,7,90-105,White,143,1,0,1,3,1,10,0,1
+33,Female,cardiac disease,flexibility,3,105-120,White,190,1,1,0,2,0,2,0,1
+36,Female,COPD,flexibility,5,60-75,Hispanic,155,0,1,1,0,0,8,0,2
+46,Prefer not to say,cardiac disease,cardio,7,30-45,Other,91,0,0,0,1,0,10,0,4
+53,Non-Binary,hypertension,strength,7,105-120,Hispanic,155,1,1,0,2,1,2,0,3
+54,Non-Binary,obesity,cardio,4,105-120,White,91,0,1,1,0,0,7,1,3
+60,Female,kidney disease,strength,7,60-75,Hispanic,190,1,0,1,2,0,7,0,3
+46,Prefer not to say,COPD,strength,4,105-120,Asian,183,1,1,1,4,0,3,1,1
+57,Female,cardiac disease,strength,3,105-120,Black,160,0,1,0,3,1,9,1,4
+73,Non-Binary,spondylitis,strength,6,90-105,Asian,106,1,0,0,3,0,8,0,3
+24,Prefer not to say,stroke,cardio,5,75-90,Black,108,0,1,0,1,1,2,1,1
+19,Female,hypertension,cardio,7,105-120,Hispanic,106,0,1,1,1,0,2,1,4
+60,Male,cardiac disease,strength,5,105-120,Other,173,0,0,1,2,0,2,0,1
+24,Female,diabetes,strength,5,60-75,White,188,1,0,1,4,0,9,1,4
+73,Non-Binary,high cholesterol,strength,5,75-90,Asian,102,0,1,1,2,0,5,0,4
+24,Non-Binary,COPD,strength,7,60-75,Other,114,1,0,1,0,0,8,0,4
+32,Non-Binary,none,flexibility,4,90-105,Hispanic,104,0,1,1,2,0,4,1,4
+39,Male,Alzheimer’s,strength,7,75-90,White,117,1,0,1,3,1,9,0,1
+44,Prefer not to say,spondylitis,strength,6,45-60,Asian,130,0,1,1,2,1,7,0,3
+76,Male,spondylitis,flexibility,6,60-75,Asian,147,0,1,1,1,1,9,0,3
+37,Non-Binary,hypertension,flexibility,7,45-60,Black,123,1,0,0,4,1,10,1,1
+77,Male,spondylitis,strength,3,105-120,Other,151,0,0,0,2,0,1,0,1
+51,Female,diabetes,strength,5,60-75,Other,97,1,0,1,1,1,8,1,2
+57,Prefer not to say,cardiac disease,strength,3,75-90,Black,168,1,0,1,0,1,8,0,3
+62,Prefer not to say,obesity,strength,5,45-60,White,110,1,0,1,2,0,10,0,3
+71,Male,kidney disease,strength,4,60-75,Hispanic,133,1,0,1,1,0,6,1,3
+49,Female,stroke,cardio,3,90-105,Hispanic,164,0,0,0,3,1,4,1,1
+53,Male,cardiac disease,strength,5,105-120,Hispanic,109,0,1,0,0,0,5,1,3
+75,Prefer not to say,Alzheimer’s,strength,3,90-105,Asian,204,1,0,1,1,0,1,0,4
+30,Non-Binary,hypertension,flexibility,7,45-60,Hispanic,114,0,0,0,4,1,3,1,4
+77,Female,hypertension,cardio,3,105-120,White,116,0,0,0,4,1,5,1,4
+73,Prefer not to say,spondylitis,flexibility,3,105-120,Asian,150,1,0,1,0,0,10,0,2
+40,Male,stroke,cardio,6,45-60,Black,147,1,1,0,1,1,10,1,2
+42,Male,none,cardio,4,90-105,White,169,0,0,0,1,1,8,1,2
+46,Prefer not to say,hypertension,cardio,4,105-120,Hispanic,155,0,1,1,4,0,6,0,4
+69,Male,obesity,strength,4,60-75,White,170,1,1,0,1,1,2,1,3
+62,Female,back pain,flexibility,7,45-60,Asian,197,0,0,0,1,0,3,0,4
+26,Male,high cholesterol,cardio,7,105-120,White,118,0,1,1,3,1,1,0,2
+71,Prefer not to say,kidney disease,cardio,3,105-120,Black,136,0,0,0,4,1,9,0,4
+37,Prefer not to say,Alzheimer’s,strength,5,90-105,Hispanic,200,1,1,0,3,1,5,1,4
+72,Male,high cholesterol,cardio,4,90-105,Black,122,1,1,0,4,0,7,1,4
+40,Non-Binary,hypertension,cardio,3,90-105,Asian,203,1,0,0,0,0,7,1,4
+26,Female,back pain,cardio,3,90-105,Hispanic,127,1,0,0,0,1,6,0,2
+38,Non-Binary,stroke,strength,6,75-90,Asian,131,0,1,1,2,0,4,1,3
+26,Non-Binary,kidney disease,flexibility,5,105-120,Black,136,0,1,1,3,1,1,1,4
+79,Prefer not to say,none,cardio,3,105-120,White,144,1,0,0,3,1,3,0,2
+28,Male,hypertension,flexibility,5,45-60,Hispanic,119,1,0,1,4,0,2,0,3
+21,Prefer not to say,COPD,cardio,4,75-90,Black,192,1,0,0,4,1,7,1,4
+41,Prefer not to say,spondylitis,flexibility,5,105-120,Hispanic,177,0,0,0,0,1,3,0,1
+34,Female,hypertension,cardio,5,75-90,White,175,0,1,0,0,0,8,1,3
+19,Non-Binary,cardiac disease,flexibility,6,45-60,Black,169,1,0,0,0,0,3,0,4
+43,Non-Binary,back pain,strength,4,60-75,Hispanic,187,1,1,0,1,0,9,1,1
+30,Female,back pain,flexibility,5,105-120,Other,171,0,1,0,3,0,10,0,3
+44,Non-Binary,COPD,flexibility,5,75-90,White,206,0,1,0,4,1,1,0,4
+48,Male,diabetes,cardio,7,105-120,White,140,0,1,0,2,1,3,1,2
+34,Male,high cholesterol,cardio,4,60-75,Other,110,0,1,0,2,1,9,0,4
+27,Male,COPD,cardio,4,60-75,White,190,0,1,1,1,0,4,0,2
+45,Non-Binary,kidney disease,strength,4,105-120,Black,201,0,0,0,4,0,4,1,4
+73,Male,osteoarthritis,flexibility,7,75-90,Black,160,0,1,1,1,1,6,0,3
+36,Non-Binary,stroke,cardio,3,105-120,Black,101,0,0,1,0,0,3,1,1
+27,Non-Binary,osteoarthritis,flexibility,5,90-105,Hispanic,136,1,1,0,2,1,8,0,4
+25,Female,diabetes,cardio,4,60-75,Asian,90,1,0,1,4,0,9,1,3
+23,Non-Binary,kidney disease,strength,5,90-105,Black,123,1,0,1,3,0,9,1,2
+41,Female,COPD,flexibility,5,60-75,Black,97,1,1,0,2,0,3,1,4
+29,Female,COPD,flexibility,6,30-45,Black,113,1,0,1,0,0,8,1,4
+34,Male,spondylitis,strength,6,90-105,Other,201,1,1,1,2,0,8,1,4
+56,Male,high cholesterol,strength,5,75-90,Other,208,0,0,0,0,0,4,0,3
+73,Male,kidney disease,cardio,4,60-75,Hispanic,205,1,0,0,3,0,7,1,1
+51,Female,hypertension,strength,3,90-105,Asian,147,1,1,0,1,1,9,1,1
+54,Prefer not to say,back pain,flexibility,4,60-75,Other,140,0,1,0,2,1,10,1,3
+70,Female,obesity,strength,6,60-75,Asian,191,1,0,1,0,0,9,0,2
+61,Prefer not to say,COPD,strength,7,90-105,Other,210,0,1,1,3,0,10,1,4
+68,Male,kidney disease,flexibility,5,60-75,White,141,0,1,0,3,1,1,0,2
+37,Prefer not to say,hypertension,flexibility,6,45-60,White,110,0,0,1,0,0,7,1,1
+70,Prefer not to say,hypertension,flexibility,7,45-60,Asian,171,1,1,0,0,0,10,1,4
+45,Prefer not to say,cardiac disease,flexibility,4,90-105,Black,202,1,0,1,1,0,2,0,1
+78,Non-Binary,back pain,cardio,5,75-90,Black,180,0,0,1,1,1,1,1,4
+45,Non-Binary,spondylitis,strength,5,105-120,Asian,180,0,1,1,3,0,10,1,1
+38,Male,high cholesterol,flexibility,7,105-120,Asian,98,1,1,0,4,1,6,1,2
+38,Female,COPD,cardio,5,90-105,Hispanic,158,1,1,1,3,1,7,0,1
+70,Non-Binary,kidney disease,cardio,4,105-120,Hispanic,120,1,1,0,3,0,2,0,1
+79,Female,stroke,strength,3,105-120,White,106,0,0,1,2,1,4,1,2
+25,Prefer not to say,osteoarthritis,flexibility,4,105-120,Black,124,1,1,1,3,0,10,1,3
+53,Prefer not to say,high cholesterol,flexibility,6,75-90,Other,201,1,1,1,0,0,2,0,4
+37,Male,hypertension,flexibility,3,90-105,Black,195,0,1,0,4,1,7,0,1
+48,Male,stroke,strength,3,105-120,Other,184,0,0,0,4,0,8,1,4
+31,Prefer not to say,COPD,flexibility,6,45-60,Asian,93,1,0,0,1,1,9,0,1
+49,Non-Binary,back pain,cardio,7,30-45,Hispanic,172,0,1,0,0,0,8,1,2
+58,Female,high cholesterol,strength,5,60-75,White,190,0,0,0,0,1,10,0,4
+29,Non-Binary,high cholesterol,strength,3,105-120,Black,130,0,0,0,2,0,4,0,2
+18,Male,stroke,cardio,3,105-120,Other,190,1,0,1,3,1,10,1,4
+55,Non-Binary,diabetes,cardio,5,60-75,Other,144,0,1,0,1,1,4,0,4
+67,Prefer not to say,stroke,strength,5,75-90,Asian,115,1,0,1,1,1,4,0,1
+26,Male,COPD,flexibility,5,75-90,White,136,1,1,1,4,1,9,1,1
+47,Non-Binary,none,cardio,7,45-60,Other,108,0,1,1,3,0,9,0,4
+51,Prefer not to say,spondylitis,cardio,3,75-90,Asian,130,1,0,1,1,0,5,0,2
+54,Male,back pain,strength,4,105-120,Black,127,0,1,1,0,0,7,0,3
+63,Female,stroke,flexibility,4,75-90,Hispanic,95,0,1,0,3,0,4,1,4
+78,Prefer not to say,hypertension,cardio,6,90-105,Other,171,1,0,0,3,0,3,0,2
+49,Female,obesity,strength,5,105-120,White,208,1,1,1,3,0,6,0,3
+70,Female,hypertension,strength,3,105-120,White,122,0,1,0,3,0,1,1,1
+35,Female,cardiac disease,cardio,6,75-90,Other,131,0,0,0,3,1,10,1,4
+42,Non-Binary,kidney disease,flexibility,3,90-105,Hispanic,185,0,1,0,0,0,7,0,2
+69,Male,obesity,cardio,7,75-90,Asian,188,0,0,0,4,0,10,1,3
+75,Non-Binary,diabetes,cardio,5,105-120,Hispanic,184,1,0,0,4,0,1,0,2
+21,Female,obesity,strength,7,60-75,Asian,146,1,0,1,1,0,8,1,2
+57,Female,hypertension,flexibility,5,90-105,Other,153,1,1,0,4,1,3,1,1
+63,Female,osteoarthritis,flexibility,4,105-120,Asian,142,0,1,1,4,0,6,0,1
+55,Female,kidney disease,strength,6,75-90,White,131,0,0,0,2,0,9,0,2
+26,Female,obesity,flexibility,5,90-105,Other,195,0,0,0,1,0,8,1,1
+26,Prefer not to say,stroke,strength,7,45-60,Other,165,0,0,1,3,0,1,0,4
+79,Non-Binary,back pain,strength,7,105-120,White,193,1,0,1,4,1,3,0,2
+71,Male,obesity,cardio,5,105-120,Other,186,0,1,1,1,0,9,0,3
+62,Prefer not to say,diabetes,cardio,6,30-45,Other,142,1,0,1,0,0,4,1,2
+18,Female,kidney disease,strength,5,90-105,Black,198,1,0,1,0,0,3,0,1
+39,Male,osteoarthritis,cardio,5,90-105,Asian,173,0,0,0,4,1,8,0,1
+64,Non-Binary,none,flexibility,7,45-60,Asian,190,0,0,1,0,1,9,1,3
+69,Prefer not to say,obesity,flexibility,6,90-105,Black,134,0,1,0,0,1,5,0,1
+43,Prefer not to say,high cholesterol,cardio,7,45-60,Hispanic,157,1,0,0,1,0,6,1,1
+53,Prefer not to say,obesity,flexibility,4,60-75,Other,158,0,0,1,4,1,10,1,2
+67,Non-Binary,COPD,strength,6,45-60,Other,120,0,1,0,0,1,2,1,1
+68,Female,stroke,cardio,6,60-75,Other,194,1,1,0,0,0,10,1,2
+63,Female,high cholesterol,strength,4,75-90,Asian,122,1,1,1,0,0,8,1,4
+26,Female,diabetes,flexibility,6,60-75,White,125,0,0,0,1,0,1,1,2
+55,Prefer not to say,back pain,flexibility,7,75-90,Asian,98,0,0,0,1,1,7,1,3
+67,Prefer not to say,COPD,cardio,4,60-75,Other,114,1,0,0,0,0,8,0,2
+73,Female,kidney disease,cardio,7,45-60,Other,147,1,1,0,0,0,8,0,3
+58,Prefer not to say,kidney disease,cardio,3,90-105,White,193,1,0,1,1,0,7,0,1
+68,Non-Binary,none,strength,4,60-75,Black,110,1,0,1,2,0,8,0,3
+71,Male,none,flexibility,6,45-60,White,140,1,0,0,2,0,8,0,3
+43,Non-Binary,diabetes,strength,7,60-75,Hispanic,121,0,0,0,2,1,5,0,1
+32,Non-Binary,spondylitis,strength,6,105-120,Black,110,0,0,0,4,1,10,1,4
+59,Male,COPD,cardio,6,60-75,Other,128,1,0,0,2,0,1,1,3
+64,Prefer not to say,cardiac disease,flexibility,3,105-120,Asian,139,0,1,1,4,1,6,1,2
+58,Non-Binary,high cholesterol,cardio,3,90-105,White,105,1,0,1,0,1,8,1,4
+32,Prefer not to say,kidney disease,cardio,7,45-60,Asian,129,0,0,0,0,0,3,1,4
+36,Male,COPD,strength,4,60-75,Asian,108,0,1,0,2,0,1,0,4
+51,Prefer not to say,back pain,cardio,7,45-60,Hispanic,182,1,1,0,1,0,10,0,4
+18,Prefer not to say,kidney disease,cardio,6,105-120,Hispanic,122,0,0,0,2,1,10,0,2
+44,Male,COPD,cardio,4,90-105,Hispanic,171,0,1,0,4,0,8,0,3
+22,Male,obesity,cardio,6,30-45,Other,159,1,1,1,2,0,2,1,1
+68,Male,obesity,flexibility,3,75-90,Other,142,1,0,1,0,0,8,0,2
+55,Prefer not to say,cardiac disease,flexibility,5,45-60,Black,100,1,1,1,2,1,2,1,1
+29,Non-Binary,osteoarthritis,cardio,4,60-75,Asian,157,0,1,0,4,1,10,1,4
+59,Non-Binary,kidney disease,cardio,3,90-105,Asian,91,1,0,1,3,0,8,1,1
+62,Prefer not to say,high cholesterol,flexibility,5,45-60,Asian,164,1,0,1,3,1,5,0,2
+45,Female,obesity,cardio,7,45-60,Asian,91,1,0,0,2,0,7,0,4
+36,Non-Binary,obesity,strength,3,105-120,Other,200,1,1,1,3,1,8,0,1
+23,Prefer not to say,obesity,cardio,5,45-60,White,100,1,1,0,3,1,9,1,4
+48,Prefer not to say,back pain,flexibility,6,60-75,Hispanic,132,0,1,1,0,0,8,0,3
+23,Prefer not to say,spondylitis,strength,5,105-120,Black,200,0,0,1,0,1,4,1,4
+26,Female,COPD,flexibility,3,90-105,White,122,1,1,0,4,1,4,1,1
+71,Male,Alzheimer’s,strength,6,105-120,Hispanic,92,1,1,0,2,1,9,1,3
+71,Prefer not to say,hypertension,cardio,3,105-120,Asian,154,0,1,0,0,0,4,1,3
+76,Female,Alzheimer’s,strength,6,60-75,Hispanic,90,0,1,1,1,0,10,1,3
+61,Female,spondylitis,strength,5,75-90,Other,203,0,1,1,3,0,9,0,3
+33,Male,Alzheimer’s,cardio,7,30-45,Asian,189,1,1,1,3,0,5,1,4
+24,Prefer not to say,Alzheimer’s,flexibility,3,75-90,Black,154,1,0,1,1,1,6,1,3
+45,Female,cardiac disease,cardio,6,90-105,Other,156,0,0,0,0,0,10,1,1
+71,Non-Binary,obesity,strength,4,90-105,Other,196,1,0,1,2,0,3,1,4
+36,Prefer not to say,obesity,cardio,7,45-60,Hispanic,98,0,1,0,2,0,3,0,2
+33,Prefer not to say,Alzheimer’s,flexibility,4,90-105,Other,144,0,0,1,1,1,3,0,3
+76,Female,kidney disease,strength,4,90-105,Asian,170,0,1,0,3,1,7,0,4
+79,Female,none,flexibility,7,60-75,Asian,199,0,0,0,4,1,9,1,2
+73,Non-Binary,obesity,cardio,3,105-120,Black,200,0,1,0,0,1,1,0,2
+75,Prefer not to say,cardiac disease,strength,3,90-105,Other,176,1,1,0,4,0,10,0,2
+26,Prefer not to say,hypertension,strength,5,45-60,Hispanic,204,1,1,0,3,1,8,0,1
+57,Male,back pain,cardio,3,105-120,Other,203,0,1,1,4,0,7,0,2
+60,Female,diabetes,cardio,7,90-105,Other,156,0,1,0,3,0,6,0,1
+73,Non-Binary,obesity,flexibility,7,30-45,Asian,144,0,1,1,4,1,9,0,2
+52,Non-Binary,osteoarthritis,strength,3,105-120,Hispanic,191,0,0,0,0,1,7,0,4
+80,Male,high cholesterol,strength,4,90-105,Hispanic,147,0,1,1,1,0,2,0,3
+29,Male,osteoarthritis,strength,6,90-105,Asian,200,1,1,0,2,1,3,0,4
+36,Non-Binary,osteoarthritis,cardio,5,75-90,Other,160,0,0,1,4,1,9,0,4
+69,Male,diabetes,cardio,6,45-60,Other,99,1,1,1,0,0,10,1,1
+20,Prefer not to say,COPD,strength,3,105-120,Black,181,1,0,0,0,1,4,0,1
+66,Non-Binary,obesity,flexibility,6,90-105,Asian,140,1,0,1,0,1,8,1,1
+33,Male,cardiac disease,strength,6,75-90,White,117,1,1,1,1,0,3,1,3
+35,Prefer not to say,diabetes,strength,6,105-120,Hispanic,138,0,0,1,0,1,5,0,3
+56,Prefer not to say,Alzheimer’s,cardio,3,105-120,White,107,0,1,1,2,1,9,1,3
+43,Female,back pain,strength,4,75-90,Hispanic,176,0,1,0,4,0,9,1,2
+54,Male,cardiac disease,cardio,4,75-90,White,155,1,0,1,2,0,8,1,2
+39,Male,none,strength,5,45-60,White,167,0,1,1,3,1,3,0,4
+46,Non-Binary,diabetes,strength,6,90-105,Other,178,0,1,1,2,1,7,0,4
+80,Non-Binary,COPD,strength,3,105-120,Asian,128,1,0,0,3,0,3,1,4
+70,Prefer not to say,cardiac disease,flexibility,4,105-120,Hispanic,96,0,0,1,4,1,4,0,4
+35,Male,high cholesterol,flexibility,7,75-90,Black,180,1,0,0,4,0,3,1,1
+49,Non-Binary,obesity,strength,4,60-75,Other,206,1,0,0,1,0,1,0,4
+22,Male,none,flexibility,6,105-120,Hispanic,178,0,1,0,4,0,7,1,2
+78,Non-Binary,osteoarthritis,strength,7,105-120,Asian,139,0,0,0,2,0,9,1,3
+64,Non-Binary,cardiac disease,flexibility,4,90-105,Black,142,0,1,1,0,1,5,0,2
+61,Female,back pain,flexibility,6,60-75,White,123,1,1,0,2,1,8,0,1
+20,Male,obesity,cardio,5,105-120,White,205,1,1,0,2,1,3,0,2
+30,Female,diabetes,flexibility,7,75-90,Asian,113,0,0,0,3,0,2,0,4
+48,Female,osteoarthritis,flexibility,5,75-90,Black,153,1,0,0,2,0,7,1,4
+37,Prefer not to say,osteoarthritis,flexibility,4,75-90,Asian,184,0,1,0,2,0,4,0,2
+65,Female,kidney disease,cardio,3,75-90,Hispanic,98,1,0,1,4,1,4,1,2
+25,Male,osteoarthritis,strength,5,75-90,Other,104,1,1,0,3,1,6,1,4
+38,Male,spondylitis,strength,5,45-60,Hispanic,149,1,0,1,3,0,10,1,3
+55,Male,Alzheimer’s,flexibility,5,105-120,Black,120,1,0,1,3,0,9,1,1
+24,Prefer not to say,hypertension,flexibility,4,90-105,White,154,1,0,0,1,0,9,0,1
+69,Prefer not to say,cardiac disease,cardio,4,105-120,Asian,130,1,1,1,1,0,10,1,2
+55,Male,osteoarthritis,flexibility,4,75-90,Other,125,1,1,0,2,0,7,1,1
+37,Male,osteoarthritis,cardio,3,90-105,Other,181,1,1,1,2,0,6,1,1
+24,Female,COPD,strength,6,90-105,White,181,0,0,0,3,1,6,1,3
+51,Non-Binary,COPD,cardio,6,75-90,Hispanic,147,1,0,1,1,1,6,0,3
+65,Male,high cholesterol,cardio,3,105-120,Hispanic,96,0,0,0,0,0,1,0,3
+71,Prefer not to say,diabetes,cardio,4,60-75,Other,166,0,1,1,4,1,3,1,4
+74,Female,diabetes,cardio,6,45-60,Hispanic,184,0,0,1,1,1,4,0,4
+43,Prefer not to say,kidney disease,cardio,5,45-60,Black,207,1,0,0,1,1,5,0,3
+76,Male,stroke,cardio,4,75-90,Hispanic,172,1,1,1,4,0,8,1,3
+70,Prefer not to say,hypertension,strength,3,105-120,Hispanic,115,0,1,1,2,0,6,1,3
+60,Female,COPD,cardio,4,60-75,White,177,0,0,1,1,0,5,1,1
+70,Female,osteoarthritis,strength,5,60-75,Hispanic,198,0,1,1,0,0,5,1,4
+57,Prefer not to say,spondylitis,cardio,6,90-105,Asian,190,1,0,1,2,1,3,0,3
+26,Prefer not to say,stroke,flexibility,7,60-75,Black,191,1,1,0,2,0,7,1,1
+74,Non-Binary,COPD,strength,6,105-120,White,103,1,0,0,2,0,10,0,1
+50,Non-Binary,Alzheimer’s,flexibility,5,75-90,Asian,105,1,0,1,4,1,8,1,1
+22,Female,high cholesterol,strength,5,45-60,Asian,144,0,1,0,4,1,5,0,2
+30,Female,cardiac disease,flexibility,4,105-120,White,204,1,1,1,3,1,2,1,2
+53,Female,COPD,cardio,5,45-60,White,113,0,0,0,3,1,3,0,2
+32,Non-Binary,kidney disease,cardio,5,60-75,Asian,142,0,1,0,1,0,10,1,2
+28,Non-Binary,spondylitis,cardio,7,45-60,Asian,139,0,1,0,4,0,3,1,4
+78,Non-Binary,osteoarthritis,flexibility,5,90-105,Black,112,1,0,1,1,0,1,1,1
+80,Female,none,flexibility,6,90-105,White,127,0,1,0,4,0,6,0,3
+63,Female,high cholesterol,flexibility,3,90-105,Other,157,0,1,1,1,1,10,1,2
+55,Male,Alzheimer’s,strength,6,45-60,Black,139,0,1,1,0,0,5,0,3
+31,Female,cardiac disease,strength,6,75-90,White,189,1,0,0,0,0,5,0,4
+44,Male,Alzheimer’s,strength,5,105-120,Other,131,0,0,1,2,0,4,0,4
+23,Prefer not to say,osteoarthritis,strength,3,75-90,Asian,110,1,1,1,4,0,8,0,3
+65,Non-Binary,high cholesterol,strength,7,105-120,Asian,210,0,0,0,4,1,9,0,1
+31,Prefer not to say,Alzheimer’s,cardio,6,75-90,Hispanic,115,1,1,0,3,1,6,1,1
+44,Male,back pain,flexibility,4,60-75,Hispanic,158,0,0,1,2,0,8,0,4
+77,Non-Binary,spondylitis,cardio,3,105-120,Other,105,0,0,1,1,0,3,0,3
+71,Prefer not to say,none,cardio,7,60-75,Black,201,1,0,1,3,0,1,1,1
+66,Male,back pain,cardio,5,60-75,Hispanic,132,1,1,0,0,0,8,1,1
+67,Male,osteoarthritis,cardio,6,30-45,Hispanic,163,1,1,1,1,1,5,1,1
+25,Male,none,cardio,3,105-120,Other,193,1,1,1,1,1,5,1,3
+77,Non-Binary,osteoarthritis,cardio,6,60-75,White,119,1,0,1,1,1,6,0,2
+21,Male,stroke,cardio,6,60-75,Hispanic,143,1,0,1,2,0,10,1,2
+74,Male,osteoarthritis,flexibility,6,90-105,Black,196,0,1,0,4,1,7,0,1
+50,Female,none,strength,6,30-45,Hispanic,159,1,1,1,4,1,10,0,4
+41,Prefer not to say,COPD,cardio,5,45-60,Black,112,0,1,0,2,1,9,1,4
+60,Female,diabetes,strength,5,90-105,White,118,0,0,1,3,0,8,1,3
+41,Prefer not to say,obesity,cardio,6,45-60,Black,176,0,1,0,0,0,4,0,4
+46,Prefer not to say,high cholesterol,cardio,3,75-90,Asian,162,1,1,1,2,1,10,0,3
+18,Female,stroke,cardio,5,60-75,Black,141,1,1,0,3,1,2,1,4
+35,Male,hypertension,flexibility,6,75-90,Black,203,1,0,1,3,1,8,1,1
+79,Prefer not to say,COPD,flexibility,5,75-90,Asian,176,0,0,1,2,0,3,1,2
+19,Prefer not to say,kidney disease,cardio,5,60-75,White,104,0,1,1,2,0,9,1,2
+52,Male,kidney disease,cardio,3,90-105,Hispanic,128,0,1,1,4,1,3,0,2
+68,Male,high cholesterol,strength,6,90-105,Hispanic,199,0,1,0,2,1,8,1,1
+65,Prefer not to say,back pain,strength,7,30-45,Hispanic,128,0,1,0,3,1,7,0,1
+18,Prefer not to say,cardiac disease,strength,6,90-105,Other,152,0,1,1,0,1,3,0,4
+78,Female,osteoarthritis,strength,7,30-45,Black,127,1,0,0,1,1,5,1,4
+60,Non-Binary,stroke,strength,7,90-105,White,116,0,1,0,3,0,3,1,1
+20,Male,high cholesterol,cardio,4,105-120,Other,113,1,1,1,2,0,8,1,1
+63,Non-Binary,hypertension,flexibility,7,105-120,Hispanic,128,0,1,1,4,0,8,1,4
+20,Female,obesity,strength,4,75-90,White,105,1,1,0,2,1,9,1,4
+51,Female,kidney disease,flexibility,3,90-105,Hispanic,199,1,0,1,1,0,7,1,3
+60,Female,none,flexibility,6,75-90,Hispanic,136,1,1,0,2,1,9,1,4
+66,Prefer not to say,hypertension,cardio,7,45-60,White,135,0,1,1,2,0,8,1,3
+47,Prefer not to say,back pain,cardio,7,90-105,Hispanic,208,1,1,1,1,0,5,0,3
+80,Male,osteoarthritis,flexibility,5,90-105,Asian,197,1,1,1,1,0,9,0,1
+53,Non-Binary,stroke,cardio,7,75-90,Black,111,1,0,1,3,1,6,0,2
+70,Male,none,strength,7,30-45,Other,152,1,0,1,1,1,10,1,1
+36,Non-Binary,stroke,strength,4,75-90,Other,135,0,1,0,3,0,9,1,1
+43,Non-Binary,Alzheimer’s,strength,6,75-90,Black,144,0,0,1,3,0,1,1,1
+63,Non-Binary,cardiac disease,cardio,4,75-90,White,106,0,1,1,2,1,10,1,2
+24,Male,spondylitis,cardio,7,90-105,Asian,109,0,1,0,3,1,1,1,1
+57,Male,Alzheimer’s,cardio,5,75-90,Black,186,1,1,0,4,1,9,0,2
+35,Male,none,strength,5,90-105,Other,208,1,0,1,2,1,10,0,4
+71,Non-Binary,spondylitis,cardio,5,90-105,Black,91,0,0,0,3,0,10,0,1
+22,Male,none,flexibility,7,105-120,Asian,181,0,0,0,2,0,9,0,3
+52,Male,Alzheimer’s,cardio,5,105-120,Black,158,1,0,0,1,0,3,1,4
+41,Prefer not to say,none,cardio,3,105-120,White,178,0,0,0,4,0,4,0,3
+56,Non-Binary,high cholesterol,strength,5,105-120,Black,147,0,0,1,3,1,1,1,4
+79,Female,kidney disease,strength,3,105-120,Asian,182,0,1,1,1,1,8,0,4
+20,Prefer not to say,none,cardio,4,90-105,Other,171,0,1,0,0,1,9,0,1
+38,Male,cardiac disease,cardio,3,75-90,Hispanic,157,1,0,1,1,1,2,1,4
+39,Male,diabetes,strength,7,45-60,Black,115,1,0,1,4,0,9,1,2
+27,Prefer not to say,high cholesterol,cardio,5,45-60,Black,173,0,0,1,2,0,4,0,4
+20,Female,kidney disease,flexibility,5,105-120,White,144,0,0,1,0,1,4,1,3
+47,Non-Binary,obesity,cardio,5,90-105,Black,171,0,1,0,0,0,6,0,3
+63,Female,spondylitis,strength,6,30-45,White,179,1,1,1,4,1,6,1,1
+23,Male,osteoarthritis,flexibility,5,75-90,Asian,163,1,0,0,1,1,4,0,1
+36,Prefer not to say,obesity,strength,6,105-120,Black,99,0,0,1,1,0,4,1,3
+40,Prefer not to say,stroke,strength,4,75-90,Hispanic,125,1,1,1,1,0,9,0,3
+21,Prefer not to say,diabetes,cardio,7,90-105,Other,202,0,0,1,3,1,1,0,4
+74,Male,cardiac disease,cardio,6,90-105,Asian,189,0,1,0,0,1,3,0,2
+45,Male,osteoarthritis,flexibility,6,75-90,Other,147,1,1,0,3,1,7,0,3
+71,Non-Binary,back pain,strength,6,75-90,Hispanic,141,1,1,0,3,0,8,0,1
+70,Prefer not to say,COPD,cardio,5,60-75,White,175,1,1,1,3,0,1,0,3
+50,Male,back pain,cardio,4,60-75,Black,200,0,1,1,3,0,6,1,3
+31,Prefer not to say,back pain,strength,4,60-75,White,166,0,0,0,0,0,2,1,3
+20,Female,cardiac disease,cardio,3,105-120,White,155,0,0,1,3,0,2,0,3
+75,Prefer not to say,Alzheimer’s,cardio,4,90-105,Other,118,1,0,1,0,0,3,1,1
+49,Prefer not to say,cardiac disease,flexibility,5,75-90,White,155,1,0,0,4,1,5,1,3
+40,Non-Binary,Alzheimer’s,cardio,7,75-90,White,105,1,0,0,4,0,7,1,4
+36,Male,COPD,cardio,4,90-105,Black,170,0,0,0,2,1,10,1,2
+33,Male,osteoarthritis,strength,6,60-75,Other,154,0,0,0,3,1,6,1,2
+46,Prefer not to say,obesity,strength,5,90-105,Asian,193,0,0,1,3,1,8,1,1
+72,Male,Alzheimer’s,flexibility,6,90-105,White,152,0,0,0,1,1,1,1,3
+18,Male,stroke,flexibility,6,60-75,White,203,0,0,1,3,0,1,1,4
+26,Prefer not to say,osteoarthritis,flexibility,4,105-120,Black,149,0,1,0,4,1,3,1,2
+33,Non-Binary,cardiac disease,flexibility,7,105-120,Black,112,0,1,1,0,0,1,0,4
+66,Prefer not to say,stroke,flexibility,7,30-45,Hispanic,139,1,0,1,4,0,6,1,3
+79,Non-Binary,cardiac disease,strength,7,45-60,Other,187,0,1,0,0,0,2,0,2
+76,Female,hypertension,flexibility,4,90-105,Black,133,0,0,1,1,1,2,0,2
+75,Prefer not to say,kidney disease,strength,6,60-75,Asian,160,0,0,1,1,0,2,0,2
+75,Male,Alzheimer’s,strength,3,90-105,Other,120,1,0,0,0,0,8,0,2
+44,Non-Binary,cardiac disease,flexibility,4,75-90,Black,158,1,0,0,1,0,2,0,4
+63,Non-Binary,stroke,strength,4,60-75,Hispanic,152,1,1,1,4,1,2,1,3
+71,Non-Binary,back pain,strength,5,60-75,Other,159,1,0,1,1,1,8,0,1
+38,Female,stroke,flexibility,3,105-120,Asian,162,1,0,0,3,1,5,1,1
+54,Prefer not to say,none,flexibility,4,60-75,Black,107,0,1,0,0,0,4,0,4
+43,Male,osteoarthritis,strength,4,90-105,Black,178,1,0,0,3,1,4,1,3
+49,Male,obesity,cardio,4,90-105,Hispanic,190,1,1,1,1,0,6,1,1
+43,Female,osteoarthritis,strength,7,30-45,Hispanic,165,1,0,0,0,0,3,1,1
+41,Prefer not to say,obesity,flexibility,5,45-60,Other,185,0,0,0,4,0,8,1,2
+25,Male,kidney disease,strength,6,75-90,White,162,0,0,0,3,1,7,0,4
+68,Female,none,flexibility,6,60-75,White,94,0,1,1,3,0,4,1,1
+18,Prefer not to say,osteoarthritis,flexibility,6,45-60,White,200,0,1,0,3,1,3,0,4
+59,Female,Alzheimer’s,cardio,3,90-105,Hispanic,113,1,0,0,4,0,5,1,3
+33,Male,kidney disease,strength,7,30-45,Hispanic,141,1,1,1,0,0,5,1,4
+76,Female,kidney disease,cardio,7,75-90,Asian,179,1,1,0,3,0,4,1,3
+64,Non-Binary,high cholesterol,strength,6,75-90,White,181,1,0,0,3,0,2,0,1
+43,Non-Binary,high cholesterol,cardio,5,45-60,Asian,129,0,0,1,1,0,10,0,1
+35,Female,high cholesterol,flexibility,5,90-105,Hispanic,158,0,0,1,3,0,9,1,2
+60,Non-Binary,high cholesterol,flexibility,4,60-75,Black,152,1,0,1,4,0,1,0,2
+33,Prefer not to say,back pain,flexibility,4,60-75,Black,119,1,0,0,4,1,4,0,2
+31,Female,hypertension,flexibility,5,75-90,Asian,186,1,1,1,0,1,9,0,2
+74,Male,cardiac disease,strength,3,90-105,Asian,98,1,1,1,1,0,4,0,2
+77,Prefer not to say,cardiac disease,flexibility,5,75-90,Black,135,1,0,1,1,1,3,0,3
+33,Non-Binary,osteoarthritis,flexibility,3,105-120,Hispanic,158,0,0,1,3,1,4,1,2
+55,Female,diabetes,strength,6,45-60,White,140,1,1,0,1,0,10,0,3
+51,Female,cardiac disease,strength,3,90-105,Hispanic,184,0,0,1,3,1,5,1,3
+35,Non-Binary,osteoarthritis,cardio,3,90-105,Hispanic,126,1,1,0,2,0,5,1,1
+53,Male,hypertension,flexibility,4,60-75,White,157,0,0,0,1,1,5,0,1
+53,Female,obesity,strength,6,45-60,Hispanic,153,1,1,1,0,1,1,0,2
+59,Non-Binary,hypertension,strength,6,90-105,Asian,177,1,1,0,2,1,7,1,3
+51,Female,high cholesterol,strength,6,90-105,Hispanic,206,0,0,1,2,1,4,1,4
+31,Non-Binary,hypertension,flexibility,7,45-60,Asian,193,0,0,0,2,0,4,1,3
+40,Female,back pain,strength,4,60-75,Other,109,1,0,1,1,1,2,1,1
+36,Male,COPD,cardio,3,90-105,White,92,1,0,0,4,0,7,0,3
+69,Prefer not to say,cardiac disease,strength,7,30-45,Asian,206,0,0,1,2,1,10,1,2
+73,Male,obesity,flexibility,7,90-105,Hispanic,178,0,1,0,0,1,2,1,2
+46,Female,Alzheimer’s,cardio,5,45-60,Black,179,0,0,0,4,0,6,0,1
+41,Male,osteoarthritis,strength,4,75-90,Black,165,1,0,1,0,0,1,1,2
+76,Male,Alzheimer’s,strength,5,45-60,Other,146,0,1,1,4,0,4,1,2
+34,Non-Binary,obesity,strength,7,45-60,Hispanic,196,1,1,1,1,0,10,1,2
+76,Female,diabetes,cardio,5,75-90,Hispanic,167,1,0,1,2,0,5,1,1
+49,Male,none,strength,4,75-90,Hispanic,119,0,1,1,0,1,2,1,3
+68,Prefer not to say,stroke,strength,4,75-90,Hispanic,157,1,1,0,0,0,7,0,1
+47,Male,back pain,strength,4,90-105,Black,93,1,0,0,4,1,9,0,3
+63,Non-Binary,spondylitis,flexibility,7,75-90,Hispanic,134,1,1,1,3,0,8,1,1
+32,Non-Binary,hypertension,strength,6,60-75,White,141,1,1,0,2,1,7,1,1
+44,Male,COPD,strength,4,90-105,Other,123,0,1,0,4,0,7,0,2
+80,Prefer not to say,Alzheimer’s,flexibility,7,105-120,Asian,111,1,0,1,2,0,4,1,1
+32,Prefer not to say,cardiac disease,cardio,7,75-90,Hispanic,177,1,0,1,1,0,9,0,2
+25,Non-Binary,high cholesterol,strength,5,75-90,Hispanic,200,0,1,1,4,1,5,1,4
+33,Prefer not to say,hypertension,strength,7,105-120,Other,198,0,1,1,0,0,4,0,2
+72,Prefer not to say,diabetes,cardio,3,90-105,Hispanic,115,0,1,1,0,1,1,1,1
+41,Male,osteoarthritis,cardio,3,90-105,Asian,157,1,0,0,4,0,8,1,1
+55,Male,osteoarthritis,flexibility,5,60-75,White,133,0,1,1,0,1,1,0,4
+66,Male,stroke,cardio,4,105-120,Other,181,0,0,1,1,1,2,0,2
+47,Male,stroke,strength,6,105-120,White,92,0,0,0,4,1,7,1,2
+54,Non-Binary,diabetes,cardio,4,60-75,Other,143,1,1,0,4,0,8,1,3
+59,Male,kidney disease,flexibility,4,75-90,Other,187,1,0,0,0,1,1,0,2
+60,Prefer not to say,stroke,flexibility,5,60-75,Asian,167,0,0,1,2,0,9,1,1
+24,Prefer not to say,stroke,cardio,4,60-75,Hispanic,128,0,1,1,1,0,2,0,1
+57,Prefer not to say,osteoarthritis,flexibility,7,90-105,White,161,1,0,1,2,0,10,1,4
+71,Prefer not to say,Alzheimer’s,cardio,7,45-60,Black,188,1,1,1,2,0,9,1,4
+65,Female,kidney disease,strength,7,30-45,Black,141,1,1,1,4,1,10,1,3
+69,Non-Binary,stroke,flexibility,4,90-105,Other,90,1,0,1,1,1,8,1,3
+26,Female,diabetes,cardio,3,75-90,Black,101,1,1,1,4,0,1,0,1
+59,Non-Binary,obesity,strength,3,90-105,Asian,202,1,0,0,1,1,7,1,1
+54,Female,Alzheimer’s,strength,6,75-90,Asian,112,1,1,1,3,0,3,1,4
+37,Non-Binary,hypertension,cardio,3,105-120,Hispanic,148,0,1,1,4,0,5,1,4
+64,Female,diabetes,flexibility,4,75-90,Asian,198,1,0,0,0,1,7,0,2
+73,Prefer not to say,Alzheimer’s,flexibility,5,45-60,Asian,120,1,0,0,2,0,4,0,1
+74,Male,osteoarthritis,flexibility,7,90-105,Other,198,0,0,0,0,1,6,0,4
+65,Non-Binary,diabetes,strength,3,75-90,Other,138,1,0,1,3,0,4,1,2
+18,Female,osteoarthritis,strength,7,45-60,Hispanic,105,1,0,0,4,0,5,0,2
+78,Non-Binary,back pain,flexibility,4,105-120,Other,114,1,0,0,2,1,4,1,3
+44,Non-Binary,Alzheimer’s,strength,3,90-105,Black,193,1,1,0,0,1,10,0,4
+55,Prefer not to say,obesity,cardio,7,105-120,Hispanic,197,0,0,0,3,0,4,1,3
+35,Non-Binary,cardiac disease,cardio,3,105-120,Black,139,0,1,1,3,0,4,1,2
+46,Female,osteoarthritis,cardio,5,90-105,Other,120,0,0,0,2,1,1,0,2
+43,Non-Binary,spondylitis,flexibility,3,105-120,Hispanic,96,1,0,1,0,0,6,0,3
+67,Female,high cholesterol,strength,4,60-75,Black,153,0,0,0,1,0,1,0,2
+58,Prefer not to say,Alzheimer’s,flexibility,3,90-105,Asian,160,1,1,1,4,1,2,0,2
+37,Male,stroke,cardio,3,75-90,Asian,139,1,1,1,2,0,2,1,3
+48,Prefer not to say,osteoarthritis,cardio,6,75-90,Black,164,0,1,1,1,0,2,0,4
+58,Prefer not to say,osteoarthritis,cardio,6,60-75,Black,147,1,1,1,2,1,2,0,3
+21,Female,cardiac disease,cardio,4,90-105,Black,186,1,0,0,4,1,8,1,1
+54,Prefer not to say,obesity,strength,7,90-105,Asian,135,1,0,0,4,0,9,0,3
+68,Prefer not to say,back pain,flexibility,7,105-120,White,187,0,1,0,2,0,2,0,2
+64,Female,obesity,strength,6,60-75,Black,165,0,0,0,2,1,8,1,4
+76,Non-Binary,obesity,flexibility,7,60-75,Black,92,0,0,0,1,1,4,0,4
+80,Male,stroke,strength,6,45-60,Black,122,1,0,0,0,0,1,0,2
+26,Non-Binary,COPD,flexibility,5,45-60,White,131,0,0,0,4,1,7,1,1
+54,Non-Binary,obesity,strength,6,105-120,Other,163,0,0,1,2,1,10,0,4
+19,Male,diabetes,cardio,6,90-105,Hispanic,142,1,1,1,1,0,3,0,1
+43,Male,diabetes,strength,7,45-60,White,121,1,1,0,4,1,10,0,2
+37,Non-Binary,Alzheimer’s,cardio,3,90-105,White,159,0,1,1,0,1,9,1,4
+19,Non-Binary,stroke,flexibility,6,45-60,White,122,1,1,1,2,0,4,1,3
+66,Male,none,flexibility,7,90-105,White,118,0,1,1,1,0,8,1,3
+51,Non-Binary,stroke,strength,6,105-120,White,114,0,0,0,0,1,3,1,1
+51,Female,back pain,cardio,3,90-105,White,208,1,0,0,3,1,1,1,3
+65,Non-Binary,COPD,cardio,7,30-45,Hispanic,182,1,0,0,4,1,1,1,2
+72,Male,kidney disease,cardio,7,90-105,White,177,1,1,1,2,0,4,1,3
+28,Female,hypertension,strength,6,60-75,Other,117,1,0,0,1,0,10,1,1
+23,Prefer not to say,high cholesterol,flexibility,6,75-90,Black,95,1,1,1,3,0,10,1,1
+36,Non-Binary,cardiac disease,flexibility,7,90-105,Black,99,0,0,0,3,1,2,0,4
+65,Male,stroke,cardio,3,105-120,Hispanic,90,0,0,1,1,1,5,0,3
+37,Male,spondylitis,cardio,3,105-120,Asian,118,0,0,0,1,1,2,1,4
+61,Prefer not to say,back pain,strength,5,105-120,Asian,130,1,1,0,3,0,2,1,2
+51,Prefer not to say,osteoarthritis,flexibility,6,75-90,Hispanic,195,1,1,1,2,1,10,0,4
+28,Female,stroke,strength,3,105-120,Asian,155,1,1,0,1,0,9,1,2
+34,Non-Binary,spondylitis,strength,7,75-90,Hispanic,170,1,1,1,4,1,2,0,3
+48,Non-Binary,kidney disease,strength,6,90-105,Hispanic,137,0,1,1,1,1,3,1,4
+37,Prefer not to say,stroke,strength,7,30-45,Hispanic,191,1,0,1,4,1,10,1,3
+49,Female,back pain,strength,3,90-105,Black,125,1,0,1,0,0,3,0,2
+21,Female,osteoarthritis,cardio,6,75-90,Black,162,0,0,1,2,1,4,0,1
+45,Female,stroke,cardio,3,90-105,White,109,0,1,0,2,0,7,0,1
+59,Male,stroke,cardio,4,75-90,Black,131,0,0,0,0,1,6,0,3
+25,Female,back pain,flexibility,6,75-90,Hispanic,107,1,1,1,2,1,8,1,3
+21,Prefer not to say,Alzheimer’s,flexibility,6,75-90,Black,132,0,1,0,1,0,8,0,2
+29,Male,high cholesterol,strength,5,45-60,Black,124,0,1,1,2,1,2,0,4
+75,Prefer not to say,stroke,flexibility,5,90-105,Hispanic,169,0,1,0,3,1,6,0,3
+65,Male,kidney disease,strength,3,105-120,Asian,129,1,0,0,3,1,5,1,4
+39,Male,obesity,flexibility,7,45-60,Hispanic,196,0,0,0,3,0,5,1,4
+43,Male,obesity,strength,6,30-45,Hispanic,180,1,1,0,3,1,7,0,1
+54,Prefer not to say,back pain,cardio,7,75-90,Asian,135,0,1,1,0,1,4,1,2
+73,Female,COPD,cardio,6,90-105,Hispanic,126,0,0,1,1,1,6,0,1
+70,Prefer not to say,hypertension,cardio,7,30-45,White,150,1,0,1,3,0,8,0,4
+55,Male,Alzheimer’s,strength,6,60-75,Hispanic,140,1,0,0,2,0,4,0,3
+42,Female,COPD,flexibility,7,60-75,Hispanic,151,1,0,1,4,0,6,0,1
+67,Prefer not to say,cardiac disease,flexibility,7,75-90,Black,193,1,0,1,3,0,3,0,3
+48,Non-Binary,Alzheimer’s,flexibility,7,90-105,Hispanic,155,0,0,0,3,0,6,1,2
+59,Prefer not to say,COPD,strength,7,45-60,Other,106,0,0,0,4,0,3,0,4
+55,Female,COPD,flexibility,3,90-105,Hispanic,199,1,1,0,3,0,6,1,4
+26,Female,osteoarthritis,cardio,3,75-90,White,178,1,1,0,4,1,7,0,4
+37,Female,osteoarthritis,strength,6,90-105,Black,152,1,0,1,0,1,6,0,1
+25,Male,stroke,strength,6,45-60,Other,95,0,1,0,1,1,3,0,2
+78,Male,back pain,strength,7,45-60,Black,204,1,0,1,4,0,1,0,1
+72,Male,high cholesterol,cardio,4,75-90,White,159,0,0,1,3,0,7,1,2
+64,Female,stroke,strength,5,75-90,White,99,1,0,1,3,0,3,0,2
+50,Female,cardiac disease,cardio,6,30-45,Asian,119,1,0,1,1,0,8,1,3
+30,Male,Alzheimer’s,flexibility,3,90-105,Black,178,0,1,1,3,0,10,0,1
+70,Prefer not to say,cardiac disease,cardio,4,60-75,Hispanic,176,1,1,1,4,1,8,0,3
+53,Female,spondylitis,cardio,4,105-120,Hispanic,117,0,0,1,0,0,9,1,1
+19,Female,high cholesterol,strength,5,45-60,Hispanic,179,0,1,0,2,1,7,1,3
+26,Non-Binary,spondylitis,flexibility,4,60-75,Other,193,1,1,0,3,1,8,0,3
+70,Prefer not to say,COPD,strength,4,75-90,Asian,127,0,0,1,1,1,7,0,3
+32,Non-Binary,Alzheimer’s,strength,4,75-90,Asian,119,1,1,1,1,1,7,0,1
+44,Female,COPD,cardio,3,105-120,Asian,130,1,0,1,0,1,9,0,4
+70,Male,back pain,flexibility,6,105-120,Hispanic,151,0,1,1,3,0,10,1,1
+56,Prefer not to say,COPD,flexibility,7,60-75,White,127,1,1,1,0,0,10,0,1
+25,Male,none,flexibility,5,60-75,Asian,210,1,0,0,0,0,9,1,4
+40,Non-Binary,stroke,cardio,3,90-105,Asian,204,0,0,1,1,0,9,0,3
+23,Male,none,strength,5,75-90,Other,107,1,1,0,3,0,10,1,3
+66,Prefer not to say,kidney disease,cardio,7,60-75,Hispanic,131,0,1,1,4,1,5,1,1
+23,Prefer not to say,Alzheimer’s,strength,4,60-75,Other,172,1,0,0,2,0,2,1,1
+53,Female,spondylitis,strength,4,60-75,Black,145,1,0,0,3,0,8,1,4
+73,Female,obesity,strength,3,90-105,Asian,99,0,1,0,3,0,9,0,1
+62,Male,COPD,strength,6,105-120,Other,131,0,1,1,2,1,1,0,2
+29,Female,cardiac disease,strength,4,90-105,White,132,0,0,1,4,0,2,0,2
+44,Non-Binary,Alzheimer’s,flexibility,4,60-75,Other,97,0,1,1,4,0,9,1,2
+80,Prefer not to say,none,cardio,4,75-90,Black,197,1,0,1,1,0,10,0,2
+67,Prefer not to say,back pain,cardio,6,90-105,Black,187,0,0,0,0,0,9,0,2
+27,Prefer not to say,kidney disease,strength,6,75-90,White,127,0,0,1,4,0,4,0,1
+19,Prefer not to say,stroke,cardio,7,60-75,White,126,1,0,0,2,1,8,1,4
+22,Male,osteoarthritis,cardio,5,90-105,Asian,129,1,0,0,3,1,5,0,3
+79,Female,obesity,flexibility,3,90-105,Asian,200,0,0,1,1,0,5,0,4
+54,Female,osteoarthritis,flexibility,3,90-105,Black,130,0,0,0,3,0,7,0,2
+61,Female,none,cardio,6,105-120,Other,133,0,0,0,3,1,6,0,1
+80,Female,spondylitis,cardio,5,105-120,Black,201,0,1,0,2,1,5,0,4
+62,Female,diabetes,strength,5,90-105,Asian,157,0,1,0,4,0,6,1,4
+60,Non-Binary,obesity,flexibility,7,60-75,Asian,157,0,0,0,4,1,3,1,2
+27,Non-Binary,hypertension,strength,6,75-90,Asian,94,0,1,1,3,0,6,1,3
+34,Male,none,cardio,7,60-75,Black,92,0,0,1,2,0,10,0,2
+58,Male,osteoarthritis,strength,4,60-75,Hispanic,100,1,0,0,3,1,7,0,2
+25,Non-Binary,spondylitis,flexibility,4,60-75,White,110,1,1,1,4,1,2,0,2
+56,Non-Binary,COPD,flexibility,5,75-90,Hispanic,102,1,1,1,3,1,3,0,2
+20,Male,high cholesterol,flexibility,3,75-90,Other,151,1,1,1,3,0,9,0,4
+73,Female,Alzheimer’s,strength,5,60-75,White,135,1,0,0,3,1,6,1,3
+45,Male,high cholesterol,cardio,4,75-90,Other,100,1,0,0,2,1,3,0,4
+26,Female,spondylitis,flexibility,5,45-60,Hispanic,125,0,1,1,0,0,5,0,1
+22,Prefer not to say,kidney disease,cardio,7,60-75,Other,132,0,0,1,0,0,6,1,4
+43,Non-Binary,hypertension,strength,5,90-105,Other,146,0,0,0,1,1,8,1,2
+26,Female,osteoarthritis,flexibility,6,45-60,Other,107,1,0,1,2,0,8,0,3
+64,Female,obesity,cardio,6,105-120,Asian,190,1,1,0,2,0,7,1,2
+43,Female,none,flexibility,7,45-60,Hispanic,207,1,1,0,2,0,8,0,3
+53,Prefer not to say,stroke,cardio,7,45-60,Asian,182,1,1,1,2,0,10,1,4
+49,Non-Binary,hypertension,cardio,3,75-90,Black,186,1,0,1,1,0,10,1,2
+25,Female,kidney disease,flexibility,3,75-90,Black,175,1,1,1,2,0,4,0,2
+51,Prefer not to say,none,strength,7,60-75,Black,117,0,0,1,0,0,5,0,2
+38,Prefer not to say,back pain,cardio,7,30-45,White,178,0,0,0,3,0,4,1,3
+26,Prefer not to say,COPD,flexibility,5,90-105,Black,99,0,1,1,2,1,8,0,2
+27,Male,high cholesterol,flexibility,3,105-120,Other,161,0,1,0,2,0,1,0,3
+42,Prefer not to say,kidney disease,cardio,6,75-90,Black,155,1,1,0,3,1,1,0,3
+23,Female,Alzheimer’s,cardio,3,90-105,Other,156,1,0,0,4,0,9,1,3
+42,Male,diabetes,strength,4,105-120,White,187,1,1,1,2,1,10,0,2
+51,Male,cardiac disease,cardio,6,75-90,Asian,172,1,0,0,4,0,2,0,2
+21,Male,osteoarthritis,strength,6,105-120,Asian,133,1,1,1,3,0,9,1,2
+41,Female,stroke,strength,5,60-75,Asian,178,1,0,1,0,1,3,1,3
+66,Prefer not to say,diabetes,strength,6,90-105,Asian,94,1,1,1,3,0,5,1,1
+78,Non-Binary,Alzheimer’s,cardio,6,75-90,Black,123,1,1,0,1,0,8,1,2
+61,Male,kidney disease,flexibility,5,75-90,Hispanic,126,0,0,1,2,1,1,0,2
+19,Prefer not to say,spondylitis,strength,7,60-75,Black,185,0,1,0,4,1,3,0,1
+79,Prefer not to say,none,strength,7,30-45,Asian,202,0,0,1,4,1,10,1,4
+22,Prefer not to say,diabetes,cardio,5,45-60,Hispanic,168,1,0,1,4,1,5,1,3
+74,Male,COPD,cardio,7,30-45,Hispanic,156,0,0,1,3,0,3,1,4
+24,Prefer not to say,cardiac disease,strength,3,90-105,White,105,1,1,0,3,1,10,1,3
+27,Female,stroke,strength,5,45-60,Other,174,1,0,1,2,1,1,1,2
+60,Prefer not to say,obesity,cardio,5,105-120,Black,204,1,0,0,4,0,10,0,2
+61,Non-Binary,obesity,flexibility,7,75-90,White,146,0,0,0,0,1,4,0,2
+49,Female,spondylitis,cardio,5,60-75,Asian,130,0,1,1,1,0,5,1,3
+52,Non-Binary,kidney disease,flexibility,3,105-120,Other,114,1,1,0,2,1,3,1,2
+25,Non-Binary,cardiac disease,cardio,4,105-120,Asian,94,1,0,1,4,0,6,0,1
+59,Non-Binary,obesity,strength,5,60-75,White,172,1,1,0,4,1,8,1,2
+36,Non-Binary,spondylitis,cardio,4,105-120,Asian,194,0,0,1,3,1,1,0,2
+29,Prefer not to say,COPD,flexibility,6,75-90,White,99,0,0,1,1,0,3,0,3
+62,Male,COPD,strength,3,90-105,Hispanic,110,0,1,0,1,1,7,1,3
+50,Non-Binary,kidney disease,flexibility,5,90-105,Hispanic,135,1,0,1,0,1,10,1,2
+60,Prefer not to say,none,flexibility,3,90-105,Other,163,0,1,0,2,1,4,0,1
+78,Non-Binary,obesity,cardio,7,75-90,Asian,200,1,1,1,1,1,1,0,3
+51,Non-Binary,kidney disease,cardio,5,45-60,Asian,166,1,0,1,3,0,2,1,4
+21,Female,COPD,cardio,5,60-75,Hispanic,179,1,0,1,1,0,4,1,2
+32,Female,obesity,flexibility,6,45-60,White,197,0,1,1,1,0,10,1,3
+44,Male,cardiac disease,flexibility,6,30-45,Asian,206,1,1,1,3,1,5,0,4
+55,Non-Binary,spondylitis,flexibility,4,105-120,Other,107,0,0,1,2,0,4,1,4
+64,Non-Binary,high cholesterol,strength,7,75-90,Other,154,0,1,0,2,1,9,0,1
+22,Female,COPD,cardio,4,75-90,Black,92,0,0,0,1,0,9,0,4
+50,Male,stroke,strength,3,75-90,White,201,1,0,1,0,1,4,1,3
+76,Prefer not to say,Alzheimer’s,cardio,4,105-120,White,182,1,0,1,0,0,9,0,2
+20,Prefer not to say,back pain,flexibility,7,90-105,White,91,1,0,0,3,0,3,1,3
+41,Prefer not to say,stroke,cardio,5,60-75,Hispanic,201,1,0,1,1,1,1,0,3
+51,Male,Alzheimer’s,flexibility,3,105-120,Other,141,0,0,1,1,1,3,1,3
+77,Non-Binary,spondylitis,strength,4,105-120,Asian,115,0,0,1,0,0,7,0,4
+52,Non-Binary,osteoarthritis,cardio,4,60-75,White,145,1,1,0,1,0,8,0,2
+53,Male,obesity,flexibility,6,45-60,White,168,1,0,0,0,1,5,1,4
+44,Prefer not to say,none,flexibility,7,45-60,Other,190,1,0,0,3,1,8,0,3
+36,Female,back pain,flexibility,4,60-75,Hispanic,194,1,0,0,1,1,3,0,4
+40,Non-Binary,high cholesterol,cardio,4,90-105,Hispanic,126,1,0,0,2,1,8,1,1
+71,Male,spondylitis,cardio,4,90-105,Other,206,0,0,0,0,1,8,1,1
+48,Male,hypertension,strength,6,75-90,Asian,209,0,1,1,0,1,10,0,2
+74,Non-Binary,COPD,strength,3,90-105,White,204,1,1,0,2,1,9,1,1
+77,Female,none,strength,7,105-120,Hispanic,130,1,0,1,0,0,2,1,2
+41,Prefer not to say,cardiac disease,flexibility,3,75-90,White,150,1,0,0,3,1,10,1,4
+25,Female,COPD,strength,4,60-75,Other,189,1,1,1,3,0,1,1,4
+68,Non-Binary,back pain,cardio,7,60-75,Hispanic,131,1,1,0,3,1,1,1,3
+55,Male,osteoarthritis,strength,4,60-75,Black,170,0,1,1,2,0,5,0,2
+53,Female,diabetes,strength,7,60-75,Black,181,0,1,1,1,0,7,1,3
+50,Non-Binary,high cholesterol,cardio,5,75-90,Black,164,0,0,0,3,1,10,1,4
+68,Female,stroke,cardio,7,60-75,Asian,173,1,0,1,1,0,6,0,1
+61,Male,diabetes,flexibility,6,30-45,Hispanic,99,1,1,0,0,1,7,0,2
+65,Female,Alzheimer’s,strength,7,90-105,Other,124,1,0,1,4,0,3,0,1
+32,Non-Binary,kidney disease,flexibility,6,75-90,Other,187,1,0,0,1,0,9,0,2
+42,Non-Binary,obesity,strength,5,105-120,Black,202,1,0,0,1,0,1,0,1
+78,Male,osteoarthritis,strength,7,75-90,Asian,168,0,1,1,0,1,3,1,3
+28,Female,COPD,cardio,3,90-105,Hispanic,100,0,1,0,1,1,5,0,4
+62,Non-Binary,none,strength,4,90-105,Hispanic,142,0,1,1,0,0,3,1,2
+24,Non-Binary,obesity,flexibility,5,45-60,Hispanic,122,1,1,1,1,0,1,1,4
+57,Prefer not to say,high cholesterol,flexibility,6,90-105,Hispanic,150,0,0,1,0,0,8,1,2
+71,Prefer not to say,high cholesterol,strength,4,105-120,Other,199,0,0,0,3,0,9,0,2
+32,Female,diabetes,flexibility,4,75-90,Hispanic,169,0,1,0,3,0,10,0,1
+28,Male,Alzheimer’s,cardio,7,75-90,Other,152,1,0,1,3,0,9,0,4
+56,Male,kidney disease,strength,4,75-90,Black,145,1,1,0,2,1,2,1,4
+61,Male,back pain,strength,3,90-105,White,167,1,1,0,4,0,6,1,4
+37,Prefer not to say,obesity,flexibility,6,60-75,Black,191,0,0,0,4,0,9,1,4
+34,Non-Binary,spondylitis,cardio,7,30-45,White,185,1,1,1,2,1,8,1,1
+49,Male,kidney disease,flexibility,4,60-75,Hispanic,204,1,0,1,4,1,5,0,4
+23,Female,hypertension,strength,4,90-105,Hispanic,156,0,0,1,3,0,8,0,4
+46,Male,COPD,cardio,6,45-60,Black,185,0,1,0,0,0,2,0,1
+50,Prefer not to say,COPD,strength,6,45-60,Asian,112,0,0,0,3,0,8,0,4
+73,Prefer not to say,back pain,cardio,3,75-90,White,108,1,1,1,1,0,1,0,4
+76,Male,back pain,strength,5,90-105,White,151,0,1,1,2,1,3,1,4
+70,Non-Binary,kidney disease,cardio,7,105-120,White,104,1,1,0,1,0,8,1,2
+58,Female,diabetes,flexibility,5,90-105,White,127,0,1,0,0,0,8,1,3
+34,Male,kidney disease,cardio,5,60-75,Hispanic,166,0,1,1,2,0,7,1,3
+37,Prefer not to say,osteoarthritis,strength,4,105-120,Asian,153,0,1,0,3,0,5,0,1
+69,Prefer not to say,high cholesterol,cardio,4,90-105,White,132,0,0,1,0,0,4,0,2
+44,Prefer not to say,spondylitis,flexibility,3,90-105,Black,134,0,1,1,4,1,4,0,4
+26,Non-Binary,COPD,strength,7,45-60,Asian,128,0,0,1,4,0,3,1,4
+30,Male,hypertension,cardio,4,75-90,Other,129,1,1,0,4,1,6,1,3
+51,Non-Binary,kidney disease,cardio,5,45-60,Hispanic,165,0,1,0,2,0,8,0,1
+38,Non-Binary,high cholesterol,cardio,6,60-75,Hispanic,117,0,1,1,4,1,1,0,1
+72,Non-Binary,COPD,cardio,4,60-75,Other,162,1,0,1,1,0,2,0,2
+32,Prefer not to say,obesity,cardio,3,105-120,Hispanic,111,1,0,1,4,0,4,0,1
+80,Male,none,strength,6,60-75,Black,178,1,1,0,4,0,4,1,1
+46,Male,COPD,cardio,5,45-60,Other,124,0,1,0,0,0,9,1,4
+22,Non-Binary,Alzheimer’s,cardio,5,75-90,Asian,197,1,0,0,0,0,9,0,4
+20,Female,hypertension,cardio,4,105-120,Asian,176,0,1,1,1,1,8,0,1
+25,Male,COPD,strength,5,45-60,Hispanic,117,1,0,0,3,1,3,0,2
+26,Female,high cholesterol,strength,5,75-90,White,173,1,1,0,1,0,9,1,1
+27,Prefer not to say,COPD,cardio,4,60-75,Black,162,0,0,0,3,1,10,0,4
+76,Prefer not to say,diabetes,flexibility,3,90-105,Hispanic,171,0,1,0,1,1,10,0,4
+68,Female,hypertension,flexibility,6,60-75,Hispanic,197,1,1,0,3,0,3,0,2
+79,Male,hypertension,strength,4,105-120,Asian,138,1,0,0,4,1,4,0,1
+39,Male,osteoarthritis,strength,6,75-90,White,105,0,0,1,4,1,4,1,2
+40,Prefer not to say,stroke,strength,6,30-45,Hispanic,158,1,0,1,2,0,5,1,3
+60,Prefer not to say,kidney disease,cardio,3,90-105,Hispanic,97,1,1,1,2,0,1,1,3
+65,Female,back pain,cardio,5,45-60,Other,109,1,0,1,0,0,6,0,2
+27,Non-Binary,spondylitis,flexibility,7,105-120,Black,138,1,1,1,3,0,8,0,1
+79,Prefer not to say,spondylitis,strength,3,105-120,Black,151,1,1,0,3,1,2,0,2
+28,Prefer not to say,none,strength,5,75-90,Other,154,1,1,1,1,1,3,0,2
+44,Male,back pain,strength,3,105-120,Other,183,0,0,1,0,1,8,0,4
+41,Non-Binary,hypertension,strength,3,105-120,Asian,102,0,1,0,3,1,4,0,3
+68,Non-Binary,diabetes,strength,4,105-120,Hispanic,181,1,0,0,4,0,5,0,1
+62,Female,spondylitis,flexibility,5,105-120,Hispanic,131,1,1,1,4,1,10,0,3
+76,Non-Binary,obesity,flexibility,3,90-105,Other,207,0,0,1,4,1,5,1,4
+76,Male,obesity,strength,5,105-120,Black,149,0,0,0,1,1,5,0,1
+18,Male,stroke,cardio,4,60-75,Asian,118,1,1,0,3,1,4,0,1
+39,Female,stroke,flexibility,5,90-105,Asian,120,0,1,0,1,0,9,0,2
+48,Female,back pain,strength,4,90-105,Black,193,1,0,1,2,1,1,0,2
+44,Prefer not to say,high cholesterol,cardio,6,75-90,Other,115,1,1,0,2,0,6,0,2
+29,Female,diabetes,strength,7,30-45,Asian,139,0,1,1,0,1,2,1,4
+21,Female,Alzheimer’s,flexibility,6,45-60,White,153,1,1,0,3,1,6,0,2
+53,Non-Binary,cardiac disease,flexibility,4,60-75,Other,160,1,0,0,0,0,3,0,3
+80,Male,osteoarthritis,strength,3,105-120,Other,170,0,0,1,4,0,9,1,3
+40,Non-Binary,cardiac disease,cardio,5,90-105,Other,160,0,1,1,3,0,5,1,1
+69,Female,hypertension,cardio,6,105-120,Hispanic,194,1,1,1,4,1,2,1,1
+65,Female,hypertension,strength,5,60-75,Black,93,1,0,1,2,0,3,0,3
+19,Prefer not to say,high cholesterol,cardio,5,75-90,Hispanic,206,1,1,1,0,1,10,1,2
+71,Non-Binary,hypertension,cardio,5,45-60,White,143,1,1,1,3,0,4,1,2
+65,Female,Alzheimer’s,strength,6,90-105,Asian,118,1,0,1,2,1,5,1,3
+29,Non-Binary,cardiac disease,cardio,6,105-120,Hispanic,104,0,1,0,4,0,9,0,2
+41,Non-Binary,none,cardio,3,105-120,Other,91,0,1,1,2,1,10,1,4
+61,Male,high cholesterol,strength,6,45-60,Other,175,1,1,1,1,0,6,0,4
+59,Prefer not to say,stroke,strength,6,45-60,Asian,106,0,0,1,0,0,4,1,1
+52,Non-Binary,hypertension,flexibility,3,90-105,Asian,197,1,0,0,2,0,10,0,3
+45,Prefer not to say,stroke,strength,7,30-45,Hispanic,155,1,1,0,3,0,4,1,2
+47,Non-Binary,high cholesterol,flexibility,4,90-105,Other,208,0,1,1,3,0,9,0,1
+33,Female,hypertension,cardio,3,105-120,Black,163,0,1,0,1,1,1,1,1
+65,Prefer not to say,osteoarthritis,flexibility,7,75-90,Black,168,0,0,1,0,1,2,0,1
+31,Male,COPD,cardio,4,75-90,Hispanic,149,1,1,1,3,1,4,0,4
+25,Male,cardiac disease,flexibility,5,105-120,Black,103,1,0,0,0,0,4,0,2
+55,Non-Binary,cardiac disease,strength,3,105-120,Black,202,0,1,0,0,1,7,0,3
+27,Male,back pain,cardio,5,90-105,Other,122,1,1,1,0,0,10,0,1
+31,Female,obesity,cardio,7,45-60,Asian,116,1,0,0,2,1,5,0,4
+35,Female,kidney disease,flexibility,7,60-75,Black,103,0,1,1,1,0,2,0,4
+19,Female,high cholesterol,strength,7,30-45,Black,165,1,0,0,0,1,10,1,1
+47,Prefer not to say,cardiac disease,flexibility,7,60-75,Hispanic,183,0,1,0,2,0,4,1,1
+21,Female,diabetes,strength,4,75-90,Hispanic,135,0,0,1,0,0,10,0,3
+78,Female,diabetes,flexibility,5,45-60,Other,158,1,1,0,3,0,9,1,3
+64,Non-Binary,hypertension,cardio,5,90-105,Black,122,0,1,1,1,1,1,0,3
+63,Female,diabetes,flexibility,5,60-75,Other,120,0,1,0,2,1,8,0,3
+24,Prefer not to say,obesity,strength,7,45-60,Black,152,0,0,0,0,0,2,1,4
+44,Female,cardiac disease,cardio,5,90-105,Black,165,1,1,1,1,1,6,0,4
+70,Male,cardiac disease,flexibility,5,105-120,White,120,1,1,0,4,1,5,1,4
+62,Prefer not to say,high cholesterol,cardio,3,105-120,White,184,0,1,1,3,0,2,1,3
+43,Female,hypertension,flexibility,4,60-75,Other,128,1,1,1,4,1,5,0,1
+64,Prefer not to say,kidney disease,cardio,3,90-105,Other,166,0,0,0,1,0,2,0,4
+51,Prefer not to say,diabetes,flexibility,6,90-105,White,155,1,1,1,3,1,10,1,3
+77,Male,high cholesterol,flexibility,6,90-105,Hispanic,102,0,0,0,3,0,5,0,1
+40,Non-Binary,kidney disease,cardio,3,105-120,Asian,159,0,0,0,3,1,8,1,4
+64,Prefer not to say,high cholesterol,strength,6,105-120,Other,181,1,0,1,0,1,9,0,4
+40,Male,high cholesterol,strength,7,90-105,Other,124,0,0,1,1,1,3,1,4
+66,Male,none,flexibility,7,75-90,White,123,1,1,1,2,0,2,0,2
+74,Female,high cholesterol,cardio,7,45-60,Other,197,0,0,0,2,0,4,0,3
+45,Female,diabetes,flexibility,4,90-105,Black,142,0,1,1,4,0,1,1,4
+72,Male,COPD,strength,6,75-90,Hispanic,127,0,0,1,0,1,8,0,1
+59,Prefer not to say,spondylitis,flexibility,5,75-90,White,144,0,0,0,3,0,9,0,1
+79,Male,obesity,cardio,5,105-120,Other,194,1,0,1,2,1,9,0,4
+19,Non-Binary,diabetes,cardio,4,105-120,Black,125,1,0,1,0,1,5,1,4
+80,Female,obesity,strength,3,90-105,Hispanic,198,0,1,0,3,1,4,0,2
+37,Non-Binary,COPD,strength,4,60-75,Other,143,1,0,0,2,1,8,1,3
+29,Female,none,cardio,5,45-60,Other,154,1,1,1,0,0,7,1,4
+79,Prefer not to say,osteoarthritis,flexibility,6,60-75,White,183,1,0,1,2,1,8,0,2
+73,Prefer not to say,osteoarthritis,flexibility,7,90-105,Asian,121,0,0,1,3,1,9,1,2
+49,Female,diabetes,strength,7,90-105,Other,181,0,1,1,2,1,5,1,3
+67,Female,COPD,flexibility,3,90-105,White,118,0,0,0,1,1,5,1,1
+43,Prefer not to say,osteoarthritis,cardio,5,90-105,White,128,1,1,1,1,0,10,1,3
+49,Male,Alzheimer’s,cardio,6,45-60,Asian,157,1,1,1,0,0,4,1,1
+30,Male,kidney disease,strength,6,60-75,White,186,1,1,0,3,1,10,0,1
+40,Male,none,cardio,6,60-75,Hispanic,173,1,1,1,3,1,8,1,2
+75,Prefer not to say,obesity,flexibility,6,90-105,Black,129,0,0,0,4,0,10,1,2
+69,Non-Binary,osteoarthritis,cardio,5,45-60,Black,111,0,1,0,1,1,10,0,1
+58,Prefer not to say,osteoarthritis,flexibility,7,75-90,Other,168,0,1,0,2,1,9,1,4
+18,Male,diabetes,strength,5,75-90,White,148,1,0,0,0,0,4,0,4
+27,Female,COPD,cardio,5,60-75,Asian,123,0,1,0,4,1,9,0,1
+79,Male,osteoarthritis,strength,5,75-90,Hispanic,91,1,1,1,2,1,10,1,2
+52,Non-Binary,diabetes,flexibility,7,45-60,Other,126,0,1,1,3,0,1,1,2
+75,Prefer not to say,stroke,strength,5,75-90,Black,96,1,1,1,2,0,6,1,3
+36,Prefer not to say,osteoarthritis,strength,7,75-90,Asian,155,0,1,1,4,0,1,1,4
+28,Female,none,flexibility,3,90-105,Black,147,1,1,0,4,0,7,0,4
+32,Female,osteoarthritis,strength,3,90-105,White,169,1,1,0,3,1,3,1,2
+54,Male,cardiac disease,strength,5,75-90,Hispanic,120,0,1,0,4,0,5,0,3
+19,Male,spondylitis,flexibility,5,75-90,Black,132,0,1,1,0,0,8,1,3
+40,Male,kidney disease,cardio,5,90-105,Black,92,1,1,1,3,0,10,0,2
+57,Non-Binary,back pain,cardio,4,90-105,White,132,1,1,0,3,1,5,0,1
+23,Male,osteoarthritis,strength,7,60-75,Other,106,1,0,0,2,1,9,1,2
+26,Non-Binary,spondylitis,flexibility,5,90-105,Hispanic,186,0,1,1,3,1,9,1,2
+48,Female,COPD,flexibility,7,45-60,Hispanic,90,0,0,1,1,1,1,1,1
+63,Male,spondylitis,flexibility,3,75-90,Hispanic,108,1,1,1,1,0,10,1,3
+32,Prefer not to say,Alzheimer’s,flexibility,5,105-120,White,188,1,0,1,3,0,5,0,4
+53,Non-Binary,back pain,strength,4,90-105,Other,165,0,1,1,4,0,7,1,3
+56,Prefer not to say,cardiac disease,strength,3,105-120,Other,129,0,0,1,4,0,3,0,1
+37,Non-Binary,osteoarthritis,strength,7,60-75,Other,155,1,0,1,0,1,8,0,4
+68,Female,high cholesterol,flexibility,5,60-75,Asian,168,1,0,1,1,1,1,0,1
+52,Male,kidney disease,cardio,6,45-60,Hispanic,133,0,0,1,1,0,8,0,4
+66,Non-Binary,osteoarthritis,flexibility,6,90-105,Hispanic,210,1,0,1,1,1,8,0,1
+35,Non-Binary,spondylitis,strength,4,90-105,Black,112,0,1,0,0,1,9,1,4
+50,Prefer not to say,cardiac disease,strength,7,105-120,Hispanic,178,0,1,1,4,1,6,0,3
+69,Prefer not to say,diabetes,cardio,6,90-105,Hispanic,110,0,1,1,1,1,1,1,3
+60,Male,Alzheimer’s,strength,7,75-90,White,100,1,0,1,2,0,3,1,2
+18,Non-Binary,back pain,cardio,3,90-105,White,192,1,1,0,4,0,2,1,3
+61,Male,osteoarthritis,strength,7,30-45,Other,194,0,0,0,0,0,6,1,2
+64,Prefer not to say,cardiac disease,strength,3,105-120,Hispanic,147,0,1,1,1,0,3,0,2
+80,Male,Alzheimer’s,cardio,7,105-120,Other,134,0,1,1,2,1,5,0,4
+30,Prefer not to say,none,flexibility,3,90-105,Black,181,1,1,1,0,0,5,1,1
+25,Non-Binary,obesity,strength,6,45-60,Other,103,0,0,1,0,0,9,1,1
+31,Prefer not to say,high cholesterol,strength,3,90-105,Other,202,1,0,1,0,1,2,1,1
+46,Female,spondylitis,cardio,6,105-120,Other,91,1,0,0,4,1,10,1,4
+49,Non-Binary,diabetes,flexibility,7,30-45,Asian,196,0,0,0,2,0,6,1,1
+72,Male,kidney disease,strength,6,45-60,White,166,0,1,1,4,0,8,0,4
+43,Female,back pain,strength,6,105-120,Black,133,1,1,1,1,0,6,1,2
+45,Female,COPD,strength,4,60-75,Black,143,0,1,0,4,0,7,0,4
+23,Prefer not to say,none,cardio,3,75-90,Black,197,1,1,1,2,0,7,0,2
+19,Prefer not to say,COPD,cardio,6,60-75,Black,141,1,0,0,1,0,10,1,3
+65,Non-Binary,Alzheimer’s,cardio,6,75-90,Hispanic,93,0,1,0,2,0,5,0,3
+74,Male,hypertension,cardio,6,105-120,Asian,164,1,1,1,1,0,9,0,3
+23,Prefer not to say,high cholesterol,flexibility,6,75-90,White,196,0,0,0,4,1,6,0,2
+71,Prefer not to say,none,cardio,3,90-105,White,132,1,1,1,2,1,3,0,2
+39,Male,osteoarthritis,flexibility,4,75-90,Asian,175,1,1,0,1,1,7,1,2
+24,Female,osteoarthritis,strength,5,60-75,Hispanic,203,0,1,0,1,1,2,1,3
+70,Prefer not to say,back pain,flexibility,5,45-60,Black,99,1,0,1,3,1,1,1,3
+48,Prefer not to say,diabetes,strength,7,45-60,White,123,1,0,1,4,0,1,1,3
+19,Prefer not to say,obesity,flexibility,5,45-60,Black,189,1,1,1,4,1,9,1,3
+23,Male,kidney disease,cardio,4,60-75,Other,152,1,0,0,4,0,8,0,2
+23,Prefer not to say,diabetes,cardio,5,90-105,Black,95,0,1,0,3,1,2,1,3
+28,Female,high cholesterol,cardio,5,60-75,Asian,164,1,0,0,4,0,5,1,2
+45,Male,COPD,flexibility,7,90-105,Asian,169,1,0,0,2,0,2,1,1
+50,Female,none,strength,3,105-120,Asian,186,0,1,1,4,1,4,1,1
+30,Prefer not to say,high cholesterol,flexibility,3,105-120,Hispanic,125,1,0,1,4,0,8,1,2
+71,Prefer not to say,kidney disease,flexibility,4,105-120,Asian,169,0,1,0,1,0,4,0,4
+79,Female,obesity,strength,5,45-60,Black,195,0,0,1,3,1,10,1,4
+55,Prefer not to say,none,cardio,3,90-105,Hispanic,119,1,1,1,2,0,8,1,1
+42,Male,kidney disease,flexibility,5,60-75,White,149,0,1,1,3,0,8,1,2
+78,Female,none,cardio,4,60-75,Asian,179,0,1,0,0,1,9,0,4
+57,Female,cardiac disease,strength,5,90-105,Black,98,1,0,1,3,0,10,1,2
+18,Male,diabetes,cardio,6,90-105,White,138,0,1,1,3,1,10,0,4
+43,Non-Binary,Alzheimer’s,flexibility,5,105-120,Asian,206,1,1,1,1,1,10,0,3
+79,Female,spondylitis,cardio,7,45-60,Other,194,1,1,1,0,1,5,1,1
+65,Prefer not to say,high cholesterol,cardio,4,75-90,White,190,1,0,0,1,0,3,0,3
+22,Prefer not to say,cardiac disease,flexibility,3,75-90,Hispanic,156,1,1,1,4,1,4,1,3
+40,Male,hypertension,flexibility,6,45-60,Asian,126,1,1,0,1,1,2,0,3
+44,Male,COPD,strength,3,90-105,Black,146,0,0,0,0,1,5,1,1
+23,Prefer not to say,cardiac disease,cardio,3,105-120,White,165,0,1,1,3,1,9,1,2
+31,Male,back pain,cardio,7,30-45,White,171,0,1,0,4,1,6,0,4
+34,Female,stroke,cardio,7,30-45,Other,187,0,1,0,0,0,1,1,4
+76,Female,back pain,cardio,5,90-105,Other,90,0,1,0,2,1,10,0,3
+45,Non-Binary,diabetes,flexibility,6,105-120,Asian,169,1,0,1,2,1,7,1,3
+44,Non-Binary,COPD,cardio,7,30-45,White,132,1,1,0,0,1,8,0,4
+79,Male,Alzheimer’s,flexibility,5,60-75,Hispanic,102,0,1,0,4,0,7,1,1
+51,Male,cardiac disease,cardio,6,75-90,Black,133,0,1,1,0,1,5,0,3
+36,Prefer not to say,back pain,cardio,7,45-60,Asian,183,0,0,0,4,1,2,1,1
+36,Female,cardiac disease,strength,5,45-60,Other,147,1,1,0,0,0,4,1,3
+33,Female,COPD,strength,7,30-45,Hispanic,121,0,0,0,3,0,6,1,3
+69,Prefer not to say,diabetes,strength,7,90-105,Black,113,0,1,0,1,1,8,1,3
+39,Prefer not to say,obesity,flexibility,4,105-120,Hispanic,161,0,1,0,2,1,6,0,1
+74,Female,Alzheimer’s,cardio,7,75-90,Asian,104,0,0,0,0,1,10,0,3
+30,Female,back pain,cardio,4,105-120,Black,139,0,0,0,4,0,5,1,3
+45,Male,high cholesterol,strength,6,75-90,Hispanic,174,0,0,0,3,1,1,1,3
+52,Non-Binary,kidney disease,flexibility,6,60-75,Other,194,1,1,1,3,0,4,1,2
+71,Non-Binary,COPD,cardio,6,75-90,Asian,98,0,1,1,2,0,7,0,1
+52,Prefer not to say,Alzheimer’s,cardio,3,90-105,White,96,1,1,1,1,0,1,1,2
+61,Non-Binary,kidney disease,strength,4,105-120,Asian,95,1,0,0,3,1,1,0,1
+51,Non-Binary,none,cardio,7,30-45,White,155,0,0,0,3,1,9,0,2
+70,Male,back pain,strength,3,90-105,Other,115,1,1,0,1,0,7,1,3
+49,Female,osteoarthritis,cardio,6,105-120,Hispanic,113,1,1,0,2,0,9,1,1
+77,Female,spondylitis,flexibility,6,60-75,Asian,183,0,1,1,1,0,3,1,2
+57,Prefer not to say,obesity,cardio,3,75-90,Black,194,1,1,1,4,0,8,1,3
+64,Female,osteoarthritis,flexibility,4,75-90,Hispanic,124,0,0,1,2,1,7,0,4
+29,Male,kidney disease,cardio,6,105-120,White,175,0,0,0,1,0,4,0,3
+32,Non-Binary,high cholesterol,cardio,6,75-90,Hispanic,199,1,0,0,0,0,7,0,2
+56,Prefer not to say,none,flexibility,3,105-120,Other,170,1,1,1,4,1,7,1,1
+69,Male,none,strength,6,90-105,White,126,1,1,0,1,0,6,1,2
+76,Male,hypertension,flexibility,5,60-75,Asian,168,0,0,1,0,0,10,0,2
+27,Non-Binary,high cholesterol,cardio,5,75-90,Asian,123,1,0,0,1,1,6,0,3
+39,Prefer not to say,cardiac disease,cardio,5,45-60,Asian,104,0,0,0,2,0,10,0,1
+22,Non-Binary,none,flexibility,3,90-105,White,109,1,1,1,3,0,9,0,1
+23,Male,cardiac disease,flexibility,5,60-75,Black,170,1,0,1,3,1,1,1,1
+57,Female,obesity,flexibility,4,90-105,Hispanic,181,0,0,1,2,0,5,0,4
+66,Non-Binary,back pain,cardio,4,60-75,Other,167,0,1,0,1,0,3,0,3
+78,Male,diabetes,strength,5,75-90,Hispanic,151,0,1,1,3,1,5,0,3
+32,Male,high cholesterol,flexibility,7,45-60,Asian,195,0,0,0,1,0,3,1,2
+35,Female,high cholesterol,flexibility,6,60-75,Black,165,1,1,1,4,0,4,0,4
+28,Non-Binary,COPD,flexibility,7,45-60,White,132,0,0,1,1,0,10,0,2
+19,Female,COPD,strength,3,105-120,Hispanic,183,0,0,0,0,0,4,1,2
+34,Female,cardiac disease,cardio,7,90-105,Asian,150,1,0,1,1,0,4,0,4
+75,Non-Binary,none,strength,7,45-60,Other,165,0,1,1,2,1,3,0,2
+28,Female,Alzheimer’s,strength,5,45-60,Asian,109,0,0,0,3,0,6,1,4
+78,Female,COPD,strength,5,45-60,White,157,1,0,1,3,0,2,1,1
+35,Female,cardiac disease,strength,6,60-75,White,163,0,0,1,3,0,7,1,1
+60,Non-Binary,back pain,strength,3,105-120,White,112,0,0,0,1,0,2,0,4
+56,Prefer not to say,none,flexibility,6,90-105,Other,187,0,0,0,4,1,9,1,4
+58,Female,Alzheimer’s,strength,3,75-90,Hispanic,90,1,0,1,1,1,1,1,1
+50,Female,spondylitis,cardio,5,45-60,Hispanic,209,0,0,1,3,1,5,0,2
+56,Female,kidney disease,flexibility,7,60-75,Hispanic,198,0,1,1,1,1,4,0,2
+55,Non-Binary,COPD,strength,5,45-60,White,196,1,1,0,3,1,8,0,2
+20,Male,kidney disease,strength,3,105-120,Black,195,0,1,0,3,0,5,0,1
+38,Female,stroke,flexibility,4,105-120,Black,181,0,0,1,3,0,5,0,4
+79,Female,diabetes,strength,5,60-75,Black,181,0,1,1,2,1,6,0,4
+31,Prefer not to say,diabetes,strength,7,45-60,Asian,96,0,0,1,2,0,9,0,2
+53,Non-Binary,back pain,strength,4,75-90,White,182,0,0,1,0,1,6,0,1
+53,Prefer not to say,obesity,cardio,5,105-120,Hispanic,166,1,1,0,0,1,4,0,2
+53,Non-Binary,COPD,strength,5,90-105,Asian,145,1,0,0,2,1,3,0,4
+71,Prefer not to say,COPD,strength,6,60-75,White,187,1,0,0,0,0,1,1,3
+66,Prefer not to say,stroke,flexibility,7,45-60,White,115,1,1,0,0,0,2,0,2
+61,Male,back pain,cardio,5,45-60,Hispanic,161,0,0,0,0,0,2,0,3
+69,Female,obesity,cardio,7,105-120,Other,182,0,1,0,3,0,5,0,3
+61,Prefer not to say,hypertension,cardio,3,75-90,Asian,172,1,0,1,0,1,7,0,1
+55,Non-Binary,back pain,strength,6,105-120,Other,167,1,0,1,3,0,10,0,1
+25,Female,diabetes,strength,4,105-120,Black,166,0,1,0,1,0,5,1,2
+74,Prefer not to say,stroke,strength,5,90-105,Black,196,0,1,1,1,1,10,1,4
+67,Male,spondylitis,cardio,5,75-90,Black,197,0,1,0,0,1,10,1,1
+80,Prefer not to say,hypertension,flexibility,7,30-45,White,142,0,0,1,0,0,10,0,1
+78,Prefer not to say,kidney disease,flexibility,5,90-105,White,137,1,1,1,0,0,3,0,1
+61,Female,Alzheimer’s,flexibility,3,90-105,White,208,0,1,1,3,1,6,1,4
+46,Male,high cholesterol,strength,7,75-90,Asian,166,1,1,0,4,1,9,0,2
+67,Male,none,strength,7,90-105,Hispanic,182,0,1,0,0,0,8,1,1
+30,Female,Alzheimer’s,flexibility,7,30-45,Other,115,1,1,1,1,1,1,1,2
+63,Male,none,strength,7,30-45,White,194,0,1,1,0,1,4,1,3
+61,Male,obesity,flexibility,3,105-120,Asian,108,1,1,1,1,1,9,1,4
+63,Prefer not to say,cardiac disease,strength,6,90-105,Hispanic,131,1,1,1,0,1,10,1,2
+68,Prefer not to say,COPD,strength,5,75-90,White,104,0,0,1,4,1,6,1,3
+68,Male,stroke,cardio,5,75-90,White,147,0,1,0,0,0,9,1,3
+35,Prefer not to say,kidney disease,strength,4,105-120,Asian,135,0,1,0,0,1,2,0,3
+25,Male,stroke,cardio,7,45-60,Hispanic,205,0,0,1,0,0,1,1,1
+45,Non-Binary,diabetes,cardio,4,105-120,Asian,93,1,0,0,4,0,2,0,3
+19,Prefer not to say,osteoarthritis,flexibility,5,75-90,Asian,152,0,1,1,3,1,6,1,1
+55,Prefer not to say,COPD,cardio,5,60-75,Hispanic,123,1,1,1,1,0,9,1,2
+55,Female,COPD,flexibility,7,30-45,Hispanic,199,0,0,0,2,1,8,0,3
+51,Prefer not to say,none,flexibility,6,45-60,White,111,1,0,1,4,0,10,1,2
+58,Male,obesity,strength,6,30-45,Asian,146,1,1,0,0,1,2,1,2
+47,Prefer not to say,obesity,cardio,7,90-105,Other,124,0,1,0,0,1,3,0,4
+47,Non-Binary,none,flexibility,6,90-105,Hispanic,115,0,1,0,4,1,9,1,3
+61,Female,hypertension,strength,3,105-120,Other,142,1,0,1,4,1,9,1,1
+49,Non-Binary,stroke,cardio,3,105-120,White,171,0,0,0,1,0,10,1,2
+44,Prefer not to say,Alzheimer’s,strength,5,60-75,Other,138,0,1,1,1,0,9,1,4
+20,Prefer not to say,stroke,strength,6,60-75,White,113,1,0,0,0,0,8,0,4
+32,Prefer not to say,back pain,cardio,7,45-60,Asian,183,1,1,1,4,0,7,1,3
+18,Non-Binary,kidney disease,cardio,3,105-120,Asian,91,0,0,1,0,0,3,1,1
+59,Male,diabetes,strength,4,105-120,Black,160,0,1,0,3,0,9,0,4
+69,Male,cardiac disease,cardio,7,60-75,White,134,0,1,1,1,1,1,0,2
+48,Male,osteoarthritis,cardio,4,75-90,Asian,180,1,1,0,3,0,4,1,1
+43,Non-Binary,COPD,flexibility,3,90-105,Asian,206,1,1,1,1,1,9,1,1
+38,Male,stroke,flexibility,6,75-90,Asian,92,0,0,1,1,0,5,1,2
+55,Female,Alzheimer’s,strength,6,30-45,Other,159,1,1,0,0,1,6,1,3
+78,Prefer not to say,cardiac disease,cardio,5,60-75,Hispanic,110,0,0,1,4,0,4,0,4
+32,Male,high cholesterol,strength,4,60-75,Asian,188,1,0,1,4,1,6,0,3
+22,Male,Alzheimer’s,strength,4,60-75,Other,187,0,0,1,0,0,4,0,2
+79,Male,COPD,cardio,5,45-60,Asian,116,1,0,1,0,0,6,0,1
+75,Prefer not to say,back pain,cardio,3,105-120,Hispanic,113,1,1,1,1,0,4,1,1
+53,Female,back pain,flexibility,3,105-120,Hispanic,139,0,1,0,0,1,7,0,3
+42,Female,diabetes,strength,7,30-45,Hispanic,95,1,0,1,2,1,3,0,4
+35,Prefer not to say,high cholesterol,cardio,3,90-105,Hispanic,128,0,0,1,0,0,6,1,3
+44,Non-Binary,back pain,flexibility,7,45-60,Other,150,0,0,1,2,1,9,1,4
+44,Male,back pain,cardio,3,105-120,Hispanic,207,0,1,0,1,1,3,1,1
+59,Prefer not to say,high cholesterol,strength,7,90-105,Black,90,0,0,0,2,0,3,0,4
+71,Prefer not to say,Alzheimer’s,flexibility,4,75-90,White,161,0,0,1,2,0,7,1,4
+64,Non-Binary,kidney disease,strength,4,75-90,White,124,0,0,1,3,0,4,1,1
+48,Male,spondylitis,cardio,7,60-75,White,143,1,1,0,3,0,1,0,2
+48,Prefer not to say,cardiac disease,flexibility,4,105-120,Black,161,1,0,1,0,0,9,0,4
+44,Non-Binary,osteoarthritis,strength,6,90-105,Hispanic,126,1,1,0,2,1,5,1,2
+79,Non-Binary,cardiac disease,strength,7,45-60,Hispanic,101,0,0,0,3,1,9,0,4
+63,Non-Binary,obesity,cardio,4,75-90,Hispanic,166,0,1,1,4,1,4,1,1
+42,Non-Binary,none,strength,4,60-75,Black,164,0,0,0,4,1,8,1,3
+67,Male,high cholesterol,flexibility,3,75-90,Hispanic,160,1,0,0,3,1,8,0,4
+66,Prefer not to say,Alzheimer’s,cardio,6,90-105,Black,193,0,1,0,2,1,2,1,2
+51,Male,Alzheimer’s,flexibility,5,45-60,White,131,1,0,0,4,0,6,1,4
+52,Prefer not to say,osteoarthritis,flexibility,4,105-120,Hispanic,126,0,0,0,4,0,4,1,2
+63,Female,high cholesterol,strength,6,105-120,Hispanic,103,0,0,1,1,1,1,0,4
+51,Female,high cholesterol,strength,4,90-105,Hispanic,154,1,0,1,1,0,6,1,3
+78,Non-Binary,none,flexibility,6,60-75,White,132,0,0,1,4,0,7,0,1
+30,Prefer not to say,spondylitis,flexibility,4,75-90,Asian,106,1,1,1,3,0,10,1,3
+40,Male,osteoarthritis,strength,7,60-75,Hispanic,190,0,0,1,1,1,2,0,4
+19,Male,spondylitis,cardio,7,45-60,Hispanic,110,1,1,1,4,0,7,1,2
+55,Male,diabetes,flexibility,4,60-75,Asian,157,0,0,0,1,1,4,0,1
+34,Prefer not to say,osteoarthritis,strength,3,105-120,Black,196,0,1,0,2,0,1,0,2
+66,Male,osteoarthritis,cardio,5,105-120,Asian,196,1,0,0,4,0,10,1,1
+46,Prefer not to say,high cholesterol,strength,7,30-45,Asian,114,1,1,1,0,0,1,0,4
+62,Non-Binary,hypertension,flexibility,7,45-60,Hispanic,134,0,0,1,4,1,1,1,3
+66,Non-Binary,osteoarthritis,flexibility,6,75-90,Hispanic,167,1,1,0,4,1,9,1,2
+27,Non-Binary,diabetes,strength,7,60-75,Hispanic,128,1,1,0,3,1,9,0,2
+24,Male,stroke,strength,4,105-120,Asian,165,1,1,1,2,1,9,1,4
+55,Female,spondylitis,cardio,6,75-90,Hispanic,207,1,0,0,4,1,4,0,4
+80,Male,COPD,strength,5,60-75,Asian,192,0,1,1,1,1,3,0,4
+45,Non-Binary,osteoarthritis,flexibility,6,105-120,White,132,1,0,0,0,1,8,0,1
+38,Female,kidney disease,strength,4,90-105,White,208,0,1,1,4,1,2,0,1
+52,Non-Binary,stroke,cardio,4,75-90,Black,153,1,1,0,2,1,6,0,2
+35,Male,Alzheimer’s,flexibility,4,105-120,Other,140,0,0,1,0,1,4,0,2
+41,Female,hypertension,cardio,4,105-120,Hispanic,127,1,0,1,3,0,5,1,2
+28,Female,back pain,strength,3,75-90,Hispanic,187,1,1,0,3,1,3,1,1
+20,Female,none,flexibility,7,45-60,Asian,125,1,1,1,1,1,10,1,2
+79,Prefer not to say,COPD,strength,7,60-75,Black,124,0,0,0,2,1,7,1,4
+68,Male,back pain,cardio,4,90-105,White,177,0,0,1,4,0,7,0,1
+36,Male,back pain,strength,5,90-105,Black,141,0,0,0,4,1,7,1,2
+35,Non-Binary,back pain,flexibility,5,75-90,Hispanic,158,0,0,0,3,0,10,1,2
+71,Male,obesity,strength,6,60-75,Hispanic,108,0,0,1,1,1,6,0,1
+79,Female,high cholesterol,cardio,3,90-105,Black,190,0,1,0,0,0,7,1,3
+63,Prefer not to say,hypertension,flexibility,6,45-60,Asian,137,0,0,1,3,0,7,1,4
+20,Male,diabetes,flexibility,7,75-90,Asian,161,0,1,1,0,0,2,0,2
+74,Prefer not to say,high cholesterol,cardio,7,90-105,Other,125,0,1,1,1,0,3,0,3
+31,Male,Alzheimer’s,flexibility,4,60-75,Hispanic,146,0,1,1,3,0,3,1,4
+61,Prefer not to say,high cholesterol,cardio,5,75-90,Black,174,0,1,1,2,0,4,0,2
+75,Prefer not to say,COPD,strength,7,45-60,Asian,125,0,0,0,4,1,7,1,2
+20,Non-Binary,obesity,strength,4,75-90,Other,107,1,0,0,3,1,5,1,2
+38,Non-Binary,diabetes,flexibility,5,45-60,Hispanic,203,0,0,0,2,0,10,1,3
+71,Non-Binary,obesity,strength,5,45-60,Other,140,0,0,1,0,0,1,0,1
+42,Non-Binary,spondylitis,cardio,3,105-120,White,176,1,1,0,2,0,1,0,1
+67,Prefer not to say,high cholesterol,strength,7,105-120,Other,125,1,1,1,3,1,1,1,4
+60,Prefer not to say,Alzheimer’s,strength,6,105-120,Other,141,1,1,0,4,0,5,1,4
+26,Prefer not to say,back pain,cardio,4,105-120,Black,185,1,1,0,4,1,8,0,1
+23,Male,cardiac disease,strength,3,90-105,White,137,1,1,1,4,1,8,0,3
+74,Prefer not to say,high cholesterol,strength,3,105-120,Other,165,0,1,1,3,0,9,0,4
+34,Non-Binary,diabetes,flexibility,3,90-105,Black,106,0,1,1,4,0,4,1,2
+77,Prefer not to say,back pain,strength,5,45-60,Hispanic,131,0,1,1,4,0,6,1,3
+45,Female,COPD,flexibility,5,90-105,Hispanic,120,1,0,1,1,0,8,0,2
+71,Male,spondylitis,cardio,4,90-105,Black,153,0,1,0,2,1,2,0,4
+75,Female,high cholesterol,flexibility,6,45-60,Black,125,0,0,0,0,1,3,1,4
+26,Non-Binary,kidney disease,strength,5,90-105,Hispanic,184,0,1,0,2,1,10,0,3
+66,Prefer not to say,hypertension,flexibility,7,90-105,Asian,144,0,1,0,3,1,9,0,3
+35,Female,diabetes,cardio,4,75-90,Hispanic,95,1,0,1,3,0,9,1,4
+37,Prefer not to say,cardiac disease,flexibility,5,105-120,White,131,1,0,0,3,1,3,0,1
+58,Male,kidney disease,flexibility,4,105-120,Hispanic,147,1,1,1,3,0,2,0,1
+45,Non-Binary,cardiac disease,strength,4,60-75,Black,149,1,1,0,4,1,8,0,4
+31,Female,none,flexibility,4,90-105,Hispanic,190,0,0,0,2,0,8,0,4
+54,Female,obesity,strength,7,105-120,Black,165,1,1,1,3,1,5,1,1
+58,Male,COPD,flexibility,7,75-90,White,95,0,1,0,0,0,6,1,1
+65,Non-Binary,diabetes,cardio,5,105-120,Hispanic,186,1,1,0,3,1,9,0,1
+40,Prefer not to say,spondylitis,cardio,7,60-75,Asian,205,0,0,1,3,0,7,1,2
+54,Prefer not to say,osteoarthritis,cardio,3,90-105,Hispanic,92,1,0,1,2,0,1,0,4
+54,Prefer not to say,cardiac disease,cardio,4,60-75,Black,153,1,0,0,0,1,1,0,4
+66,Female,COPD,strength,7,45-60,White,203,0,0,0,4,0,5,1,2
+51,Prefer not to say,high cholesterol,strength,6,75-90,Black,99,1,0,1,2,1,1,1,2
+73,Prefer not to say,cardiac disease,flexibility,5,105-120,Other,191,0,1,1,2,0,1,0,1
+51,Female,back pain,cardio,7,30-45,Other,190,0,0,1,2,1,10,0,1
+33,Female,obesity,flexibility,3,75-90,Asian,190,1,0,1,0,0,3,0,4
+36,Non-Binary,none,flexibility,5,105-120,White,163,0,1,0,0,0,2,0,1
+41,Prefer not to say,COPD,flexibility,4,105-120,White,133,0,0,0,3,0,9,0,1
+45,Male,kidney disease,strength,3,90-105,Other,111,1,1,1,0,1,7,0,4
+46,Male,cardiac disease,strength,7,90-105,Other,175,1,0,0,3,0,5,0,4
+21,Non-Binary,diabetes,cardio,4,60-75,Asian,209,1,1,0,4,1,7,1,2
+33,Female,kidney disease,flexibility,6,90-105,White,207,0,1,1,2,0,4,0,2
+64,Female,none,flexibility,3,90-105,Hispanic,166,0,0,1,3,0,10,1,2
+39,Prefer not to say,obesity,cardio,4,60-75,Black,144,1,1,0,3,0,7,1,4
+61,Female,kidney disease,flexibility,7,60-75,Asian,209,1,1,0,2,1,1,0,1
+80,Prefer not to say,hypertension,strength,3,90-105,Black,95,0,1,0,4,1,8,0,1
+61,Female,COPD,strength,6,60-75,Black,93,1,1,1,0,1,2,0,4
+68,Prefer not to say,high cholesterol,cardio,5,45-60,Black,200,0,0,0,1,1,3,1,3
+51,Prefer not to say,spondylitis,cardio,4,60-75,Asian,180,1,0,1,4,1,1,0,1
+79,Female,COPD,strength,6,105-120,Other,179,0,1,1,0,1,4,1,4
+55,Male,stroke,cardio,7,45-60,Other,101,0,0,0,1,0,1,0,3
+40,Non-Binary,cardiac disease,strength,3,90-105,Other,203,0,0,1,2,1,10,0,4
+51,Non-Binary,hypertension,cardio,3,105-120,Asian,190,1,1,0,0,0,5,1,3
+75,Male,high cholesterol,cardio,7,105-120,Asian,210,0,1,1,3,0,10,1,3
+39,Non-Binary,diabetes,cardio,4,90-105,Asian,132,0,1,1,4,1,2,0,1
+76,Non-Binary,COPD,cardio,3,105-120,Black,149,1,1,0,0,1,9,0,3
+35,Female,COPD,cardio,3,90-105,Asian,207,0,0,1,4,1,10,0,2
+21,Non-Binary,osteoarthritis,strength,6,105-120,Black,181,1,0,0,3,0,10,1,2
+66,Prefer not to say,hypertension,cardio,4,90-105,Black,195,0,1,1,0,0,2,1,2
+77,Female,stroke,strength,7,105-120,Other,158,0,1,0,2,1,6,0,2
+31,Female,diabetes,cardio,4,75-90,Black,121,0,0,0,3,1,3,0,2
+64,Female,high cholesterol,flexibility,4,90-105,Other,137,1,0,0,3,1,2,0,3
+31,Female,cardiac disease,flexibility,5,60-75,Asian,174,0,0,1,3,1,10,1,1
+37,Non-Binary,kidney disease,cardio,5,105-120,Hispanic,136,1,1,0,2,0,10,0,2
+43,Non-Binary,obesity,cardio,6,30-45,Asian,126,1,0,1,3,1,6,1,1
+78,Prefer not to say,diabetes,flexibility,6,105-120,Asian,159,0,0,1,0,1,8,1,3
+64,Male,COPD,strength,3,75-90,Other,97,1,1,1,2,0,4,0,1
+61,Prefer not to say,hypertension,flexibility,6,45-60,Hispanic,110,1,1,0,1,0,3,1,3
+77,Non-Binary,Alzheimer’s,cardio,3,105-120,Hispanic,203,0,1,1,1,0,4,0,1
+80,Female,Alzheimer’s,cardio,3,105-120,Hispanic,153,0,1,1,1,1,7,1,4
+64,Non-Binary,cardiac disease,strength,7,30-45,Hispanic,136,0,1,1,2,0,8,1,2
+36,Male,spondylitis,flexibility,5,60-75,Hispanic,134,1,0,0,1,0,1,0,1
+66,Prefer not to say,none,flexibility,5,90-105,Black,90,1,0,1,3,0,3,1,4
+54,Male,high cholesterol,cardio,5,105-120,White,204,0,0,0,2,0,7,0,2
+42,Male,spondylitis,cardio,7,45-60,Black,201,1,1,0,2,0,1,0,2
+69,Prefer not to say,obesity,strength,5,60-75,White,190,1,1,1,2,0,4,1,3
+58,Male,kidney disease,strength,4,60-75,White,120,0,1,1,2,1,3,0,1
+29,Non-Binary,COPD,strength,5,90-105,Hispanic,123,1,0,0,1,0,2,0,4
+43,Male,spondylitis,flexibility,3,105-120,White,209,0,1,0,4,1,8,0,1
+41,Male,stroke,flexibility,4,60-75,White,132,0,1,1,4,0,9,1,3
+57,Non-Binary,obesity,flexibility,6,75-90,White,194,0,0,1,2,1,7,0,4
+73,Prefer not to say,stroke,cardio,5,45-60,White,102,1,0,0,2,1,3,0,3
+23,Male,none,cardio,5,45-60,Black,159,0,0,1,4,0,3,1,3
+50,Non-Binary,obesity,cardio,7,30-45,Black,177,1,0,1,0,0,9,1,3
+54,Female,none,cardio,7,75-90,Hispanic,144,1,1,1,4,1,3,0,3
+55,Non-Binary,stroke,flexibility,7,75-90,Hispanic,138,0,0,0,2,1,10,1,4
+64,Male,COPD,cardio,4,90-105,Other,190,0,1,1,4,0,1,0,1
+18,Female,obesity,strength,7,60-75,Hispanic,148,1,1,1,0,1,10,1,3
+68,Male,hypertension,cardio,7,60-75,Hispanic,110,1,1,0,0,1,7,1,4
+35,Prefer not to say,kidney disease,strength,6,105-120,White,195,0,0,0,3,0,9,0,3
+42,Male,obesity,cardio,4,75-90,Hispanic,136,0,0,0,0,1,1,0,3
+37,Non-Binary,cardiac disease,cardio,6,75-90,Other,152,0,0,1,0,1,4,0,4
+26,Prefer not to say,hypertension,flexibility,6,105-120,White,194,0,0,1,2,0,9,0,2
+78,Female,cardiac disease,flexibility,6,75-90,Hispanic,132,1,0,0,3,1,2,0,3
+29,Male,stroke,cardio,6,60-75,White,142,0,0,1,2,1,1,0,1
+28,Female,COPD,strength,6,60-75,Asian,146,0,0,0,0,0,3,1,3
+69,Prefer not to say,kidney disease,strength,4,90-105,Hispanic,200,1,1,1,1,0,1,0,2
+43,Prefer not to say,hypertension,flexibility,7,30-45,Asian,162,0,0,1,4,1,2,1,1
+66,Non-Binary,back pain,cardio,5,90-105,Other,176,1,1,0,0,0,3,0,4
+35,Female,cardiac disease,flexibility,3,90-105,Black,158,0,0,1,2,0,4,0,2
+49,Non-Binary,high cholesterol,flexibility,3,90-105,Asian,155,0,1,0,4,1,3,0,2
+36,Male,stroke,flexibility,3,90-105,Black,195,0,0,0,0,1,5,0,3
+69,Non-Binary,COPD,strength,5,105-120,Hispanic,145,0,0,0,1,0,2,0,3
+31,Prefer not to say,diabetes,strength,6,45-60,White,125,0,0,0,1,0,10,0,4
+45,Prefer not to say,Alzheimer’s,strength,4,75-90,Hispanic,208,0,1,0,2,1,3,0,1
+78,Male,osteoarthritis,cardio,6,90-105,Asian,118,0,0,0,2,0,8,1,3
+57,Non-Binary,Alzheimer’s,flexibility,5,45-60,White,96,0,1,1,1,0,3,0,1
+73,Male,Alzheimer’s,strength,7,105-120,Black,156,0,1,1,1,1,6,0,2
+43,Male,diabetes,strength,7,105-120,Black,170,1,0,1,1,1,8,0,1
+42,Female,none,strength,6,90-105,Black,135,0,0,1,0,1,10,0,1
+44,Prefer not to say,hypertension,flexibility,6,60-75,White,101,0,1,0,0,1,2,1,1
+43,Prefer not to say,cardiac disease,flexibility,3,90-105,Asian,162,0,1,0,3,0,9,0,4
+50,Female,stroke,flexibility,4,90-105,Asian,96,0,1,0,0,1,1,1,2
+75,Male,COPD,strength,4,75-90,Asian,165,1,1,1,2,1,6,0,1
+61,Prefer not to say,none,strength,7,60-75,Hispanic,110,0,0,1,2,1,4,0,1
+62,Non-Binary,none,cardio,6,75-90,Other,102,1,0,1,3,0,7,1,1
+56,Male,high cholesterol,flexibility,6,90-105,Black,105,1,1,0,3,1,4,1,4
+52,Female,Alzheimer’s,strength,5,45-60,Hispanic,184,0,0,1,2,0,1,1,4
+40,Non-Binary,COPD,cardio,4,60-75,White,157,1,0,0,1,1,5,0,4
+40,Female,kidney disease,cardio,7,45-60,Hispanic,128,0,1,1,3,0,6,0,1
+70,Male,high cholesterol,cardio,4,90-105,Hispanic,177,1,1,1,1,0,10,0,2
+38,Prefer not to say,obesity,cardio,4,60-75,White,98,0,1,1,4,0,9,0,3
+57,Prefer not to say,diabetes,cardio,5,45-60,Hispanic,129,0,1,0,2,1,8,1,4
+43,Female,high cholesterol,flexibility,3,105-120,Black,192,0,1,1,1,1,10,1,2
+35,Male,kidney disease,flexibility,6,105-120,Other,139,1,0,1,1,1,10,1,4
+27,Prefer not to say,stroke,cardio,5,45-60,Asian,197,1,0,1,4,1,4,1,3
+42,Prefer not to say,none,cardio,7,75-90,Hispanic,96,1,1,1,3,1,7,0,3
+74,Female,obesity,cardio,5,60-75,Asian,109,1,1,0,0,0,6,1,1
+49,Prefer not to say,obesity,cardio,6,45-60,Asian,155,1,0,1,0,1,5,0,3
+78,Male,COPD,strength,4,105-120,Other,148,0,1,0,1,0,2,0,3
+26,Prefer not to say,cardiac disease,cardio,3,90-105,Asian,177,1,1,0,0,0,2,0,2
+72,Female,none,flexibility,6,60-75,Asian,114,0,0,0,0,0,10,1,4
+47,Male,high cholesterol,strength,7,105-120,Asian,178,0,1,0,2,1,1,0,4
+33,Non-Binary,osteoarthritis,cardio,4,75-90,Other,156,1,0,1,2,0,8,1,3
+30,Prefer not to say,back pain,flexibility,7,105-120,Asian,186,1,0,1,2,1,3,1,2
+67,Female,obesity,cardio,5,105-120,Asian,123,0,0,1,2,1,6,1,2
+70,Prefer not to say,diabetes,cardio,4,60-75,Other,157,0,0,0,2,0,3,1,1
+73,Non-Binary,osteoarthritis,flexibility,3,90-105,Asian,137,1,0,1,1,1,10,1,1
+21,Female,none,flexibility,6,60-75,Other,146,1,0,1,3,0,3,1,1
+70,Non-Binary,back pain,cardio,3,105-120,Hispanic,123,0,0,0,1,1,3,0,4
+65,Male,COPD,strength,4,60-75,Black,109,1,1,1,0,0,4,1,2
+28,Male,hypertension,flexibility,7,45-60,Other,183,0,0,0,1,0,4,1,3
+46,Male,osteoarthritis,strength,4,60-75,White,97,1,0,0,1,0,4,0,2
+69,Prefer not to say,diabetes,flexibility,7,30-45,Hispanic,188,1,1,1,0,0,4,1,3
+78,Female,osteoarthritis,flexibility,7,75-90,White,205,0,0,1,3,0,7,0,1
+60,Prefer not to say,kidney disease,cardio,5,60-75,Black,135,1,0,1,1,0,3,1,3
+79,Prefer not to say,diabetes,strength,4,60-75,Other,170,0,0,0,2,1,4,1,3
+62,Prefer not to say,high cholesterol,strength,5,45-60,Black,208,0,0,0,2,0,4,0,4
+63,Non-Binary,diabetes,flexibility,7,90-105,White,187,1,0,1,4,0,9,1,4
+42,Female,high cholesterol,flexibility,6,90-105,Other,191,0,0,1,0,0,1,0,2
+77,Female,COPD,strength,7,30-45,Hispanic,163,0,0,0,3,0,7,1,4
+80,Male,high cholesterol,cardio,6,90-105,Asian,187,0,1,1,0,1,4,1,2
+32,Male,spondylitis,cardio,5,75-90,Hispanic,121,1,1,0,0,1,10,1,2
+79,Non-Binary,cardiac disease,strength,5,105-120,Asian,170,0,1,1,0,1,5,0,3
+29,Non-Binary,high cholesterol,cardio,3,90-105,Black,206,0,1,0,3,1,2,1,2
+25,Male,obesity,strength,4,60-75,Other,98,0,1,0,2,1,8,1,3
+46,Non-Binary,high cholesterol,flexibility,6,105-120,White,128,1,1,0,4,0,1,1,2
+79,Male,COPD,cardio,7,75-90,Black,153,0,0,1,1,0,2,1,2
+46,Prefer not to say,cardiac disease,flexibility,4,75-90,Other,184,1,1,1,1,1,6,0,2
+71,Non-Binary,none,strength,5,105-120,Other,101,1,1,0,4,0,4,1,3
+46,Female,none,strength,3,90-105,Other,115,0,1,0,2,0,6,1,3
+33,Prefer not to say,obesity,flexibility,6,90-105,Black,182,0,0,0,0,1,7,1,2
+20,Non-Binary,none,flexibility,5,75-90,White,139,0,1,1,2,0,1,0,4
+71,Non-Binary,Alzheimer’s,strength,7,30-45,Hispanic,167,1,0,0,1,0,3,0,3
+80,Male,cardiac disease,cardio,3,75-90,Other,93,1,0,0,1,1,7,1,2
+79,Female,hypertension,flexibility,6,45-60,White,179,0,0,1,0,1,3,1,3
+61,Male,osteoarthritis,strength,4,75-90,White,184,0,1,0,2,0,5,1,4
+43,Male,hypertension,cardio,3,90-105,Other,144,1,1,0,1,0,2,0,1
+62,Prefer not to say,cardiac disease,cardio,7,75-90,White,101,0,1,1,0,0,9,0,1
+61,Female,cardiac disease,flexibility,5,75-90,White,177,1,0,1,2,0,5,0,3
+80,Female,diabetes,strength,6,45-60,Black,117,1,0,0,4,0,1,0,2
+61,Non-Binary,back pain,flexibility,7,60-75,Hispanic,205,1,1,1,2,0,7,1,1
+33,Female,high cholesterol,cardio,3,75-90,Hispanic,120,1,0,1,0,1,5,0,3
+57,Non-Binary,obesity,cardio,4,90-105,Other,168,1,1,0,1,0,9,1,3
+28,Prefer not to say,kidney disease,cardio,4,105-120,Asian,115,1,0,1,2,1,7,0,2
+61,Non-Binary,Alzheimer’s,cardio,3,105-120,Black,166,0,1,1,0,1,5,1,3
+32,Prefer not to say,obesity,strength,4,90-105,Black,180,0,1,0,0,0,7,1,1
+20,Prefer not to say,osteoarthritis,cardio,6,90-105,White,105,0,1,1,4,0,1,0,4
+59,Female,Alzheimer’s,flexibility,4,60-75,Hispanic,203,0,0,0,0,0,10,0,1
+56,Non-Binary,COPD,cardio,5,105-120,Hispanic,196,1,1,0,0,0,4,0,3
+71,Non-Binary,back pain,strength,4,75-90,Other,129,1,1,0,2,1,10,0,3
+40,Non-Binary,cardiac disease,strength,5,60-75,Hispanic,123,0,0,1,3,0,8,1,4
+80,Non-Binary,kidney disease,cardio,3,105-120,White,117,0,1,0,1,0,1,0,4
+31,Prefer not to say,spondylitis,cardio,5,45-60,Black,180,1,0,1,2,0,4,1,2
+30,Prefer not to say,obesity,flexibility,4,90-105,Hispanic,96,0,0,0,0,1,2,1,2
+43,Male,kidney disease,strength,7,75-90,Other,156,1,1,1,0,0,5,1,3
+71,Male,COPD,flexibility,7,75-90,Other,133,1,0,0,4,0,9,0,4
+50,Non-Binary,COPD,cardio,7,90-105,White,156,1,0,1,4,0,7,0,2
+31,Non-Binary,stroke,flexibility,4,75-90,Other,200,0,0,0,0,1,8,0,4
+61,Non-Binary,none,strength,4,105-120,White,96,1,0,0,4,0,1,1,1
+38,Prefer not to say,cardiac disease,strength,6,105-120,White,109,1,0,1,3,1,8,0,3
+42,Female,obesity,cardio,3,90-105,Black,144,1,0,0,3,0,4,0,4
+32,Prefer not to say,COPD,strength,4,105-120,White,201,1,1,1,4,0,6,0,2
+79,Prefer not to say,none,cardio,4,60-75,Hispanic,91,1,1,1,4,1,7,0,2
+68,Male,hypertension,strength,6,90-105,Other,180,1,1,1,2,0,1,0,1
+37,Male,COPD,flexibility,4,60-75,Asian,106,1,0,0,1,0,3,1,3
+60,Female,Alzheimer’s,cardio,5,45-60,Other,143,0,0,1,3,0,6,1,2
+75,Female,cardiac disease,cardio,7,75-90,Black,105,1,1,1,4,0,2,0,2
+72,Prefer not to say,obesity,flexibility,4,90-105,White,170,1,1,1,0,0,4,1,1
+54,Female,back pain,cardio,5,60-75,Black,111,0,0,1,1,1,4,0,4
+22,Male,stroke,strength,5,75-90,Hispanic,183,0,0,1,2,1,2,0,2
+70,Male,none,strength,7,45-60,Black,100,0,0,1,1,1,2,1,2
+80,Prefer not to say,osteoarthritis,cardio,7,105-120,Hispanic,196,0,0,1,4,0,4,0,3
+53,Non-Binary,kidney disease,strength,4,60-75,White,109,0,0,0,2,1,4,1,3
+26,Prefer not to say,cardiac disease,cardio,5,45-60,Asian,127,0,1,0,4,0,4,0,1
+57,Male,obesity,strength,4,105-120,Other,132,1,1,1,2,1,10,0,3
+59,Male,osteoarthritis,flexibility,3,105-120,Black,140,0,1,1,0,0,10,0,4
+18,Female,high cholesterol,cardio,4,105-120,Asian,92,1,0,1,3,1,4,0,2
+62,Prefer not to say,hypertension,flexibility,6,60-75,White,103,1,0,1,4,1,10,1,3
+77,Male,spondylitis,flexibility,5,90-105,Asian,197,0,1,1,2,1,6,0,1
+30,Female,back pain,cardio,7,90-105,Hispanic,110,1,0,1,3,1,6,1,1
+28,Male,stroke,cardio,4,105-120,Other,93,1,1,0,2,0,6,1,2
+29,Non-Binary,hypertension,strength,4,75-90,Other,121,0,1,0,4,0,4,1,2
+39,Prefer not to say,back pain,flexibility,7,60-75,Black,127,0,1,1,2,1,4,1,3
+68,Prefer not to say,kidney disease,cardio,5,45-60,Other,206,1,1,0,3,0,3,0,2
+53,Female,stroke,flexibility,6,90-105,Other,207,1,1,1,4,1,2,0,4
+36,Non-Binary,spondylitis,cardio,4,60-75,Hispanic,167,1,1,0,0,0,6,0,1
+71,Prefer not to say,hypertension,strength,5,60-75,Hispanic,105,0,1,1,3,0,5,1,4
+80,Male,diabetes,flexibility,7,90-105,Other,102,1,0,1,2,0,9,0,2
+48,Female,cardiac disease,flexibility,7,45-60,Hispanic,141,0,1,1,1,1,3,0,3
+52,Male,Alzheimer’s,flexibility,7,30-45,Asian,90,0,1,1,0,1,1,1,1
+49,Non-Binary,high cholesterol,cardio,7,90-105,Asian,197,0,0,0,3,0,3,0,2
+69,Male,cardiac disease,flexibility,4,75-90,White,117,1,1,1,3,1,4,1,3
+65,Female,COPD,strength,3,105-120,Hispanic,126,1,1,0,1,1,10,1,1
+65,Non-Binary,diabetes,cardio,3,75-90,Other,92,1,0,0,0,1,3,1,2
+73,Non-Binary,obesity,strength,7,30-45,White,123,0,0,0,4,1,1,0,4
+76,Male,obesity,flexibility,3,90-105,Other,195,1,1,1,1,1,10,0,3
+67,Prefer not to say,cardiac disease,strength,4,105-120,Black,208,0,0,0,2,1,4,0,3
+69,Prefer not to say,obesity,strength,5,105-120,White,158,1,0,1,0,0,9,1,3
+51,Male,spondylitis,cardio,6,30-45,Hispanic,100,1,1,0,4,1,1,1,1
+78,Non-Binary,Alzheimer’s,strength,5,105-120,Black,207,1,0,1,2,1,2,0,1
+73,Prefer not to say,back pain,flexibility,4,105-120,Hispanic,168,1,1,0,2,1,10,1,2
+47,Female,Alzheimer’s,cardio,3,90-105,Other,189,0,1,1,2,0,4,1,1
+43,Female,kidney disease,flexibility,3,105-120,Black,182,0,0,1,1,1,1,1,4
+32,Female,kidney disease,flexibility,4,60-75,White,106,0,1,1,1,0,10,0,2
+34,Male,Alzheimer’s,strength,6,60-75,Asian,200,0,0,0,2,0,5,1,2
+66,Female,kidney disease,cardio,4,60-75,Asian,113,0,0,0,0,1,9,1,1
+59,Male,spondylitis,flexibility,4,75-90,White,126,1,0,1,0,0,3,1,2
+56,Female,kidney disease,cardio,3,105-120,Other,141,1,1,1,4,0,8,1,3
+63,Female,spondylitis,flexibility,4,90-105,Other,158,1,1,0,3,0,6,1,2
+22,Female,obesity,cardio,6,30-45,Black,165,1,1,1,2,0,4,0,2
+39,Prefer not to say,obesity,cardio,4,90-105,Hispanic,151,1,0,0,0,1,3,1,2
+46,Female,COPD,strength,3,105-120,Black,124,0,1,0,2,1,8,1,1
+30,Non-Binary,diabetes,strength,6,45-60,Asian,150,1,0,0,4,1,10,0,2
+75,Prefer not to say,osteoarthritis,cardio,6,45-60,Other,199,1,1,0,1,0,2,0,1
+69,Female,none,strength,4,60-75,White,91,1,1,1,2,1,8,1,2
+22,Female,COPD,flexibility,7,105-120,Asian,91,1,1,0,1,0,4,0,2
+35,Prefer not to say,spondylitis,strength,4,105-120,Black,166,0,1,1,1,1,1,0,3
+80,Male,back pain,cardio,7,30-45,Other,129,0,0,1,3,0,6,0,2
+54,Male,diabetes,flexibility,7,45-60,White,176,0,0,0,4,1,9,0,1
+64,Female,COPD,strength,5,45-60,Black,190,1,1,1,1,1,7,1,4
+50,Female,spondylitis,flexibility,3,75-90,Black,135,1,1,0,1,1,9,1,2
+67,Prefer not to say,cardiac disease,cardio,5,90-105,White,123,0,1,1,1,0,1,1,1
+20,Male,obesity,flexibility,7,60-75,Black,96,0,0,1,0,0,2,1,3
+52,Non-Binary,stroke,strength,3,90-105,Other,133,1,1,1,1,1,4,1,4
+39,Prefer not to say,obesity,flexibility,6,60-75,White,114,0,1,1,4,1,8,1,3
+33,Male,cardiac disease,strength,6,45-60,Asian,200,0,0,1,4,1,4,1,1
+29,Prefer not to say,cardiac disease,cardio,5,45-60,Hispanic,107,1,0,1,1,1,6,1,4
+76,Female,hypertension,cardio,4,60-75,Asian,209,1,0,0,3,0,6,1,1
+46,Male,none,flexibility,5,75-90,White,164,1,1,0,4,1,7,0,4
+77,Non-Binary,back pain,flexibility,6,105-120,Black,119,1,1,1,0,1,3,0,3
+32,Non-Binary,spondylitis,strength,4,60-75,Asian,123,0,0,1,1,0,1,1,2
+53,Non-Binary,diabetes,strength,5,90-105,Asian,181,1,1,0,4,0,6,0,4
+55,Prefer not to say,diabetes,flexibility,4,75-90,Black,167,1,1,0,0,1,1,0,1
+56,Prefer not to say,kidney disease,flexibility,7,45-60,Asian,108,0,0,0,1,0,4,1,4
+56,Non-Binary,kidney disease,strength,6,75-90,White,149,0,0,0,3,0,1,0,2
+65,Male,back pain,flexibility,4,90-105,Other,207,0,0,1,2,0,8,0,4
+80,Male,COPD,flexibility,7,90-105,Asian,114,1,0,0,3,1,9,0,1
+54,Male,none,flexibility,3,105-120,Other,157,1,1,0,4,1,10,1,4
+61,Female,cardiac disease,strength,6,60-75,White,140,1,1,1,3,1,3,1,3
+28,Male,Alzheimer’s,flexibility,7,45-60,White,156,0,1,1,1,0,10,0,1
+54,Prefer not to say,COPD,strength,7,60-75,Black,182,0,1,0,3,0,6,1,2
+38,Non-Binary,diabetes,flexibility,7,75-90,Hispanic,123,0,0,0,4,1,4,0,3
+40,Non-Binary,hypertension,strength,7,60-75,Asian,106,0,0,1,1,1,7,1,1
+28,Male,stroke,cardio,7,105-120,Other,131,1,1,0,3,0,6,1,4
+48,Male,kidney disease,flexibility,4,90-105,White,203,0,0,1,4,0,9,0,1
+67,Female,stroke,cardio,3,105-120,Other,201,1,1,1,2,0,6,1,3
+58,Prefer not to say,spondylitis,cardio,4,105-120,White,192,0,0,0,0,0,4,1,1
+54,Prefer not to say,hypertension,flexibility,5,105-120,Black,122,0,0,1,1,1,10,1,4
+62,Prefer not to say,diabetes,flexibility,6,90-105,Black,184,1,0,1,1,0,1,1,4
+43,Non-Binary,obesity,strength,7,45-60,Asian,113,0,1,1,2,1,6,0,1
+42,Male,Alzheimer’s,cardio,5,60-75,Other,95,0,1,0,0,0,2,1,3
+20,Male,hypertension,strength,4,105-120,Asian,159,0,0,0,4,1,8,0,4
+53,Male,none,strength,5,75-90,Asian,209,1,0,0,4,1,3,1,4
+75,Female,none,cardio,4,105-120,Asian,178,0,1,1,4,1,4,0,2
+47,Male,spondylitis,flexibility,3,90-105,Asian,208,1,1,1,1,0,2,0,2
+50,Prefer not to say,osteoarthritis,cardio,4,105-120,Black,160,0,1,1,0,1,8,1,2
+68,Male,Alzheimer’s,strength,3,75-90,Other,101,1,1,1,1,1,9,1,1
+73,Male,back pain,strength,5,90-105,Hispanic,135,1,0,0,2,1,10,1,1
+51,Male,cardiac disease,cardio,3,75-90,Black,191,1,1,1,1,1,8,1,3
+31,Male,hypertension,strength,6,105-120,Asian,197,1,0,0,1,0,1,1,1
+52,Non-Binary,COPD,strength,7,90-105,Asian,210,0,1,0,4,0,1,0,3
+70,Non-Binary,osteoarthritis,strength,7,75-90,Black,107,1,1,1,0,1,2,1,4
+19,Prefer not to say,high cholesterol,cardio,7,75-90,Black,127,0,0,0,0,0,6,1,2
+49,Female,obesity,flexibility,6,90-105,Black,146,0,1,0,0,1,8,1,3
+68,Prefer not to say,Alzheimer’s,cardio,7,45-60,Hispanic,175,1,1,1,3,0,5,0,2
+70,Prefer not to say,hypertension,strength,6,105-120,Black,162,1,0,1,4,0,3,1,3
+31,Female,hypertension,strength,4,75-90,White,172,0,0,0,1,1,10,1,2
+80,Male,none,flexibility,7,30-45,Hispanic,90,0,1,0,0,1,2,0,3
+51,Non-Binary,stroke,cardio,4,90-105,White,90,0,1,0,3,1,10,0,1
+76,Male,stroke,strength,6,45-60,Other,210,1,1,0,2,1,9,1,3
+25,Female,Alzheimer’s,cardio,6,90-105,Hispanic,127,1,0,0,2,0,4,1,4
+71,Female,spondylitis,flexibility,3,105-120,Other,149,0,0,1,2,1,2,0,1
+45,Female,stroke,flexibility,5,45-60,Asian,114,1,0,0,1,1,2,1,4
+23,Prefer not to say,spondylitis,cardio,7,90-105,Hispanic,112,0,0,1,3,0,8,0,3
+48,Male,obesity,strength,6,75-90,White,96,1,0,0,2,0,5,0,4
+46,Male,stroke,flexibility,3,90-105,Black,117,0,1,0,2,0,7,1,4
+26,Prefer not to say,diabetes,strength,7,75-90,Asian,119,0,0,1,1,1,1,0,3
+45,Prefer not to say,back pain,cardio,3,90-105,White,134,1,0,0,4,1,8,1,3
+21,Non-Binary,high cholesterol,cardio,6,105-120,White,140,1,1,0,4,0,8,0,4
+45,Prefer not to say,Alzheimer’s,flexibility,4,90-105,Other,125,0,1,1,2,1,1,1,1
+55,Male,none,flexibility,5,90-105,Black,200,1,1,1,4,0,2,1,3
+60,Female,high cholesterol,strength,6,90-105,White,208,1,1,0,0,0,8,1,4
+66,Female,osteoarthritis,flexibility,4,75-90,Black,131,1,0,0,4,0,2,0,2
+34,Female,COPD,flexibility,6,90-105,Other,127,0,1,1,3,0,4,0,4
+50,Male,osteoarthritis,cardio,5,105-120,Black,158,0,1,1,3,0,8,1,4
+62,Non-Binary,hypertension,flexibility,4,90-105,Hispanic,169,1,1,1,4,1,5,1,2
+62,Female,osteoarthritis,cardio,6,90-105,Hispanic,120,1,0,1,0,1,4,1,4
+75,Male,spondylitis,flexibility,5,45-60,Black,112,1,0,0,0,0,10,0,3
+41,Male,obesity,cardio,6,75-90,Asian,143,0,0,1,4,1,10,0,2
+44,Male,obesity,cardio,5,105-120,White,198,1,1,0,2,0,9,1,3
+78,Prefer not to say,back pain,strength,6,75-90,Black,167,0,1,1,0,1,5,0,4
+67,Male,cardiac disease,flexibility,7,60-75,Hispanic,105,0,0,1,4,1,9,1,4
+49,Male,obesity,strength,4,60-75,Hispanic,177,1,1,1,2,0,5,1,4
+48,Female,back pain,flexibility,6,105-120,Asian,175,0,0,1,4,0,10,1,3
+46,Male,Alzheimer’s,cardio,6,75-90,Other,144,0,1,1,0,0,7,0,2
+58,Male,spondylitis,flexibility,5,90-105,Black,158,0,0,1,1,1,3,1,2
+64,Prefer not to say,high cholesterol,strength,5,90-105,Other,127,1,1,1,1,1,2,0,2
+31,Female,back pain,flexibility,7,90-105,Other,114,1,0,0,3,1,5,0,2
+22,Prefer not to say,kidney disease,strength,5,60-75,Asian,169,0,1,0,1,0,9,1,3
+32,Prefer not to say,osteoarthritis,cardio,5,45-60,Hispanic,204,0,0,0,1,0,4,1,4
+46,Prefer not to say,high cholesterol,strength,6,75-90,Black,160,0,1,1,2,0,8,0,4
+52,Prefer not to say,kidney disease,strength,6,105-120,Hispanic,171,1,1,0,4,0,8,0,4
+50,Male,COPD,flexibility,5,75-90,Asian,174,1,0,0,3,0,9,0,1
+69,Prefer not to say,hypertension,cardio,3,90-105,Other,187,0,0,1,1,1,9,0,2
+23,Female,spondylitis,flexibility,7,75-90,White,114,0,1,1,4,1,4,1,3
+60,Male,COPD,cardio,5,75-90,Black,195,1,1,1,2,1,2,0,2
+27,Male,osteoarthritis,cardio,6,90-105,Hispanic,173,1,1,0,3,0,8,1,3
+39,Male,Alzheimer’s,flexibility,7,60-75,White,167,1,1,1,2,1,1,0,1
+30,Male,none,cardio,5,75-90,Black,111,1,1,1,4,1,7,0,1
+43,Non-Binary,osteoarthritis,cardio,3,105-120,Asian,173,0,1,1,3,0,8,0,3
+20,Female,cardiac disease,cardio,6,105-120,Other,114,0,0,1,2,0,6,0,2
+66,Non-Binary,cardiac disease,flexibility,4,75-90,Other,125,1,1,0,4,1,4,0,2
+45,Non-Binary,COPD,flexibility,6,45-60,Asian,110,0,0,0,3,1,10,1,4
+29,Non-Binary,osteoarthritis,strength,4,90-105,Hispanic,200,0,0,1,2,1,6,0,4
+46,Female,obesity,flexibility,6,45-60,Black,100,0,0,1,1,1,6,0,3
+44,Female,Alzheimer’s,flexibility,5,90-105,Other,156,1,1,1,1,1,6,1,2
+35,Male,stroke,flexibility,7,105-120,Asian,132,1,1,0,1,0,8,1,4
+67,Non-Binary,COPD,cardio,6,30-45,Hispanic,97,1,1,1,1,0,5,1,2
+58,Non-Binary,diabetes,cardio,6,105-120,Asian,206,1,1,1,3,1,7,1,2
+26,Prefer not to say,obesity,strength,3,105-120,Hispanic,197,0,0,0,4,1,3,1,3
+77,Prefer not to say,Alzheimer’s,cardio,3,90-105,Asian,129,0,1,0,3,0,4,1,4
+66,Prefer not to say,back pain,flexibility,6,75-90,Black,115,1,0,1,2,1,8,1,2
+56,Male,Alzheimer’s,flexibility,6,60-75,Black,112,1,1,0,0,1,6,1,4
+38,Female,high cholesterol,flexibility,5,60-75,Black,140,1,1,0,1,0,4,0,1
+73,Male,osteoarthritis,cardio,5,45-60,Hispanic,101,0,1,0,0,0,4,0,4
+68,Prefer not to say,high cholesterol,flexibility,3,75-90,Asian,146,1,1,1,3,0,3,1,4
+79,Female,high cholesterol,cardio,4,105-120,Other,125,1,0,0,1,1,10,0,4
+80,Prefer not to say,cardiac disease,strength,5,45-60,White,200,1,1,0,1,1,7,0,2
+65,Non-Binary,hypertension,strength,5,75-90,Black,179,0,0,0,4,0,4,1,3
+58,Non-Binary,obesity,flexibility,7,75-90,Hispanic,209,1,1,0,2,0,8,0,4
+67,Male,cardiac disease,strength,6,105-120,White,202,0,1,1,4,1,7,0,4
+74,Male,back pain,strength,5,90-105,Asian,197,0,0,0,4,0,2,0,2
+65,Non-Binary,high cholesterol,flexibility,7,30-45,White,91,0,1,0,1,0,6,0,1
+23,Prefer not to say,high cholesterol,strength,6,75-90,Hispanic,122,1,1,0,0,1,4,1,1
+37,Female,osteoarthritis,cardio,5,90-105,White,162,1,1,0,4,0,3,1,4
+54,Non-Binary,COPD,strength,6,90-105,White,97,0,1,1,4,1,9,0,4
+78,Male,COPD,flexibility,6,90-105,Asian,197,0,0,0,1,0,3,0,3
+41,Male,spondylitis,cardio,7,105-120,Black,108,0,0,1,4,1,7,1,1
+18,Non-Binary,COPD,strength,5,75-90,Asian,158,0,1,0,2,0,1,0,2
+71,Non-Binary,cardiac disease,strength,7,90-105,Hispanic,155,1,0,0,3,0,8,1,1
+74,Non-Binary,Alzheimer’s,strength,4,75-90,Asian,191,1,0,0,4,1,3,0,1
+63,Male,obesity,strength,5,75-90,Hispanic,207,0,0,0,0,0,5,0,3
+24,Female,spondylitis,strength,7,105-120,Other,120,0,1,1,3,0,4,0,1
+77,Prefer not to say,diabetes,cardio,3,105-120,Other,178,0,1,0,0,1,2,1,4
+31,Female,diabetes,flexibility,7,90-105,Asian,150,0,0,1,1,1,7,0,3
+46,Non-Binary,Alzheimer’s,flexibility,4,105-120,Other,204,0,1,1,1,1,6,1,4
+62,Male,obesity,strength,7,60-75,Asian,175,1,1,0,1,1,8,1,3
+49,Female,Alzheimer’s,cardio,7,90-105,White,108,0,0,0,0,1,9,0,2
+27,Male,osteoarthritis,strength,5,60-75,White,145,1,1,1,3,1,10,0,2
+63,Female,Alzheimer’s,strength,7,105-120,Black,178,0,1,1,1,1,5,1,3
+61,Male,COPD,strength,5,105-120,Hispanic,161,0,1,0,0,1,3,0,2
+32,Prefer not to say,back pain,cardio,7,60-75,Black,203,1,1,0,4,0,5,1,1
+46,Non-Binary,COPD,cardio,4,60-75,Asian,103,1,0,1,1,1,6,1,3
+53,Male,Alzheimer’s,strength,5,75-90,White,168,0,0,0,4,1,4,0,2
+44,Female,Alzheimer’s,flexibility,6,75-90,White,193,0,0,0,1,0,8,1,3
+34,Prefer not to say,osteoarthritis,cardio,6,45-60,Hispanic,123,1,0,0,1,0,6,0,2
+49,Prefer not to say,stroke,flexibility,7,75-90,Other,174,0,1,1,4,0,8,0,2
+33,Female,Alzheimer’s,cardio,4,90-105,Asian,183,1,0,0,4,1,6,0,3
+24,Female,obesity,cardio,7,45-60,Asian,109,1,1,0,4,1,4,0,4
+38,Non-Binary,diabetes,cardio,6,75-90,Black,93,0,0,1,4,1,4,0,4
+40,Prefer not to say,COPD,flexibility,3,105-120,Asian,175,1,0,1,3,1,4,0,2
+49,Prefer not to say,cardiac disease,cardio,6,105-120,Black,122,0,1,0,1,0,8,0,1
+70,Non-Binary,high cholesterol,strength,5,105-120,Asian,97,1,1,1,4,1,6,1,2
+61,Male,diabetes,cardio,4,60-75,Other,106,0,1,0,4,1,4,0,1
+44,Prefer not to say,back pain,flexibility,7,60-75,Hispanic,116,1,0,1,1,0,8,1,2
+19,Female,COPD,strength,4,60-75,Asian,96,1,1,1,0,1,1,1,3
+43,Male,diabetes,strength,5,105-120,Hispanic,151,0,0,0,4,1,3,1,1
+24,Female,kidney disease,strength,7,60-75,Asian,146,1,0,0,1,0,9,0,3
+48,Male,spondylitis,cardio,4,75-90,Asian,195,1,0,0,4,0,9,1,4
+24,Male,diabetes,flexibility,5,45-60,Black,165,0,0,0,3,0,2,0,4
+76,Female,Alzheimer’s,cardio,4,75-90,Other,110,0,0,1,1,1,10,1,2
+31,Male,back pain,flexibility,3,90-105,Hispanic,126,1,1,1,0,1,3,0,3
+19,Prefer not to say,high cholesterol,flexibility,3,90-105,Other,164,0,0,1,2,1,2,0,1
+75,Prefer not to say,spondylitis,flexibility,3,105-120,White,136,0,1,0,0,0,3,1,3
+69,Non-Binary,hypertension,strength,3,105-120,Hispanic,124,1,1,0,0,1,5,0,2
+48,Non-Binary,kidney disease,cardio,6,45-60,Other,197,1,0,1,2,1,7,1,3
+80,Male,COPD,cardio,5,105-120,Hispanic,175,0,1,1,1,0,1,1,4
+44,Male,obesity,strength,3,105-120,Hispanic,150,0,1,1,3,1,10,0,1
+75,Female,spondylitis,flexibility,4,105-120,Black,197,1,0,1,3,0,8,0,3
+52,Prefer not to say,stroke,flexibility,4,75-90,Black,192,0,1,0,1,1,6,0,4
+77,Female,obesity,flexibility,3,90-105,Hispanic,198,1,0,1,0,1,5,0,4
+74,Non-Binary,kidney disease,flexibility,4,90-105,White,143,0,0,1,2,0,8,0,3
+71,Prefer not to say,COPD,flexibility,7,75-90,Asian,151,0,0,1,1,0,7,0,4
+22,Prefer not to say,back pain,flexibility,3,90-105,Hispanic,94,0,1,1,0,1,3,1,2
+76,Non-Binary,none,strength,7,90-105,White,139,1,1,0,3,0,9,1,1
+19,Male,cardiac disease,strength,3,90-105,White,146,0,0,0,4,0,8,1,3
+24,Non-Binary,none,strength,7,60-75,Other,146,0,1,0,1,1,3,0,2
+30,Female,cardiac disease,cardio,6,75-90,Asian,145,0,1,1,0,0,8,1,3
+30,Non-Binary,spondylitis,strength,5,45-60,White,153,0,0,0,3,0,1,1,2
+59,Non-Binary,diabetes,cardio,6,75-90,Black,177,1,0,1,1,0,4,0,3
+60,Prefer not to say,osteoarthritis,flexibility,4,90-105,White,135,1,0,1,0,1,2,1,2
+72,Female,cardiac disease,strength,7,90-105,Other,205,1,0,0,0,0,9,1,3
+36,Female,none,cardio,3,105-120,White,179,0,1,1,4,1,6,1,3
+41,Prefer not to say,back pain,flexibility,7,60-75,Other,104,0,1,0,0,0,8,1,2
+58,Female,high cholesterol,cardio,7,30-45,Black,189,1,1,0,2,0,8,1,2
+56,Male,osteoarthritis,flexibility,6,30-45,Black,163,1,0,1,4,1,3,1,4
+46,Male,spondylitis,flexibility,3,90-105,White,176,1,0,0,4,0,2,1,3
+44,Prefer not to say,hypertension,cardio,5,45-60,Other,147,1,0,1,0,1,4,1,1
+75,Female,hypertension,cardio,4,105-120,Other,160,0,1,1,0,1,10,1,1
+41,Male,diabetes,flexibility,5,105-120,Other,147,0,0,1,0,1,2,0,3
+54,Non-Binary,high cholesterol,flexibility,4,75-90,Black,106,1,1,1,3,0,4,1,1
+49,Non-Binary,hypertension,cardio,4,75-90,Other,146,0,0,0,4,1,5,0,3
+65,Non-Binary,kidney disease,strength,7,45-60,Hispanic,147,1,1,0,3,0,8,1,4
+28,Male,spondylitis,flexibility,4,75-90,Other,101,0,0,0,2,1,7,0,1
+46,Prefer not to say,Alzheimer’s,strength,5,105-120,White,141,1,0,1,3,1,4,1,2
+37,Non-Binary,Alzheimer’s,cardio,3,105-120,White,113,0,1,1,3,0,1,0,3
+42,Prefer not to say,high cholesterol,strength,7,60-75,Black,153,0,0,1,1,1,6,0,3
+27,Non-Binary,none,flexibility,6,45-60,Hispanic,163,1,0,1,1,0,7,0,1
+53,Non-Binary,osteoarthritis,strength,3,105-120,Other,145,1,0,1,2,1,9,1,2
+43,Female,kidney disease,cardio,3,75-90,Other,163,1,0,0,4,1,3,1,3
+28,Male,Alzheimer’s,strength,7,30-45,Black,125,1,0,0,4,0,9,1,4
+65,Prefer not to say,stroke,cardio,6,105-120,Asian,148,0,0,1,0,0,8,1,3
+32,Non-Binary,back pain,cardio,4,105-120,Other,154,1,1,0,1,0,7,1,4
+78,Female,obesity,strength,7,75-90,Hispanic,148,0,0,0,1,1,7,1,2
+57,Prefer not to say,osteoarthritis,flexibility,4,60-75,Asian,157,1,1,0,4,1,7,1,2
+67,Male,hypertension,flexibility,4,75-90,Hispanic,165,0,1,1,2,1,1,0,1
+50,Female,osteoarthritis,strength,5,45-60,Asian,126,1,0,0,0,0,9,1,3
+26,Non-Binary,none,cardio,5,45-60,Hispanic,176,1,0,0,0,1,7,1,2
+52,Female,none,strength,5,45-60,Asian,167,1,0,0,2,1,2,0,4
+68,Female,spondylitis,strength,5,45-60,Asian,124,0,0,0,2,0,6,1,3
+77,Prefer not to say,hypertension,strength,3,105-120,Black,208,1,1,1,0,0,2,0,2
+56,Male,none,strength,6,90-105,Black,115,1,0,0,1,0,1,1,1
+53,Female,osteoarthritis,flexibility,6,90-105,Asian,164,0,1,1,1,1,6,0,3
+23,Prefer not to say,COPD,strength,4,60-75,Black,132,1,1,0,0,1,5,0,3
+79,Male,diabetes,cardio,7,75-90,White,96,1,1,0,0,1,3,1,3
+35,Male,spondylitis,flexibility,3,105-120,Other,102,0,0,1,1,1,6,1,1
+33,Non-Binary,osteoarthritis,cardio,6,45-60,Other,126,1,1,0,3,0,8,1,3
+25,Non-Binary,kidney disease,strength,3,90-105,Black,150,1,0,1,4,0,9,1,1
+27,Prefer not to say,spondylitis,cardio,4,90-105,Other,133,1,1,0,3,1,4,1,3
+27,Female,hypertension,strength,4,105-120,Hispanic,144,1,0,1,0,1,5,1,3
+61,Male,high cholesterol,cardio,7,105-120,White,191,0,0,0,3,1,2,0,2
+69,Female,high cholesterol,strength,5,75-90,White,117,1,1,0,0,1,10,0,4
+61,Female,cardiac disease,strength,7,60-75,Asian,95,0,0,0,4,1,5,1,1
+73,Non-Binary,cardiac disease,cardio,6,105-120,Asian,98,1,1,1,4,0,1,1,2
+73,Female,cardiac disease,flexibility,5,45-60,White,116,1,1,0,3,0,10,0,4
+78,Male,stroke,flexibility,4,60-75,Hispanic,95,1,1,0,0,1,7,0,1
+77,Male,diabetes,cardio,7,60-75,Asian,152,1,1,0,4,1,9,1,4
+30,Non-Binary,diabetes,flexibility,6,45-60,Asian,118,0,1,0,2,0,4,1,4
+76,Female,stroke,strength,3,90-105,White,95,0,0,1,1,0,9,0,2
+29,Prefer not to say,diabetes,flexibility,6,60-75,Other,117,0,0,0,1,0,1,0,1
+33,Female,osteoarthritis,strength,3,105-120,Other,165,0,0,0,4,1,9,1,1
+77,Male,Alzheimer’s,strength,6,75-90,White,100,0,0,0,0,0,8,1,1
+51,Prefer not to say,back pain,flexibility,3,90-105,Black,158,0,1,1,0,1,7,1,4
+20,Prefer not to say,kidney disease,cardio,7,60-75,Other,97,0,1,0,4,1,6,1,4
+31,Male,hypertension,flexibility,7,105-120,Asian,157,1,1,1,0,0,9,0,3
+79,Non-Binary,obesity,cardio,7,75-90,Other,193,0,1,0,1,1,5,0,1
+80,Prefer not to say,obesity,strength,5,45-60,Hispanic,135,1,0,1,1,1,5,0,3
+69,Prefer not to say,COPD,strength,7,75-90,Other,124,0,1,1,2,0,4,1,2
+71,Non-Binary,stroke,cardio,5,105-120,Asian,181,0,0,1,0,0,7,1,4
+20,Female,obesity,strength,4,105-120,Asian,118,1,0,0,3,1,2,1,1
+64,Female,none,flexibility,7,30-45,Other,153,0,0,1,4,1,7,0,3
+69,Male,stroke,cardio,6,75-90,Hispanic,116,0,1,0,0,1,8,1,2
+65,Prefer not to say,none,cardio,3,90-105,Asian,153,0,0,0,0,1,2,1,2
+76,Prefer not to say,diabetes,strength,7,45-60,Other,133,1,1,0,1,0,6,1,4
+39,Prefer not to say,high cholesterol,cardio,7,45-60,Asian,202,0,1,1,2,0,1,1,1
+35,Non-Binary,cardiac disease,cardio,3,75-90,White,145,1,1,1,2,0,1,1,4
+35,Prefer not to say,hypertension,strength,6,75-90,Other,187,1,1,1,2,1,4,1,3
+18,Non-Binary,COPD,flexibility,4,105-120,Asian,116,1,1,0,3,1,3,0,4
+24,Prefer not to say,cardiac disease,flexibility,3,105-120,White,155,1,1,0,3,0,3,1,1
+61,Non-Binary,high cholesterol,strength,7,60-75,Hispanic,130,0,0,0,0,1,3,1,1
+50,Female,none,strength,5,45-60,White,204,0,1,0,4,0,1,0,4
+46,Prefer not to say,stroke,cardio,5,90-105,Hispanic,145,1,1,1,1,1,9,0,3
+78,Male,diabetes,cardio,3,105-120,Black,110,0,1,0,3,0,4,0,1
+49,Female,diabetes,cardio,3,105-120,Hispanic,182,0,1,1,1,0,1,0,2
+63,Female,osteoarthritis,flexibility,7,30-45,Asian,141,1,0,0,3,0,6,1,2
+28,Male,cardiac disease,cardio,4,60-75,Hispanic,103,0,0,0,1,0,9,0,2
+29,Non-Binary,diabetes,cardio,5,105-120,White,181,1,0,1,0,1,1,1,1
+27,Prefer not to say,hypertension,cardio,5,105-120,Black,198,1,0,1,3,1,3,1,2
+48,Non-Binary,stroke,flexibility,5,75-90,Black,204,0,0,1,2,1,9,0,1
+80,Prefer not to say,diabetes,flexibility,4,105-120,White,127,1,1,0,3,0,3,0,4
+39,Male,cardiac disease,strength,7,75-90,Hispanic,95,0,1,1,3,1,5,0,3
+76,Non-Binary,spondylitis,strength,5,45-60,Asian,185,1,1,0,0,1,4,1,1
+54,Prefer not to say,obesity,cardio,4,105-120,White,102,0,0,0,3,1,8,1,2
+80,Male,Alzheimer’s,cardio,5,90-105,Hispanic,105,0,0,1,2,1,10,0,3
+62,Non-Binary,spondylitis,strength,3,90-105,White,109,1,1,1,3,0,2,0,4
+39,Prefer not to say,hypertension,cardio,7,30-45,Other,121,1,1,0,4,1,9,0,4
+35,Male,none,strength,6,105-120,Black,198,0,1,1,2,0,6,1,4
+24,Male,Alzheimer’s,flexibility,3,105-120,Other,125,1,1,1,0,1,5,0,2
+50,Non-Binary,kidney disease,flexibility,6,90-105,Asian,101,1,1,1,0,1,3,1,2
+77,Non-Binary,Alzheimer’s,strength,5,105-120,Other,94,0,0,1,0,1,4,0,1
+64,Female,kidney disease,strength,4,90-105,Asian,141,1,1,1,4,1,7,0,4
+24,Prefer not to say,COPD,flexibility,6,105-120,White,112,0,1,0,3,0,6,0,3
+44,Male,diabetes,strength,3,105-120,White,104,0,0,1,4,1,5,1,3
+69,Non-Binary,stroke,flexibility,5,90-105,Other,203,1,1,0,2,0,4,1,4
+45,Prefer not to say,none,flexibility,7,105-120,Black,135,0,1,0,1,1,4,0,4
+24,Female,obesity,strength,6,60-75,White,140,0,1,1,0,0,3,0,2
+25,Prefer not to say,none,flexibility,7,45-60,Black,205,1,0,0,4,0,3,0,1
+49,Prefer not to say,hypertension,strength,7,60-75,Other,139,0,0,0,1,1,8,0,1
+70,Female,back pain,flexibility,6,90-105,Other,105,0,1,1,4,1,3,0,3
+60,Female,osteoarthritis,flexibility,3,105-120,Black,142,0,0,1,0,0,3,0,2
+76,Prefer not to say,kidney disease,cardio,7,45-60,Asian,95,1,0,0,3,0,7,0,4
+77,Non-Binary,Alzheimer’s,strength,6,45-60,White,193,0,0,0,0,1,8,0,3
+41,Prefer not to say,back pain,cardio,5,90-105,Other,98,1,1,0,1,1,10,0,3
+32,Male,none,flexibility,3,90-105,White,120,0,1,0,0,0,2,0,2
+42,Male,hypertension,cardio,4,105-120,Other,148,0,0,0,4,1,8,1,1
+22,Female,COPD,flexibility,5,105-120,White,110,0,1,1,2,1,9,1,2
+57,Prefer not to say,COPD,cardio,3,90-105,Hispanic,108,1,0,1,1,0,2,1,3
+27,Male,diabetes,strength,6,105-120,Asian,201,0,1,1,3,1,8,1,4
+35,Prefer not to say,kidney disease,flexibility,4,75-90,Other,122,0,0,1,1,0,4,1,3
+25,Male,kidney disease,cardio,6,105-120,Asian,158,1,1,1,4,1,10,0,1
+24,Female,diabetes,flexibility,3,75-90,Black,109,1,1,0,4,1,5,1,4
+76,Male,hypertension,strength,6,30-45,Other,144,1,1,0,1,1,4,0,1
+34,Non-Binary,high cholesterol,cardio,5,90-105,White,140,1,0,0,1,1,1,1,3
+43,Male,diabetes,flexibility,3,105-120,Black,125,0,1,0,0,1,4,1,4
+40,Non-Binary,diabetes,cardio,5,75-90,Other,97,1,1,1,4,1,10,1,3
+30,Non-Binary,kidney disease,cardio,5,105-120,Asian,169,1,0,1,3,1,8,0,2
+39,Female,high cholesterol,flexibility,4,60-75,Hispanic,208,1,0,1,0,1,2,1,2
+62,Female,kidney disease,flexibility,7,75-90,Hispanic,201,0,1,1,4,1,8,1,1
+65,Male,stroke,cardio,4,60-75,Other,182,1,1,0,1,0,7,0,4
+78,Female,Alzheimer’s,cardio,4,75-90,Other,122,0,0,1,4,1,9,0,1
+23,Male,obesity,cardio,6,105-120,Asian,170,1,1,1,4,0,6,0,4
+27,Male,obesity,cardio,5,105-120,White,188,1,1,0,1,0,2,0,3
+76,Male,stroke,strength,7,60-75,Hispanic,169,0,0,0,2,0,3,1,3
+78,Non-Binary,diabetes,flexibility,6,45-60,Black,116,0,1,0,4,1,3,0,2
+46,Prefer not to say,kidney disease,strength,3,105-120,Other,182,0,0,1,1,1,4,1,1
+55,Female,obesity,flexibility,3,90-105,Asian,180,0,1,0,3,1,10,0,2
+25,Non-Binary,back pain,cardio,5,45-60,White,148,1,1,1,1,1,6,1,4
+59,Non-Binary,Alzheimer’s,cardio,7,90-105,White,176,1,0,1,2,0,4,0,3
+32,Non-Binary,kidney disease,flexibility,4,75-90,Asian,195,0,1,1,0,0,7,0,4
+58,Prefer not to say,high cholesterol,flexibility,6,90-105,Black,186,0,1,0,3,0,7,1,2
+79,Prefer not to say,spondylitis,cardio,4,60-75,Hispanic,146,1,1,1,0,1,2,0,2
+71,Female,diabetes,flexibility,4,60-75,Hispanic,137,0,1,1,3,0,7,0,2
+29,Non-Binary,COPD,strength,5,45-60,Hispanic,142,1,1,0,1,0,8,1,4
+72,Male,spondylitis,cardio,3,90-105,Hispanic,149,1,1,0,1,0,5,1,3
+18,Female,spondylitis,strength,3,90-105,Black,127,1,1,0,0,1,5,1,3
+61,Male,kidney disease,cardio,4,105-120,Asian,187,0,1,0,4,1,1,0,3
+34,Prefer not to say,cardiac disease,cardio,5,105-120,Asian,90,1,1,1,4,1,3,1,3
+25,Non-Binary,hypertension,cardio,4,60-75,Other,162,0,0,0,4,1,2,0,4
+72,Male,cardiac disease,strength,6,90-105,White,143,0,0,0,4,0,6,1,2
+25,Female,osteoarthritis,flexibility,3,90-105,Hispanic,196,1,1,0,3,0,3,1,2
+63,Non-Binary,high cholesterol,flexibility,3,105-120,White,150,0,1,1,3,1,5,1,3
+58,Female,back pain,strength,6,90-105,White,163,0,0,0,0,0,1,1,4
+49,Male,hypertension,flexibility,5,45-60,Asian,162,1,0,0,2,1,6,0,3
+42,Male,hypertension,strength,4,90-105,White,176,0,1,1,2,1,7,1,3
+42,Female,stroke,flexibility,3,90-105,Other,183,1,0,0,0,1,1,0,1
+45,Prefer not to say,osteoarthritis,cardio,3,90-105,Other,179,0,0,0,0,0,4,1,1
+29,Non-Binary,spondylitis,strength,6,105-120,Black,195,0,1,1,4,1,9,1,3
+57,Female,Alzheimer’s,strength,6,60-75,Black,186,1,1,0,1,1,6,1,3
+68,Male,spondylitis,flexibility,4,105-120,Asian,198,0,0,1,3,1,2,0,2
+37,Non-Binary,high cholesterol,cardio,4,75-90,Asian,178,0,0,1,4,1,9,1,1
+36,Non-Binary,Alzheimer’s,flexibility,4,90-105,Other,160,1,0,1,1,0,5,0,2
+80,Male,cardiac disease,strength,3,90-105,Hispanic,124,1,0,0,0,0,4,1,1
+24,Non-Binary,spondylitis,cardio,6,60-75,Asian,131,0,1,1,2,1,8,0,1
+72,Prefer not to say,COPD,cardio,6,45-60,Other,189,0,1,1,3,1,10,1,4
+32,Prefer not to say,none,cardio,7,45-60,Black,193,1,0,1,1,0,7,1,4
+22,Female,COPD,cardio,4,75-90,Hispanic,151,0,0,0,4,1,2,1,3
+23,Male,Alzheimer’s,flexibility,4,90-105,White,173,1,1,0,2,1,1,0,2
+24,Prefer not to say,back pain,cardio,5,45-60,White,198,1,1,0,0,0,7,1,3
+55,Non-Binary,diabetes,cardio,5,105-120,Hispanic,98,0,1,0,4,1,9,0,2
+59,Female,obesity,flexibility,6,60-75,Other,110,0,1,1,4,0,7,0,1
+60,Non-Binary,osteoarthritis,cardio,5,45-60,Black,98,1,0,1,0,0,3,0,4
+78,Non-Binary,COPD,flexibility,5,60-75,Hispanic,95,1,1,1,4,1,6,0,3
+63,Female,kidney disease,cardio,3,105-120,White,163,0,0,0,1,1,9,1,1
+80,Male,back pain,strength,7,30-45,White,148,1,1,0,4,0,2,0,2
+79,Female,spondylitis,strength,4,105-120,Black,173,1,1,0,2,1,8,1,4
+35,Non-Binary,spondylitis,strength,5,90-105,Other,180,0,0,1,3,0,5,1,1
+67,Prefer not to say,back pain,flexibility,3,105-120,White,146,1,1,1,4,0,4,0,4
+51,Prefer not to say,diabetes,strength,6,60-75,Hispanic,202,1,1,0,1,0,8,0,4
+69,Non-Binary,hypertension,strength,4,90-105,Black,210,0,1,0,3,0,7,1,1
+71,Prefer not to say,obesity,flexibility,7,60-75,Hispanic,178,1,1,1,4,1,4,1,1
+43,Non-Binary,Alzheimer’s,cardio,3,90-105,White,117,0,1,1,1,0,8,1,2
+75,Female,hypertension,strength,5,45-60,Hispanic,114,1,1,1,0,0,2,0,1
+40,Prefer not to say,Alzheimer’s,strength,7,75-90,White,181,1,1,1,0,0,2,0,1
+63,Male,spondylitis,cardio,6,60-75,Asian,208,1,1,0,3,0,3,1,4
+49,Female,none,cardio,4,90-105,Hispanic,167,0,0,0,2,1,6,0,4
+73,Non-Binary,diabetes,strength,6,60-75,White,131,1,0,1,0,0,6,1,2
+34,Female,cardiac disease,flexibility,6,90-105,Asian,199,1,1,1,3,0,2,1,1
+39,Prefer not to say,kidney disease,strength,5,105-120,Hispanic,197,1,0,0,4,1,7,1,3
+41,Male,hypertension,flexibility,7,45-60,White,207,0,0,1,3,0,7,0,2
+50,Prefer not to say,COPD,cardio,5,45-60,White,173,0,1,0,4,0,7,1,1
+23,Male,kidney disease,cardio,3,105-120,Other,151,0,0,0,3,0,9,0,4
+51,Prefer not to say,obesity,flexibility,5,105-120,Other,131,1,1,0,1,0,2,1,2
+18,Female,back pain,cardio,5,45-60,White,181,1,1,1,0,0,9,0,2
+70,Female,osteoarthritis,cardio,3,90-105,Other,114,0,1,0,4,0,2,1,3
+62,Male,osteoarthritis,cardio,4,60-75,Asian,107,0,1,0,4,0,6,0,1
+49,Female,osteoarthritis,strength,5,90-105,White,199,0,1,1,2,0,4,1,1
+51,Male,osteoarthritis,flexibility,4,60-75,Other,92,1,1,1,1,1,1,1,4
+46,Non-Binary,hypertension,strength,3,105-120,Black,201,0,0,0,0,0,9,0,1
+66,Prefer not to say,none,cardio,4,90-105,Hispanic,152,0,0,0,0,0,8,0,3
+23,Non-Binary,kidney disease,cardio,4,105-120,Hispanic,185,1,1,1,3,1,6,1,4
+77,Male,kidney disease,flexibility,6,105-120,White,203,0,1,0,2,0,1,0,3
+47,Prefer not to say,Alzheimer’s,flexibility,3,105-120,White,149,0,0,1,2,0,10,1,1
+34,Female,stroke,flexibility,7,105-120,Hispanic,113,0,0,0,4,1,7,0,2
+58,Non-Binary,osteoarthritis,flexibility,5,105-120,White,180,0,0,0,1,0,9,1,3
+37,Prefer not to say,none,flexibility,4,75-90,Asian,154,1,1,1,4,1,7,1,4
+30,Prefer not to say,Alzheimer’s,flexibility,6,75-90,Black,133,0,1,0,4,1,9,0,1
+33,Male,diabetes,strength,5,60-75,Hispanic,190,0,0,0,3,1,1,1,4
+29,Prefer not to say,COPD,flexibility,3,90-105,Black,164,1,1,0,0,1,5,1,4
+34,Prefer not to say,high cholesterol,cardio,5,45-60,White,119,1,0,1,1,1,10,0,1
+63,Non-Binary,osteoarthritis,flexibility,4,75-90,Asian,182,0,1,0,1,1,6,0,2
+23,Prefer not to say,COPD,cardio,7,60-75,White,185,0,1,0,3,0,2,0,1
+18,Prefer not to say,Alzheimer’s,flexibility,5,60-75,Hispanic,101,0,0,0,2,1,9,1,4
+72,Female,obesity,cardio,6,90-105,Other,94,1,0,1,0,0,3,0,3
+68,Male,cardiac disease,strength,6,45-60,White,195,0,0,0,1,1,7,1,1
+27,Non-Binary,diabetes,strength,6,105-120,Other,145,1,1,1,0,0,3,1,1
+22,Male,high cholesterol,cardio,6,60-75,White,207,0,1,1,4,1,2,1,3
+47,Prefer not to say,hypertension,strength,6,60-75,Asian,186,1,0,0,3,0,8,0,1
+38,Female,obesity,strength,6,75-90,Other,104,0,0,0,1,1,3,0,2
+57,Non-Binary,Alzheimer’s,cardio,7,105-120,Black,92,1,0,1,2,0,9,1,1
+41,Non-Binary,stroke,strength,6,90-105,Other,165,0,0,0,2,1,3,1,3
+68,Male,back pain,flexibility,3,105-120,Other,185,1,0,0,4,0,7,1,2
+66,Prefer not to say,spondylitis,flexibility,7,105-120,Other,168,0,0,1,3,1,5,1,2
+43,Prefer not to say,COPD,strength,5,45-60,White,115,0,1,1,1,0,10,1,3
+71,Non-Binary,COPD,strength,4,105-120,Black,132,1,1,1,3,1,4,1,2
+56,Non-Binary,high cholesterol,strength,5,105-120,Other,111,1,0,1,0,0,8,1,1
+27,Prefer not to say,back pain,strength,5,45-60,Other,127,1,0,1,0,1,9,0,2
+49,Non-Binary,none,cardio,5,90-105,Other,91,0,0,1,0,1,7,1,2
+55,Prefer not to say,spondylitis,flexibility,4,90-105,White,118,1,1,0,3,1,9,0,1
+80,Female,stroke,strength,5,45-60,Black,205,1,1,0,2,1,6,0,2
+50,Male,Alzheimer’s,cardio,7,90-105,Hispanic,99,1,0,1,4,1,2,1,3
+60,Female,kidney disease,strength,5,105-120,Other,114,1,0,0,1,0,4,0,3
+44,Non-Binary,cardiac disease,cardio,4,105-120,White,202,1,1,0,0,0,5,1,3
+70,Non-Binary,obesity,cardio,3,90-105,Black,186,0,0,0,0,0,5,0,1
+73,Male,COPD,cardio,7,90-105,Hispanic,154,1,0,0,1,0,9,1,2
+19,Prefer not to say,COPD,cardio,7,90-105,Black,179,0,0,1,0,1,5,1,3
+33,Non-Binary,none,strength,5,105-120,Black,190,0,0,1,2,1,6,1,3
+35,Female,stroke,flexibility,5,45-60,White,199,0,1,1,4,1,4,1,2
+42,Male,osteoarthritis,flexibility,7,75-90,White,123,0,0,0,0,1,2,0,1
+26,Non-Binary,osteoarthritis,cardio,6,105-120,Other,183,1,0,0,0,1,4,1,3
+38,Male,hypertension,cardio,5,75-90,Black,209,1,1,0,0,0,10,1,1
+67,Prefer not to say,obesity,cardio,5,75-90,Other,145,1,0,1,4,1,5,0,3
+30,Female,cardiac disease,flexibility,4,105-120,Asian,192,0,0,0,1,0,5,1,3
+42,Prefer not to say,hypertension,strength,4,75-90,Hispanic,105,1,1,0,4,1,4,1,2
+49,Non-Binary,spondylitis,flexibility,4,105-120,Asian,180,0,0,1,2,0,1,1,2
+77,Male,diabetes,strength,4,90-105,Hispanic,136,1,1,1,3,1,6,1,2
+80,Female,cardiac disease,cardio,6,90-105,White,181,1,1,1,1,0,2,1,3
+32,Prefer not to say,back pain,strength,4,60-75,Hispanic,132,1,0,0,0,0,6,0,3
+29,Non-Binary,spondylitis,cardio,3,75-90,White,180,1,1,1,3,1,1,0,1
+23,Non-Binary,osteoarthritis,cardio,7,105-120,Asian,124,1,0,1,3,0,4,0,1
+46,Prefer not to say,COPD,flexibility,7,75-90,Black,143,0,1,1,3,1,8,0,4
+62,Female,osteoarthritis,flexibility,4,60-75,Black,189,0,0,0,0,0,1,1,4
+62,Prefer not to say,obesity,cardio,3,105-120,Asian,103,0,0,1,0,1,2,1,1
+18,Male,high cholesterol,strength,5,105-120,Asian,142,1,0,0,4,0,7,1,2
+64,Female,spondylitis,strength,3,105-120,White,142,0,0,1,0,0,4,0,1
+74,Female,obesity,cardio,5,75-90,Black,210,0,1,0,3,1,5,0,1
+35,Non-Binary,COPD,cardio,7,105-120,Hispanic,210,0,0,0,0,1,3,0,3
+77,Non-Binary,back pain,flexibility,6,75-90,Hispanic,94,0,1,0,4,1,2,1,2
+71,Non-Binary,back pain,flexibility,4,90-105,White,136,1,1,1,2,0,6,0,1
+59,Prefer not to say,stroke,cardio,4,105-120,Hispanic,170,1,1,0,1,1,8,0,1
+67,Male,none,cardio,4,75-90,Hispanic,116,0,0,1,4,0,6,0,1
+54,Male,none,cardio,4,105-120,Black,196,1,1,0,0,0,3,1,1
+44,Male,none,flexibility,6,105-120,Other,129,0,1,0,4,1,4,0,2
+64,Non-Binary,Alzheimer’s,flexibility,7,45-60,Other,183,1,1,1,2,0,4,1,3
+71,Male,back pain,cardio,3,90-105,White,123,1,0,0,3,0,5,1,3
+66,Female,cardiac disease,flexibility,4,75-90,Asian,114,0,0,1,4,0,2,1,2
+65,Prefer not to say,high cholesterol,strength,6,60-75,White,199,1,1,0,0,0,9,0,2
+24,Non-Binary,Alzheimer’s,flexibility,5,45-60,Other,134,1,0,0,0,1,7,1,4
+19,Prefer not to say,kidney disease,flexibility,3,105-120,Other,105,1,1,1,0,0,10,0,2
+25,Female,hypertension,cardio,3,75-90,Hispanic,200,1,1,1,2,0,10,0,3
+34,Prefer not to say,spondylitis,strength,3,90-105,White,159,0,0,1,3,0,5,0,3
+27,Prefer not to say,high cholesterol,strength,7,30-45,Black,164,0,0,1,4,1,5,1,4
+24,Non-Binary,osteoarthritis,flexibility,3,90-105,Hispanic,96,1,1,0,2,0,4,1,2
+61,Non-Binary,stroke,strength,5,75-90,Other,119,1,0,0,3,1,9,0,3
+23,Prefer not to say,COPD,flexibility,4,60-75,Other,162,0,0,0,3,1,7,1,1
+31,Female,back pain,strength,5,45-60,White,173,0,0,0,4,1,8,1,4
+50,Prefer not to say,hypertension,cardio,6,75-90,Hispanic,169,0,0,0,0,1,2,1,3
+42,Non-Binary,spondylitis,flexibility,4,90-105,Other,103,1,0,0,2,1,1,0,2
+26,Non-Binary,COPD,strength,4,60-75,Black,125,1,0,0,1,1,6,1,3
+68,Prefer not to say,kidney disease,strength,7,105-120,Hispanic,184,1,1,1,2,1,1,0,2
+53,Male,Alzheimer’s,flexibility,3,90-105,Asian,113,1,1,1,0,0,10,0,2
+64,Non-Binary,kidney disease,strength,5,75-90,Hispanic,99,1,1,0,3,0,1,1,1
+21,Female,high cholesterol,strength,3,75-90,White,165,1,0,1,0,1,10,1,1
+60,Male,spondylitis,strength,5,105-120,Hispanic,108,1,0,0,0,1,7,1,4
+76,Non-Binary,obesity,strength,4,75-90,White,116,0,0,0,0,0,8,1,1
+43,Female,kidney disease,flexibility,3,105-120,White,150,0,0,0,4,0,3,1,2
+51,Male,obesity,cardio,6,30-45,Other,156,1,0,1,1,1,7,0,2
+32,Male,diabetes,cardio,3,105-120,Asian,128,0,1,1,2,1,4,0,1
+48,Male,osteoarthritis,strength,4,90-105,Black,181,1,0,0,1,1,7,1,4
+39,Male,COPD,strength,6,75-90,Other,202,0,0,1,4,0,5,0,3
+41,Prefer not to say,COPD,flexibility,5,60-75,Black,104,1,1,0,0,0,1,1,3
+57,Male,back pain,cardio,3,105-120,Black,113,1,0,1,2,0,7,0,2
+34,Male,high cholesterol,cardio,5,90-105,Black,126,0,0,0,2,0,8,0,3
+75,Male,COPD,cardio,5,45-60,White,177,0,1,1,0,0,6,0,1
+73,Prefer not to say,Alzheimer’s,strength,4,90-105,Hispanic,119,0,0,1,0,1,8,0,2
+19,Female,hypertension,cardio,6,60-75,Other,196,0,1,1,1,1,4,0,2
+32,Female,osteoarthritis,strength,6,105-120,White,154,0,1,1,0,0,3,0,1
+59,Male,cardiac disease,strength,6,45-60,Asian,188,0,1,0,0,0,4,0,2
+64,Female,diabetes,strength,7,75-90,Other,207,0,0,0,3,0,8,0,2
+32,Female,kidney disease,flexibility,7,30-45,Asian,103,0,0,1,4,0,6,0,2
+68,Prefer not to say,back pain,cardio,6,60-75,Black,94,1,0,1,4,1,3,1,2
+58,Non-Binary,cardiac disease,strength,5,60-75,Black,110,0,1,0,2,1,9,1,2
+56,Male,osteoarthritis,strength,3,105-120,Black,149,0,0,1,2,1,3,1,1
+68,Female,obesity,flexibility,7,30-45,Other,111,1,0,0,3,1,4,0,2
+48,Prefer not to say,none,cardio,6,105-120,Hispanic,125,0,0,0,3,1,6,0,3
+39,Male,hypertension,cardio,7,105-120,White,204,1,0,1,1,0,3,0,1
+74,Prefer not to say,diabetes,strength,6,45-60,Hispanic,118,1,0,1,1,1,7,0,3
+44,Prefer not to say,COPD,strength,6,60-75,Other,138,1,1,1,2,0,4,0,4
+59,Female,kidney disease,flexibility,5,90-105,White,144,1,0,1,0,0,10,0,3
+47,Male,stroke,flexibility,4,60-75,White,180,0,0,1,0,0,7,0,4
+23,Male,COPD,flexibility,5,45-60,Asian,193,1,0,0,3,0,8,0,1
+37,Prefer not to say,kidney disease,cardio,7,45-60,Black,164,0,1,0,1,0,3,1,2
+22,Non-Binary,high cholesterol,flexibility,7,90-105,White,176,0,0,0,0,1,9,1,1
+40,Prefer not to say,kidney disease,flexibility,4,105-120,Asian,122,0,0,0,1,1,8,0,4
+58,Non-Binary,kidney disease,flexibility,3,90-105,Asian,91,1,0,0,3,0,8,1,1
+30,Female,obesity,flexibility,4,60-75,Hispanic,206,1,1,0,0,1,10,1,3
+39,Non-Binary,obesity,strength,5,45-60,White,199,0,1,0,3,1,8,1,2
+74,Female,diabetes,strength,7,75-90,Hispanic,134,1,0,0,3,0,8,0,2
+37,Prefer not to say,spondylitis,strength,4,105-120,Other,123,0,1,1,4,1,3,0,1
+63,Prefer not to say,stroke,cardio,6,105-120,White,112,0,1,0,0,1,9,0,4
+79,Male,diabetes,flexibility,5,45-60,Asian,125,0,0,0,1,0,1,1,2
+43,Non-Binary,kidney disease,cardio,6,90-105,Other,95,0,1,1,2,1,3,0,4
+72,Male,spondylitis,flexibility,3,90-105,Asian,114,1,1,1,4,0,4,0,3
+56,Non-Binary,back pain,cardio,6,60-75,Asian,102,1,1,1,0,1,7,1,2
+18,Prefer not to say,COPD,cardio,5,60-75,Asian,125,1,1,1,2,1,8,1,1
+46,Non-Binary,back pain,cardio,4,105-120,Other,205,1,1,0,1,0,2,1,1
+37,Non-Binary,high cholesterol,strength,3,90-105,Black,178,1,1,0,1,0,9,1,4
+24,Non-Binary,back pain,cardio,5,45-60,White,175,0,0,1,1,0,9,0,3
+69,Prefer not to say,hypertension,flexibility,5,75-90,Hispanic,135,1,0,0,0,0,5,0,1
+59,Non-Binary,obesity,cardio,7,75-90,Other,184,1,1,1,0,0,2,1,1
+76,Female,cardiac disease,cardio,5,90-105,Other,115,1,0,1,0,1,3,0,4
+66,Female,Alzheimer’s,strength,6,75-90,White,196,0,0,0,1,1,7,1,2
+62,Male,diabetes,flexibility,3,105-120,Other,163,1,1,0,1,0,9,0,4
+47,Prefer not to say,back pain,strength,7,45-60,Other,113,1,1,0,3,0,10,1,3
+36,Non-Binary,osteoarthritis,cardio,3,105-120,Hispanic,171,0,1,1,2,1,7,1,1
+24,Non-Binary,stroke,strength,6,105-120,Black,208,0,1,1,4,1,1,0,1
+66,Non-Binary,obesity,cardio,5,45-60,Hispanic,196,1,0,0,3,0,6,0,4
+53,Female,diabetes,cardio,3,105-120,Hispanic,103,1,1,0,0,0,7,0,2
+21,Male,stroke,cardio,7,60-75,Other,162,1,1,1,1,1,6,0,3
+80,Non-Binary,Alzheimer’s,strength,7,45-60,Asian,110,1,0,0,4,0,5,0,3
+35,Non-Binary,high cholesterol,strength,3,105-120,White,194,1,1,0,2,0,10,0,3
+43,Male,back pain,flexibility,4,90-105,Asian,121,0,1,0,0,1,4,1,1
+29,Prefer not to say,hypertension,cardio,7,30-45,Black,108,0,1,1,4,1,2,1,1
+39,Prefer not to say,high cholesterol,strength,3,90-105,White,117,1,1,0,4,1,2,0,1
+55,Female,spondylitis,strength,5,90-105,White,173,1,0,1,4,1,6,1,1
+72,Non-Binary,osteoarthritis,flexibility,6,60-75,Asian,107,0,0,0,4,0,6,0,4
+44,Prefer not to say,obesity,strength,3,90-105,Asian,210,0,1,1,2,0,3,1,1
+21,Prefer not to say,kidney disease,strength,6,75-90,Asian,107,0,1,0,3,1,10,0,3
+21,Female,obesity,cardio,6,45-60,Other,195,0,0,0,0,1,4,1,3
+75,Non-Binary,spondylitis,flexibility,3,105-120,Other,121,1,1,1,4,1,10,0,1
+46,Female,spondylitis,flexibility,6,45-60,Hispanic,114,0,1,1,0,1,3,1,1
+59,Prefer not to say,osteoarthritis,flexibility,3,90-105,White,144,0,0,0,4,0,10,0,1
+69,Female,back pain,strength,7,45-60,White,149,0,1,1,2,1,2,1,2
+39,Female,cardiac disease,flexibility,5,75-90,White,100,0,1,1,3,1,5,0,1
+40,Male,osteoarthritis,strength,5,75-90,Hispanic,179,1,0,1,3,1,5,1,4
+72,Prefer not to say,cardiac disease,strength,5,90-105,White,176,0,1,0,2,0,10,1,3
+54,Female,none,flexibility,4,105-120,Black,199,1,0,1,4,0,6,0,4
+62,Male,kidney disease,flexibility,7,30-45,Asian,178,1,0,1,2,0,1,0,4
+60,Female,Alzheimer’s,flexibility,4,105-120,Asian,110,0,1,0,2,0,8,0,2
+78,Non-Binary,kidney disease,cardio,5,60-75,Other,193,0,0,0,2,0,5,0,4
+79,Male,COPD,strength,3,90-105,White,142,0,0,0,1,0,9,1,2
+63,Male,Alzheimer’s,strength,3,90-105,Hispanic,135,0,0,0,2,1,7,1,1
+30,Female,none,strength,7,45-60,Hispanic,157,1,0,0,3,0,8,1,3
+40,Non-Binary,stroke,cardio,6,75-90,Asian,171,0,1,1,2,1,4,0,3
+60,Female,Alzheimer’s,cardio,3,90-105,Black,195,0,0,1,4,0,2,1,4
+25,Prefer not to say,hypertension,strength,3,90-105,Hispanic,94,0,0,0,2,0,3,1,3
+68,Prefer not to say,COPD,cardio,6,60-75,Other,163,1,1,0,4,1,2,1,4
+30,Prefer not to say,osteoarthritis,cardio,5,75-90,Other,175,1,0,1,4,1,4,1,4
+67,Non-Binary,kidney disease,cardio,7,90-105,Hispanic,165,1,1,0,1,1,10,1,2
+69,Prefer not to say,back pain,strength,3,105-120,White,162,1,0,1,0,1,2,1,4
+49,Male,Alzheimer’s,flexibility,3,90-105,White,99,1,1,1,3,0,4,0,2
+45,Prefer not to say,COPD,strength,4,90-105,Asian,181,1,1,0,1,0,9,0,4
+63,Prefer not to say,COPD,cardio,3,90-105,Black,113,1,0,0,4,1,3,0,1
+48,Male,stroke,strength,4,105-120,Other,190,1,1,1,2,0,4,1,1
+66,Non-Binary,hypertension,cardio,7,75-90,Hispanic,147,1,1,1,3,1,4,0,1
+77,Non-Binary,obesity,strength,4,60-75,Hispanic,130,0,0,1,2,0,8,0,1
+46,Non-Binary,back pain,strength,6,60-75,Hispanic,94,1,1,0,3,1,9,1,4
+52,Non-Binary,spondylitis,cardio,3,105-120,White,154,0,0,0,2,1,5,0,4
+74,Prefer not to say,Alzheimer’s,strength,5,45-60,White,152,1,0,0,0,0,5,1,2
+80,Female,hypertension,strength,4,90-105,Black,140,1,0,1,4,0,4,0,4
+75,Prefer not to say,spondylitis,strength,7,75-90,Other,158,1,1,0,3,0,9,0,3
+25,Prefer not to say,stroke,strength,5,75-90,White,176,0,1,1,4,0,7,1,3
+55,Male,back pain,strength,5,45-60,White,156,1,1,0,1,1,8,0,2
+72,Male,osteoarthritis,cardio,5,60-75,White,185,0,0,0,1,1,1,0,3
+37,Male,stroke,flexibility,4,60-75,Black,97,1,1,1,2,1,4,0,1
+26,Female,obesity,flexibility,5,105-120,Black,152,0,0,0,3,1,3,1,1
+32,Non-Binary,diabetes,strength,5,45-60,Asian,197,1,1,0,3,0,7,1,4
+73,Male,COPD,flexibility,7,30-45,White,141,1,0,0,2,1,1,1,3
+32,Prefer not to say,hypertension,strength,6,105-120,Hispanic,105,1,1,0,2,0,1,0,1
+59,Non-Binary,high cholesterol,flexibility,3,90-105,Hispanic,192,1,0,1,0,1,8,0,1
+28,Female,cardiac disease,cardio,6,90-105,Other,109,0,1,1,4,0,7,1,3
+47,Male,hypertension,strength,5,75-90,Other,98,1,0,1,4,0,10,1,1
+36,Male,back pain,strength,5,105-120,Hispanic,122,1,1,0,2,1,5,1,2
+31,Female,obesity,flexibility,6,45-60,White,188,1,0,0,2,1,9,0,4
+77,Male,Alzheimer’s,cardio,4,75-90,Hispanic,207,0,1,0,3,0,2,1,3
+46,Male,obesity,cardio,6,90-105,Hispanic,199,0,0,1,3,0,9,0,4
+34,Female,back pain,cardio,7,30-45,Hispanic,134,1,1,1,2,0,10,0,1
+67,Non-Binary,osteoarthritis,cardio,5,75-90,White,141,1,0,1,4,0,6,1,4
+59,Male,diabetes,flexibility,4,105-120,Other,141,0,1,0,1,1,4,1,3
+30,Prefer not to say,obesity,cardio,7,90-105,Other,123,1,0,1,3,0,7,1,3
+26,Non-Binary,obesity,strength,4,75-90,White,197,0,0,1,4,0,5,1,4
+39,Non-Binary,back pain,strength,4,60-75,Black,190,0,0,1,1,1,2,1,2
+57,Prefer not to say,Alzheimer’s,strength,4,60-75,Asian,210,1,0,0,0,1,3,0,2
+67,Female,spondylitis,flexibility,7,105-120,Other,161,0,1,1,1,1,3,0,2
+46,Male,obesity,flexibility,4,105-120,White,127,0,0,1,3,0,7,1,1
+65,Prefer not to say,kidney disease,cardio,5,90-105,Hispanic,118,1,0,0,4,0,9,1,4
+80,Female,cardiac disease,flexibility,6,45-60,Black,141,0,1,0,2,1,1,1,1
+24,Non-Binary,osteoarthritis,flexibility,6,90-105,White,174,0,1,1,2,1,9,1,1
+76,Non-Binary,hypertension,strength,6,105-120,Asian,133,0,0,0,3,1,9,0,2
+34,Prefer not to say,none,strength,3,105-120,Hispanic,168,0,1,1,4,1,8,0,3
+55,Female,none,strength,4,60-75,Other,183,0,1,1,1,0,7,1,4
+40,Non-Binary,COPD,flexibility,6,45-60,Black,140,1,0,1,1,1,1,1,4
+65,Female,back pain,strength,4,90-105,Black,140,0,0,1,1,0,1,1,3
+64,Prefer not to say,spondylitis,cardio,7,60-75,Hispanic,205,1,0,1,4,1,9,0,1
+43,Non-Binary,high cholesterol,cardio,7,75-90,Hispanic,110,1,1,1,3,1,8,0,1
+63,Female,hypertension,cardio,4,75-90,Black,165,0,1,1,0,1,10,0,3
+37,Prefer not to say,obesity,flexibility,6,45-60,Hispanic,151,1,1,1,4,0,5,1,2
+44,Prefer not to say,cardiac disease,flexibility,6,30-45,Asian,192,1,1,1,2,1,8,0,2
+70,Non-Binary,spondylitis,cardio,4,105-120,Black,104,1,0,1,1,1,8,1,1
+35,Female,stroke,cardio,7,90-105,White,194,0,1,1,4,1,2,0,2
+23,Male,diabetes,strength,4,60-75,Black,115,1,0,0,2,1,1,0,1
+20,Female,COPD,flexibility,3,90-105,White,203,1,1,1,1,0,3,1,1
+44,Female,none,cardio,5,75-90,Other,149,0,0,1,2,0,9,1,4
+51,Non-Binary,cardiac disease,strength,3,90-105,Asian,178,0,1,1,0,1,1,1,4
+72,Non-Binary,Alzheimer’s,flexibility,4,60-75,Asian,144,1,0,0,3,1,3,0,2
+40,Prefer not to say,osteoarthritis,cardio,5,60-75,White,106,1,0,0,1,0,4,0,2
+30,Female,diabetes,strength,6,60-75,Black,171,1,1,0,2,1,3,1,2
+48,Prefer not to say,high cholesterol,cardio,5,45-60,Hispanic,199,0,1,1,1,0,10,0,4
+53,Non-Binary,Alzheimer’s,cardio,6,105-120,Asian,181,0,1,1,3,0,1,1,2
+57,Female,kidney disease,cardio,7,75-90,Hispanic,207,0,1,0,1,0,9,0,2
+33,Female,kidney disease,cardio,4,105-120,Other,168,1,1,1,4,0,8,0,3
+37,Prefer not to say,hypertension,cardio,3,105-120,Other,139,0,0,0,4,1,1,1,2
+64,Non-Binary,high cholesterol,flexibility,7,30-45,Other,168,0,1,1,1,0,2,0,3
+20,Prefer not to say,COPD,flexibility,7,30-45,Asian,174,1,0,1,2,1,1,1,1
+74,Prefer not to say,kidney disease,strength,4,75-90,Black,177,0,1,0,4,1,10,1,2
+72,Prefer not to say,obesity,cardio,6,90-105,Black,165,0,0,0,0,1,5,1,4
+34,Male,COPD,strength,7,45-60,Other,113,1,1,1,1,1,8,1,1
+68,Prefer not to say,osteoarthritis,strength,7,60-75,White,195,0,1,1,1,1,10,1,4
+20,Female,COPD,cardio,7,45-60,Hispanic,91,0,1,0,0,1,3,0,4
+79,Female,osteoarthritis,flexibility,3,105-120,White,154,1,0,1,3,0,1,1,1
+76,Non-Binary,high cholesterol,cardio,7,105-120,Hispanic,127,0,1,0,0,0,9,0,1
+58,Female,back pain,strength,4,90-105,Other,103,0,1,0,0,1,9,0,1
+67,Prefer not to say,cardiac disease,flexibility,5,90-105,Asian,129,0,0,1,4,0,10,0,2
+74,Female,COPD,flexibility,6,45-60,Black,157,0,1,1,0,1,5,1,2
+35,Prefer not to say,none,cardio,7,45-60,Other,153,1,0,1,2,1,6,0,4
+69,Male,obesity,flexibility,6,60-75,Black,189,1,0,0,2,0,4,1,4
+64,Non-Binary,Alzheimer’s,cardio,4,60-75,Black,121,0,1,0,1,0,5,0,4
+42,Non-Binary,spondylitis,strength,6,75-90,White,139,1,0,1,1,1,9,0,1
+18,Female,obesity,flexibility,4,60-75,Asian,115,0,0,1,0,0,7,1,2
+78,Female,hypertension,flexibility,4,105-120,Asian,143,1,1,1,3,1,9,1,1
+77,Prefer not to say,spondylitis,flexibility,5,45-60,Other,92,0,0,1,1,0,2,0,1
+33,Female,stroke,flexibility,3,90-105,White,199,1,0,1,2,0,3,0,3
+50,Female,spondylitis,cardio,4,105-120,Hispanic,91,0,0,1,4,1,1,0,4
+69,Male,COPD,flexibility,5,45-60,Asian,152,1,1,1,1,0,10,0,3
+43,Male,stroke,strength,5,60-75,Black,123,1,0,0,3,1,7,0,3
+61,Male,COPD,cardio,4,105-120,White,142,1,1,0,0,0,6,0,2
+34,Male,hypertension,strength,3,90-105,Other,110,1,1,1,1,1,6,1,2
+41,Non-Binary,diabetes,flexibility,7,30-45,Hispanic,100,0,0,0,2,0,10,1,2
+44,Non-Binary,COPD,strength,6,90-105,Other,101,0,0,1,2,1,8,0,3
+48,Prefer not to say,cardiac disease,cardio,4,60-75,Asian,200,1,1,0,0,1,3,0,4
+65,Male,stroke,cardio,7,60-75,Asian,129,1,0,0,0,1,10,0,3
+79,Female,obesity,strength,6,45-60,Other,114,1,0,0,2,0,2,0,4
+62,Male,diabetes,cardio,5,60-75,Asian,129,1,1,1,1,0,5,0,2
+47,Prefer not to say,hypertension,strength,5,105-120,Other,141,1,0,1,3,0,2,0,1
+70,Male,back pain,cardio,4,75-90,Hispanic,189,0,1,0,4,1,6,0,3
+26,Female,cardiac disease,cardio,3,105-120,Other,186,0,0,1,1,1,5,1,4
+43,Female,cardiac disease,cardio,4,90-105,Hispanic,182,0,1,1,2,1,9,0,1
+76,Male,COPD,flexibility,6,75-90,Black,152,1,1,1,3,1,2,0,3
+33,Non-Binary,COPD,cardio,3,90-105,Asian,164,1,1,0,2,0,8,0,1
+68,Male,osteoarthritis,flexibility,5,90-105,Other,99,0,0,1,2,0,4,0,1
+70,Female,cardiac disease,flexibility,4,90-105,Asian,200,1,1,0,1,1,10,1,2
+78,Male,diabetes,strength,5,60-75,Other,180,0,0,0,1,1,1,1,3
+66,Male,hypertension,strength,3,90-105,Other,130,0,0,0,0,0,3,0,1
+49,Prefer not to say,obesity,cardio,6,45-60,Hispanic,165,0,1,1,0,0,10,0,4
+80,Non-Binary,diabetes,flexibility,5,90-105,Black,100,1,0,1,2,0,7,1,4
+70,Prefer not to say,high cholesterol,flexibility,3,105-120,White,175,0,0,1,3,0,3,0,3
+53,Non-Binary,cardiac disease,cardio,7,105-120,Asian,143,1,0,0,0,0,7,0,1
+49,Female,cardiac disease,flexibility,6,105-120,Hispanic,209,0,0,0,4,1,10,1,1
+22,Male,spondylitis,cardio,4,75-90,White,158,0,0,0,2,0,8,1,2
+23,Male,spondylitis,strength,6,90-105,Other,206,1,1,1,3,1,4,1,4
+66,Non-Binary,hypertension,flexibility,4,90-105,Black,105,1,0,1,0,1,4,1,1
+52,Non-Binary,cardiac disease,strength,3,90-105,Other,135,0,1,0,3,1,4,0,4
+39,Non-Binary,cardiac disease,flexibility,7,90-105,Other,96,1,0,1,1,0,1,0,1
+71,Male,COPD,strength,3,75-90,Hispanic,189,1,1,1,3,0,3,1,1
+54,Non-Binary,high cholesterol,flexibility,3,90-105,Asian,198,0,0,0,0,1,9,0,3
+36,Female,Alzheimer’s,flexibility,6,60-75,Other,190,1,0,0,2,1,2,0,4
+73,Male,none,cardio,5,90-105,Asian,125,1,0,0,1,1,2,1,4
+18,Male,high cholesterol,cardio,7,90-105,Black,189,0,1,1,0,1,6,1,2
+77,Non-Binary,back pain,flexibility,3,90-105,Other,102,0,1,1,0,0,7,1,3
+77,Prefer not to say,COPD,strength,7,60-75,Black,138,0,1,1,1,0,8,1,2
+36,Non-Binary,COPD,strength,6,105-120,Hispanic,133,0,0,0,1,1,4,0,4
+77,Non-Binary,stroke,strength,3,90-105,Asian,154,0,1,0,1,1,9,0,1
+53,Male,high cholesterol,strength,6,90-105,Black,121,0,0,0,3,0,7,0,1
+55,Non-Binary,back pain,strength,4,105-120,Asian,102,1,1,1,1,0,10,1,3
+60,Non-Binary,obesity,strength,3,90-105,White,122,0,0,1,2,0,1,1,3
+68,Male,back pain,cardio,5,45-60,Other,143,0,1,1,2,1,5,1,2
+76,Male,back pain,cardio,6,90-105,Hispanic,204,0,1,1,1,0,4,1,2
+28,Non-Binary,high cholesterol,flexibility,4,75-90,Other,153,0,1,0,0,0,10,1,4
+43,Male,cardiac disease,cardio,6,75-90,Other,148,0,0,0,1,1,7,0,4
+77,Non-Binary,osteoarthritis,strength,4,105-120,Black,171,0,1,1,1,0,2,0,4
+56,Prefer not to say,obesity,flexibility,3,105-120,Hispanic,105,0,1,0,4,1,2,0,4
+57,Male,spondylitis,strength,5,105-120,Hispanic,127,1,1,1,0,0,10,1,4
+57,Male,spondylitis,flexibility,6,60-75,Hispanic,200,1,0,0,0,0,2,1,3
