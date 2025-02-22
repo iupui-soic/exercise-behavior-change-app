@@ -1,7 +1,7 @@
 //import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'dart:async' show Timer;
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -77,14 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // Carousel with 3 images
-                  CarouselSlider(
+                  slider.CarouselSlider(
                     items: [
                       // Replace the AssetImage paths with your image assets
                       const AssetImage('images/image1.png'),
                       const AssetImage('images/image2.png'),
                       const AssetImage('images/image3.png'),
                     ].map((item) => Image(image: item)).toList(),
-                    options: CarouselOptions(
+                    options: slider.CarouselOptions(
                       autoPlay: true,
                       aspectRatio: 16 / 9,
                       enlargeCenterPage: true,
