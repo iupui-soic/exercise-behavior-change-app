@@ -1,0 +1,152 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches: [ main, master, dev ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    name: Test and Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.9'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze project
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+  build-android:
+    name: Build Android APK
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.9'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Install Fastlane
+        working-directory: ./android
+        run: |
+          gem install bundler
+          bundle init
+          bundle add fastlane
+
+      - name: Setup Fastlane for Android
+        working-directory: ./android
+        run: |
+          mkdir -p fastlane
+          cat > fastlane/Fastfile << 'EOL'
+          default_platform(:android)
+
+          platform :android do
+            desc "Build APK"
+            lane :build do
+              gradle(
+                task: "assemble",
+                build_type: "Release"
+              )
+            end
+          end
+          EOL
+
+      - name: Build APK with Fastlane
+        working-directory: ./android
+        run: bundle exec fastlane build
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 7
+
+  build-ios:
+    name: Build iOS IPA
+    needs: test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.9'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Install Fastlane
+        working-directory: ./ios
+        run: |
+          gem install bundler
+          bundle init
+          bundle add fastlane
+
+      - name: Setup Fastlane for iOS
+        working-directory: ./ios
+        run: |
+          mkdir -p fastlane
+          cat > fastlane/Fastfile << 'EOL'
+          default_platform(:ios)
+
+          platform :ios do
+            desc "Build IPA"
+            lane :build do
+              build_app(
+                workspace: "Runner.xcworkspace",
+                scheme: "Runner",
+                export_method: "development",
+                skip_profile_detection: true,
+                skip_codesigning: true,
+                skip_package_ipa: false,
+                include_bitcode: false,
+                include_symbols: false
+              )
+            end
+          end
+          EOL
+
+      - name: Install pods
+        working-directory: ./ios
+        run: pod install
+
+      - name: Build IPA with Fastlane
+        working-directory: ./ios
+        run: bundle exec fastlane build
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: runner
+          path: ios/Runner.ipa
+          retention-days: 7

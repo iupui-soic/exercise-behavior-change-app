@@ -1,0 +1,48 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build and upload a new beta build to GitHub"
+  lane :beta do
+    # Ensure clean git status
+    ensure_git_status_clean
+
+    # Increment version code
+    increment_version_code(
+      gradle_file_path: "app/build.gradle"
+    )
+
+    # Build APK
+    gradle(
+      task: "clean assembleRelease"
+    )
+
+    # Upload to GitHub
+    github_release = set_github_release(
+      repository_name: "YOUR_GITHUB_USERNAME/exercise_behavior_change_app",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "v#{lane_context[SharedValues::VERSION_NAME]}",
+      tag_name: "v#{lane_context[SharedValues::VERSION_NAME]}",
+      description: "Release v#{lane_context[SharedValues::VERSION_NAME]}",
+      commitish: "main",
+      upload_assets: ["../build/app/outputs/flutter-apk/app-release.apk"]
+    )
+
+    # Clean up
+    clean_build_artifacts
+  end
+
+  desc "Run flutter tests"
+  lane :test do
+    sh("cd .. && flutter test")
+  end
+
+  desc "Increment version code"
+  private_lane :increment_version_code do |options|
+    gradle_file_path = options[:gradle_file_path]
+    version_code = get_gradle_version_code(gradle_file_path: gradle_file_path)
+    new_version_code = version_code.to_i + 1
+    
+    # Update version code
+    sh("sed -i '' 's/versionCode #{version_code}/versionCode #{new_version_code}/' #{gradle_file_path}")
+  end
+end

@@ -1,0 +1,42 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build and upload a new beta build to GitHub"
+  lane :beta do
+    # Ensure clean git status
+    ensure_git_status_clean
+
+    # Increment build number
+    increment_build_number(
+      xcodeproj: "Runner.xcodeproj"
+    )
+
+    # Build iOS app
+    build_app(
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      export_method: "development",
+      output_directory: "./build",
+      output_name: "BehaviorChangeExerciseApp.ipa"
+    )
+
+    # Upload to GitHub
+    github_release = set_github_release(
+      repository_name: "YOUR_GITHUB_USERNAME/exercise_behavior_change_app",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "v#{get_version_number}-#{get_build_number}",
+      tag_name: "v#{get_version_number}-#{get_build_number}",
+      description: "Release v#{get_version_number}-#{get_build_number}",
+      commitish: "main",
+      upload_assets: ["build/BehaviorChangeExerciseApp.ipa"]
+    )
+
+    # Clean up
+    clean_build_artifacts
+  end
+
+  desc "Run flutter tests"
+  lane :test do
+    sh("cd .. && flutter test")
+  end
+end
