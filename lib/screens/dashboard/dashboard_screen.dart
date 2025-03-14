@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../workout/program_details_screen.dart';
 import 'home_screen.dart';
+import 'profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     const HomeScreen(),
     const Center(child: Text('Exercise Page')),
     const Center(child: Text('Achievements Page')),
-    const Center(child: Text('Profile Page')),
+    const ProfileScreen(),
   ];
 
   @override
