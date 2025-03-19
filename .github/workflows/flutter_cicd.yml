@@ -110,7 +110,7 @@ jobs:
   build-ios:
     name: Build iOS IPA
     needs: test
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
