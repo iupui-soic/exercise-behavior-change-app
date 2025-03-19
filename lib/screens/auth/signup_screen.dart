@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../services/auth_service.dart';
-import '../../widgets/app_button.dart';
-import '../onboarding/demographics_screen.dart';
+import 'package:exercise_behavior_change_app/services/auth_service.dart';
+import 'package:exercise_behavior_change_app/widgets/app_button.dart';
+import 'package:exercise_behavior_change_app/screens/onboarding/demographics_screen.dart';
 import 'package:exercise_behavior_change_app/screens/auth/login_screen.dart';
 import 'package:exercise_behavior_change_app/utils/theme.dart';
 

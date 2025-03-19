@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../widgets/app_button.dart';
-import '../../services/auth_service.dart';
-import '../dashboard/dashboard_screen.dart';
-import 'signup_screen.dart';
+import 'package:exercise_behavior_change_app/widgets/app_button.dart';
+import 'package:exercise_behavior_change_app/services/auth_service.dart';
+import 'package:exercise_behavior_change_app/screens/dashboard/dashboard_screen.dart';
+import 'package:exercise_behavior_change_app/screens/auth/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -121,6 +121,7 @@ class EmailLoginScreen extends StatefulWidget {
 class _EmailLoginScreenState extends State<EmailLoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -189,7 +190,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                     ),
                   ),
                   onPressed: () {
-                    // Handle forgot password
+                    _handleForgotPassword(context);
                   },
                 ),
               ],
@@ -197,6 +198,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
             const SizedBox(height: 10.0),
             AppButton(
               text: 'Log in',
+              isLoading: _isLoading,
               onPressed: () => _handleLogin(context),
             ),
             const SizedBox(height: 20.0),
@@ -231,20 +233,44 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
 
   Future<void> _handleLogin(BuildContext context) async {
     if (_validateForm()) {
-      final authService = AuthService();
-      final success = await authService.login(
-        _emailController.text,
-        _passwordController.text,
-        context,
-      );
+      setState(() {
+        _isLoading = true;
+      });
 
-      if (success && context.mounted) {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const DashboardScreen()),
-              (route) => false,
+      try {
+        final authService = AuthService();
+        final success = await authService.login(
+          _emailController.text,
+          _passwordController.text,
+          context,
         );
+
+        if (success && context.mounted) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                (route) => false,
+          );
+        }
+      } finally {
+        if (mounted) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
       }
     }
+  }
+
+  void _handleForgotPassword(BuildContext context) async {
+    if (_emailController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter your email address')),
+      );
+      return;
+    }
+
+    final authService = AuthService();
+    await authService.resetPassword(_emailController.text, context);
   }
 
   bool _validateForm() {
