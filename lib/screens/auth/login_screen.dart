@@ -11,62 +11,62 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Social login buttons
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: AppButton(
-                    text: 'Sign up with Apple',
-                    onPressed: () {
-                      _handleSignUpWithApple(context);
-                    },
-                    leadingIcon: const Icon(Icons.apple, color: Colors.black),
+      // Wrap with SafeArea to respect system UI elements
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Social login buttons
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: AppButton(
+                      text: 'Sign up with Apple',
+                      onPressed: () {
+                        _handleSignUpWithApple(context);
+                      },
+                      leadingIcon: const Icon(Icons.apple, color: Colors.black),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: AppButton(
-                    text: 'Sign up with Google',
-                    onPressed: () {
-                      _handleSignUpWithGoogle(context);
-                    },
-                    leadingIcon: const Icon(Icons.android, color: Colors.black),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: AppButton(
+                      text: 'Sign up with Google',
+                      onPressed: () {
+                        _handleSignUpWithGoogle(context);
+                      },
+                      leadingIcon: const Icon(Icons.android, color: Colors.black),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: AppButton(
-                    text: 'Sign up with Email',
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const SignupScreen(),
-                        ),
-                      );
-                    },
-                    leadingIcon: const Icon(Icons.email, color: Colors.black),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: AppButton(
+                      text: 'Sign up with Email',
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const SignupScreen(),
+                          ),
+                        );
+                      },
+                      leadingIcon: const Icon(Icons.email, color: Colors.black),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 60),
-          // Login link
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: GestureDetector(
-                onTap: () {
+            const SizedBox(height: 20),
+            // Login link - updated with better positioning
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: TextButton(
+                onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const EmailLoginScreen(),
@@ -82,8 +82,8 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -140,88 +140,94 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const Text(
-              'Welcome back!',
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20.0),
-            TextFormField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                hintText: 'Email Address',
+      // Add SafeArea here too
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const Text(
+                'Welcome back!',
+                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
-              keyboardType: TextInputType.emailAddress,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email address';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 10.0),
-            TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                hintText: 'Password',
-              ),
-              obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text(
-                    'Forgot Password',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  onPressed: () {
-                    // Handle forgot password
-                  },
+              const SizedBox(height: 20.0),
+              TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  hintText: 'Email Address',
                 ),
-              ],
-            ),
-            const SizedBox(height: 10.0),
-            AppButton(
-              text: 'Log in',
-              onPressed: () => _handleLogin(context),
-            ),
-            const SizedBox(height: 20.0),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: TextButton(
-                  child: const Text(
-                    'Don\'t have an account? Sign up',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const SignupScreen(),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email address';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 10.0),
+              TextFormField(
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  hintText: 'Password',
+                ),
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  TextButton(
+                    child: const Text(
+                      'Forgot Password',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
                       ),
-                    );
-                  },
+                    ),
+                    onPressed: () {
+                      // Handle forgot password
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10.0),
+              AppButton(
+                text: 'Log in',
+                onPressed: () => _handleLogin(context),
+              ),
+              const SizedBox(height: 20.0),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: TextButton(
+                      child: const Text(
+                        'Don\'t have an account? Sign up',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const SignupScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

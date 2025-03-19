@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import '../onboarding/demographics_screen.dart';
-import 'login_screen.dart';
+import 'package:exercise_behavior_change_app/screens/auth/login_screen.dart';
+import 'package:exercise_behavior_change_app/utils/theme.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -31,155 +31,184 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      // Following the pattern from the welcome screen
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Text(
-                          'Let\'s get started!',
-                          style: TextStyle(
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 20.0),
-
-                        // Name field
-                        TextFormField(
-                          controller: _nameController,
-                          decoration: const InputDecoration(
-                            hintText: 'Name',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                ),
+                child: IntrinsicHeight(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Top form area
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Let\'s get started!',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your name';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 10.0),
+                            const SizedBox(height: 30.0),
 
-                        // Email field
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            hintText: 'Email Address',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            // Form fields
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                children: [
+                                  // Name field
+                                  TextFormField(
+                                    controller: _nameController,
+                                    decoration: const InputDecoration(
+                                      hintText: 'Name',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                      ),
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter your name';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 10.0),
+
+                                  // Email field
+                                  TextFormField(
+                                    controller: _emailController,
+                                    decoration: const InputDecoration(
+                                      hintText: 'Email Address',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.emailAddress,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter your email address';
+                                      }
+                                      final emailRegex = RegExp(
+                                          r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+\.[a-zA-Z]+");
+                                      if (!emailRegex.hasMatch(value)) {
+                                        return 'Please enter a valid email address';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 10.0),
+
+                                  // Password field
+                                  TextFormField(
+                                    controller: _passwordController,
+                                    decoration: const InputDecoration(
+                                      hintText: 'Password (8+ characters)',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                      ),
+                                    ),
+                                    obscureText: true,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter your password';
+                                      }
+                                      if (value.length < 8) {
+                                        return 'Password must be at least 8 characters long';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email address';
-                            }
-                            // Check email format
-                            final emailRegex = RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+\.[a-zA-Z]+");
-                            if (!emailRegex.hasMatch(value)) {
-                              return 'Please enter a valid email address';
-                            }
-                            return null;
-                          },
+                          ],
                         ),
-                        const SizedBox(height: 10.0),
+                      ),
 
-                        // Password field
-                        TextFormField(
-                          controller: _passwordController,
-                          decoration: const InputDecoration(
-                            hintText: 'Password (8+ characters)',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      // Spacer to push content to top and bottom
+                      const Spacer(),
+
+                      // Bottom buttons and login link
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Apple Sign In button
+                            AppButton(
+                              text: 'Sign up with Apple',
+                              onPressed: () => _handleAppleSignIn(context),
+                              isLoading: _isLoading,
+                              leadingIcon: const Icon(Icons.apple, color: Colors.black),
+                              backgroundColor: AppTheme.primaryColor,
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                          ),
-                          obscureText: true,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
-                            }
-                            // Check password length
-                            if (value.length < 8) {
-                              return 'Password must be at least 8 characters long';
-                            }
-                            return null;
-                          },
+                            const SizedBox(height: 10.0),
+
+                            // Google Sign In button
+                            AppButton(
+                              text: 'Sign up with Google',
+                              onPressed: () => _handleGoogleSignIn(context),
+                              isLoading: _isLoading,
+                              leadingIcon: const Icon(Icons.android, color: Colors.black),
+                              backgroundColor: AppTheme.primaryColor,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            const SizedBox(height: 10.0),
+
+                            // Email Sign In button
+                            AppButton(
+                              text: 'Sign up with Email',
+                              onPressed: () => _handleSignup(context),
+                              isLoading: _isLoading,
+                              leadingIcon: const Icon(Icons.email, color: Colors.black),
+                              backgroundColor: AppTheme.primaryColor,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+
+                            // Login link - with margin for safery
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0, bottom: 5.0),
+                              child: TextButton(
+                                child: const Text(
+                                  'Already have an account? Login',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => const EmailLoginScreen(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 20.0),
-
-                        // Create Account button
-                        AppButton(
-                          text: 'Create Account',
-                          onPressed: () => _handleSignup(context),
-                          isLoading: _isLoading,
-                        ),
-
-                        const SizedBox(height: 10.0),
-                        const Center(child: Text('or')),
-                        const SizedBox(height: 10.0),
-
-                        // Apple Sign In button
-                        AppButton(
-                          text: 'Continue with Apple',
-                          onPressed: () => _handleAppleSignIn(context),
-                          isLoading: _isLoading,
-                          leadingIcon: const Icon(Icons.apple, color: Colors.black),
-                        ),
-
-                        const SizedBox(height: 10.0),
-
-                        // Google Sign In button
-                        AppButton(
-                          text: 'Continue with Google',
-                          onPressed: () => _handleGoogleSignIn(context),
-                          isLoading: _isLoading,
-                          leadingIcon: const Icon(Icons.android, color: Colors.black),
-                        ),
-
-                        const SizedBox(height: 20.0),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-
-              // Login link
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  TextButton(
-                    child: const Text(
-                      'Already have an account? Log in',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const EmailLoginScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
