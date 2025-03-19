@@ -64,6 +64,9 @@ TBD
 ## Unit Tests
 TBD
 
+### App Testing
+This project is tested with BrowserStack
+
 ## Roadmap
 1. Improve the Profile page to add Friends and Connections 
 2. Move to Firebase - Auth as well as user data
