@@ -1,10 +1,11 @@
 import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/user_model.dart' as app_user;
+import 'package:hive/hive.dart';
+import '../models/user_model.dart';
 
 class AuthService {
   static final AuthService _instance = AuthService._internal();
@@ -12,51 +13,43 @@ class AuthService {
   factory AuthService() => _instance;
 
   // Firebase instances
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final firebase_auth.FirebaseAuth _auth = firebase_auth.FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+  // Current user
+  User? currentUser;
+
   AuthService._internal();
 
-  // Get current Firebase user
-  User? get currentUser => _auth.currentUser;
-
-  // Get user data from Firestore
-  Future<app_user.User?> getCurrentUserData() async {
-    if (currentUser == null) return null;
-
-    try {
-      final doc = await _firestore.collection('users').doc(currentUser!.uid).get();
-      if (doc.exists) {
-        return app_user.User(
-          doc['email'] as String,
-          '', // We don't store passwords in Firestore
-          name: doc['name'] as String?,
-        );
-      }
-    } catch (e) {
-      developer.log('Error getting user data: $e');
-    }
-
-    return null;
+  // Get users box (keeping for backward compatibility)
+  Future<Box<User>> _getUsersBox() async {
+    return await Hive.openBox<User>('users');
   }
+
+  // Get current Firebase user
+  firebase_auth.User? get firebaseUser => _auth.currentUser;
 
   // Login with email and password
   Future<bool> login(String email, String password, BuildContext context) async {
     try {
+      // Attempt Firebase login
       final userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
       if (userCredential.user != null) {
+        // Fetch user data from Firestore
+        await _fetchAndSetCurrentUser(userCredential.user!.uid);
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Logged in successfully')),
         );
         return true;
       }
       return false;
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       String message = 'Login failed';
 
       if (e.code == 'user-not-found') {
@@ -91,12 +84,17 @@ class AuthService {
         // Update user profile with display name
         await userCredential.user!.updateDisplayName(name);
 
-        // Save additional user data in Firestore
+        // Create a User object with email
+        final user = User(email, '');
+
+        // Save user data to Firestore
         await _firestore.collection('users').doc(userCredential.user!.uid).set({
-          'name': name,
           'email': email,
           'createdAt': FieldValue.serverTimestamp(),
         });
+
+        // Set as current user
+        currentUser = user;
 
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Account created successfully')),
@@ -105,7 +103,7 @@ class AuthService {
         return true;
       }
       return false;
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       String message = 'Registration failed';
 
       if (e.code == 'weak-password') {
@@ -141,7 +139,7 @@ class AuthService {
       final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
       // Create a new credential
-      final credential = GoogleAuthProvider.credential(
+      final credential = firebase_auth.GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
@@ -150,17 +148,19 @@ class AuthService {
       final userCredential = await _auth.signInWithCredential(credential);
 
       if (userCredential.user != null) {
-        // Check if this is a new user (first time sign-in)
+        // Check if this is a new user
         final isNewUser = userCredential.additionalUserInfo?.isNewUser ?? false;
 
         if (isNewUser) {
-          // Save user data to Firestore for new users
+          // Save basic user data to Firestore for new users
           await _firestore.collection('users').doc(userCredential.user!.uid).set({
-            'name': userCredential.user!.displayName,
             'email': userCredential.user!.email,
             'createdAt': FieldValue.serverTimestamp(),
           });
         }
+
+        // Fetch and set current user
+        await _fetchAndSetCurrentUser(userCredential.user!.uid);
 
         return true;
       }
@@ -186,7 +186,7 @@ class AuthService {
       );
 
       // Create an OAuthCredential from the credential
-      final oauthCredential = OAuthProvider('apple.com').credential(
+      final oauthCredential = firebase_auth.OAuthProvider('apple.com').credential(
         idToken: credential.identityToken,
         accessToken: credential.authorizationCode,
       );
@@ -195,19 +195,18 @@ class AuthService {
       final userCredential = await _auth.signInWithCredential(oauthCredential);
 
       if (userCredential.user != null) {
-        // Check if this is a new user (first time sign-in)
+        // Check if this is a new user
         final isNewUser = userCredential.additionalUserInfo?.isNewUser ?? false;
 
-        // For Apple Sign In, name might be null or not provided after the first sign-in
+        // For Apple Sign In, name might be null after the first sign-in
         String? fullName;
         if (credential.givenName != null && credential.familyName != null) {
           fullName = '${credential.givenName} ${credential.familyName}';
         }
 
         if (isNewUser) {
-          // Save user data to Firestore for new users
+          // Save basic user data to Firestore for new users
           await _firestore.collection('users').doc(userCredential.user!.uid).set({
-            'name': fullName ?? userCredential.user!.displayName ?? 'Apple User',
             'email': credential.email ?? userCredential.user!.email,
             'createdAt': FieldValue.serverTimestamp(),
           });
@@ -217,6 +216,9 @@ class AuthService {
             await userCredential.user!.updateDisplayName(fullName);
           }
         }
+
+        // Fetch and set current user
+        await _fetchAndSetCurrentUser(userCredential.user!.uid);
 
         return true;
       }
@@ -230,31 +232,57 @@ class AuthService {
     }
   }
 
+  // Fetch user data from Firestore and set as current user
+  Future<void> _fetchAndSetCurrentUser(String uid) async {
+    try {
+      final doc = await _firestore.collection('users').doc(uid).get();
+
+      if (doc.exists) {
+        currentUser = User.fromFirestore(doc);
+      } else {
+        // If no Firestore data yet, create a basic user from Firebase Auth
+        final firebaseUser = _auth.currentUser;
+        if (firebaseUser != null && firebaseUser.email != null) {
+          currentUser = User(firebaseUser.email!, '');
+        }
+      }
+    } catch (e) {
+      developer.log('Error fetching user data: $e');
+    }
+  }
+
   // Logout
   Future<void> logout() async {
-    await _auth.signOut();
-    await _googleSignIn.signOut(); // Sign out from Google as well
+    try {
+      await _auth.signOut();
+      await _googleSignIn.signOut(); // Sign out from Google as well
+      currentUser = null;
+    } catch (e) {
+      developer.log('Logout error: $e');
+    }
+  }
+
+  // Get current user
+  User? getCurrentUser() {
+    return currentUser;
   }
 
   // Get current user email
   String? getCurrentUserEmail() {
-    return currentUser?.email;
+    return firebaseUser?.email ?? currentUser?.email;
   }
 
   // Update user info
-  Future<void> updateUser(app_user.User user) async {
+  Future<void> updateUser(User user) async {
     try {
-      if (currentUser != null) {
-        // Update user display name if different
-        if (user.name != null && user.name != currentUser!.displayName) {
-          await currentUser!.updateDisplayName(user.name);
-        }
+      if (firebaseUser != null) {
+        // Save user data to Firestore
+        await _firestore.collection('users').doc(firebaseUser!.uid).update(
+            user.toFirestore()
+        );
 
-        // Update user data in Firestore
-        await _firestore.collection('users').doc(currentUser!.uid).update({
-          'name': user.name,
-          // Add any other fields that need updating
-        });
+        // Update the current user
+        currentUser = user;
       }
     } catch (e) {
       developer.log('Update user error: $e');
@@ -263,7 +291,7 @@ class AuthService {
 
   // Check if user is logged in
   bool isLoggedIn() {
-    return currentUser != null;
+    return firebaseUser != null;
   }
 
   // Password reset
@@ -282,6 +310,4 @@ class AuthService {
       return false;
     }
   }
-
-  getCurrentUser() {}
 }
