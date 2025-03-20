@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'app.dart';
 import 'models/user_model.dart';
-import 'package:exercise_behavior_change_app/services/firebase_options.dart';
+import 'services/firebase_options.dart'; // Updated import path
 
 void main() async {
   // Ensure Flutter is initialized
@@ -15,7 +15,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Initialize Hive (you may still need this for other data)
+  // Initialize Hive (still needed for offline caching and other data)
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDir.path);
 

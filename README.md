@@ -1,4 +1,4 @@
-# Behavior Change Exercise App
+# Exercise Behavior Change App
 An exercise recommendation app based on behavior change theory.
 
 ## Getting Started

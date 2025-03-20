@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:exercise_behavior_change_app/services/auth_service.dart';
-import 'package:exercise_behavior_change_app/widgets/app_button.dart';
-import 'package:exercise_behavior_change_app/screens/onboarding/demographics_screen.dart';
+import '../../services/auth_service.dart';
+import '../../widgets/app_button.dart';
+import '../onboarding/demographics_screen.dart';
 import 'package:exercise_behavior_change_app/screens/auth/login_screen.dart';
 import 'package:exercise_behavior_change_app/utils/theme.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -150,7 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           children: [
                             // Apple Sign In button
                             AppButton(
-                              text: 'Sign up with Apple',
+                              text: 'Login with Apple',
                               onPressed: () => _handleAppleSignIn(context),
                               isLoading: _isLoading,
                               leadingIcon: const Icon(Icons.apple, color: Colors.black),
@@ -161,7 +162,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                             // Google Sign In button
                             AppButton(
-                              text: 'Sign up with Google',
+                              text: 'Login with Google',
                               onPressed: () => _handleGoogleSignIn(context),
                               isLoading: _isLoading,
                               leadingIcon: const Icon(Icons.android, color: Colors.black),
@@ -225,7 +226,7 @@ class _SignupScreenState extends State<SignupScreen> {
     });
 
     try {
-      // Register the user
+      // Register the user using Firebase
       final success = await _authService.register(
         _nameController.text,
         _emailController.text,
@@ -234,12 +235,17 @@ class _SignupScreenState extends State<SignupScreen> {
       );
 
       if (success && context.mounted) {
-        // Navigate to demographics page
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => DemographicsScreen(userEmail: _emailController.text),
-          ),
-        );
+        // Get the current user from Firebase
+        final firebaseUser = _authService.firebaseUser;
+
+        if (firebaseUser != null) {
+          // Navigate to demographics page
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DemographicsScreen(userEmail: _emailController.text),
+            ),
+          );
+        }
       }
     } catch (e) {
       // Show error
@@ -266,12 +272,18 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithApple(context);
 
       if (success && context.mounted) {
-        // Navigate to demographics page
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => DemographicsScreen(userEmail: _authService.getCurrentUser()?.email ?? ''),
-          ),
-        );
+        // Navigate to demographics page if it's a new user or straight to dashboard if returning
+        final firebaseUser = _authService.firebaseUser;
+        if (firebaseUser != null) {
+          // Check if user has completed demographics
+          final email = _authService.getCurrentUserEmail() ?? '';
+
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DemographicsScreen(userEmail: email),
+            ),
+          );
+        }
       }
     } catch (e) {
       if (context.mounted) {
@@ -297,12 +309,18 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithGoogle(context);
 
       if (success && context.mounted) {
-        // Navigate to demographics page
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => DemographicsScreen(userEmail: _authService.getCurrentUser()?.email ?? ''),
-          ),
-        );
+        // Navigate to demographics page if it's a new user or straight to dashboard if returning
+        final firebaseUser = _authService.firebaseUser;
+        if (firebaseUser != null) {
+          // Check if user has completed demographics
+          final email = _authService.getCurrentUserEmail() ?? '';
+
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DemographicsScreen(userEmail: email),
+            ),
+          );
+        }
       }
     } catch (e) {
       if (context.mounted) {
