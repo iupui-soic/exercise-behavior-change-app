@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: AppButton(
-                    text: 'Sign up with Apple',
+                    text: 'Login with Apple',
                     onPressed: () {
                       _handleSignUpWithApple(context);
                     },
@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: AppButton(
-                    text: 'Sign up with Google',
+                    text: 'Login with Google',
                     onPressed: () {
                       _handleSignUpWithGoogle(context);
                     },

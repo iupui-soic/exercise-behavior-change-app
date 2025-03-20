@@ -151,7 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           children: [
                             // Apple Sign In button
                             AppButton(
-                              text: 'Sign up with Apple',
+                              text: 'Login with Apple',
                               onPressed: () => _handleAppleSignIn(context),
                               isLoading: _isLoading,
                               leadingIcon: const Icon(Icons.apple, color: Colors.black),
@@ -162,7 +162,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                             // Google Sign In button
                             AppButton(
-                              text: 'Sign up with Google',
+                              text: 'Login with Google',
                               onPressed: () => _handleGoogleSignIn(context),
                               isLoading: _isLoading,
                               leadingIcon: const Icon(Icons.android, color: Colors.black),
