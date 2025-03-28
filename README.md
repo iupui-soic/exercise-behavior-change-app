@@ -59,7 +59,7 @@ lib/
 5. Services: Extract business logic into service classes
 
 ## Screenshots
-TBD
+The following screenshots provide a glimpse into key features and user flows of the Exercise Behavior Change App. This includes onboarding, dashboard views, exercise tracking, and goal-setting components. You can view all current app screenshots in the [`images/`](https://github.com/kc717/exercise-behavior-change-app/tree/main/images/Screenshots) directory of this repository.
 
 ## Unit Tests
 TBD
