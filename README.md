@@ -59,7 +59,42 @@ lib/
 5. Services: Extract business logic into service classes
 
 ## Screenshots
-The following screenshots provide a glimpse into key features and user flows of the Exercise Behavior Change App. This includes onboarding, dashboard views, exercise tracking, and goal-setting components. You can view all current app screenshots in the [`images/`](https://github.com/kc717/exercise-behavior-change-app/tree/main/images/Screenshots) directory of this repository.
+
+The following screenshots walk through a typical user journey in the Exercise Behavior Change App—from launch to workout completion and feedback.
+
+---
+
+### 1. App Launch & Login
+
+| Startup Screen | Login Options | Registration |
+|----------------|---------------|--------------|
+| ![](images/Screenshots/app_starup_screen.png) | ![](images/Screenshots/Login_options.png) | ![](images/Screenshots/Registration_screen.png) |
+| App launch screen with app icon | Sign-up options via Google, Apple, Email | User registration form |
+
+---
+
+### 2. Home & Navigation
+
+| Home Dashboard | Menu Drawer | Settings |
+|----------------|-------------|----------|
+| ![](images/Screenshots/Home_dashboard.png) | ![](images/Screenshots/menu_options.png) | ![](images/Screenshots/settings_screen.png) |
+| Recent exercises and achievements | App navigation: Home, Exercise, Profile | Terms of use, privacy, contact, logout |
+
+---
+
+### 3. Workout Flow
+
+| Workout Start | Equipment Selection | Workout Scheduler |
+|---------------|---------------------|--------------------|
+| ![](images/Screenshots/workout_startup_page.png) | ![](images/Screenshots/equipment_selection.png) | ![](images/Screenshots/workout_scheduler.png) |
+| Begin recording exercise and set goals | Log which equipment was used during the session | Set and view your personalized workout calendar |
+
+| Program Details | Workout Summary | Workout Feedback |
+|-----------------|------------------|------------------|
+| ![](images/Screenshots/program_details.png) | ![](images/Screenshots/workout_summary.png) | ![](images/Screenshots/early_workout_feedback.png) |
+| View info about a workout program and add it to your plan | Summary of completed workout with time, success percentage, and equipment used | Rate your session and provide feedback if it ended early |
+
+
 
 ## Unit Tests
 TBD
