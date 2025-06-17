@@ -51,5 +51,14 @@ class User extends HiveObject {
   @HiveField(15)
   List<String>? exerciseLocations;
 
-  User(this.email, this.password, {this.gender, this.dateOfBirth, this.race, this.heightFeet,this.heightInches,this.weight});
+  @HiveField(16)
+  String? profileImagePath;
+
+  @HiveField(17)
+  int? workoutPoints;
+
+  @HiveField(18)
+  String? name;
+
+  User(this.email, this.password, {this.gender, this.dateOfBirth, this.race, this.heightFeet,this.heightInches,this.weight, this.workoutPoints = 0, this.name});
 }

@@ -25,6 +25,8 @@ class UserAdapter extends TypeAdapter<User> {
       heightFeet: fields[5] as int?,
       heightInches: fields[6] as int?,
       weight: fields[7] as int?,
+      workoutPoints: fields[17] as int?,
+      name: fields[18] as String?,
     )
       ..selectedHealthConditions = (fields[8] as List?)?.cast<String>()
       ..fitnessLevel = fields[9] as String?
@@ -33,13 +35,14 @@ class UserAdapter extends TypeAdapter<User> {
       ..trackingFrequency = fields[12] as String?
       ..dailyAvailability = (fields[13] as List?)?.cast<String>()
       ..exercisePreferences = (fields[14] as List?)?.cast<String>()
-      ..exerciseLocations = (fields[15] as List?)?.cast<String>();
+      ..exerciseLocations = (fields[15] as List?)?.cast<String>()
+      ..profileImagePath = fields[16] as String?;
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(16)
+      ..writeByte(19)
       ..writeByte(0)
       ..write(obj.email)
       ..writeByte(1)
@@ -71,7 +74,13 @@ class UserAdapter extends TypeAdapter<User> {
       ..writeByte(14)
       ..write(obj.exercisePreferences)
       ..writeByte(15)
-      ..write(obj.exerciseLocations);
+      ..write(obj.exerciseLocations)
+      ..writeByte(16)
+      ..write(obj.profileImagePath)
+      ..writeByte(17)
+      ..write(obj.workoutPoints)
+      ..writeByte(18)
+      ..write(obj.name);
   }
 
   @override

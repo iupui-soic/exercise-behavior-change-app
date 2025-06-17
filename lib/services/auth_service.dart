@@ -26,13 +26,18 @@ class AuthService {
       final userBox = await _getUsersBox();
 
       // Find user with matching email
-      final User? user = userBox.values.firstWhere(
-            (user) => user.email == email,
-        orElse: () => User('', ''),
-      );
+      final user = userBox.get(email);
 
-      // Check if user exists and password matches
-      if (user != null && user.email.isNotEmpty && user.password == password) {
+      // Check if user exists
+      if (user == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No user found with this email.')),
+        );
+        return false;
+      }
+
+      // Check if password matches
+      if (user.password == password) {
         currentUser = user;
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Logged in successfully')),
@@ -40,7 +45,7 @@ class AuthService {
         return true;
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Invalid email or password. Please sign up.')),
+          const SnackBar(content: Text('Invalid password.')),
         );
         return false;
       }
@@ -69,7 +74,7 @@ class AuthService {
       }
 
       // Create and save new user
-      final user = User(email, password);
+      final user = User(email, password, name: name);
       await userBox.put(email, user);
       currentUser = user;
 
@@ -174,6 +179,36 @@ class AuthService {
       currentUser = user;
     } catch (e) {
       developer.log('Update user error: $e');
+    }
+  }
+
+  // Reset password
+  Future<bool> resetPassword(String email, BuildContext context) async {
+    try {
+      final userBox = await _getUsersBox();
+
+      // Check if user exists
+      final bool userExists = userBox.values.any((user) => user.email == email);
+
+      if (!userExists) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No account found with this email address')),
+        );
+        return false;
+      }
+
+      // In a real app, you would send a password reset email here
+      // For this demo, we'll just show a success message
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Password reset instructions have been sent to your email')),
+      );
+      return true;
+    } catch (e) {
+      developer.log('Password reset error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Password reset error: $e')),
+      );
+      return false;
     }
   }
 }

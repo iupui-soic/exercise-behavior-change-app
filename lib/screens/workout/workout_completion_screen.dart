@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '../../models/achievement_model.dart';
+import '../../services/achievement_service.dart';
 import '../dashboard/dashboard_screen.dart';
 import '../../widgets/app_button.dart';
+import '../../services/auth_service.dart';
+import '../../models/user_model.dart';
 
-class WorkoutCompletionScreen extends StatelessWidget {
+class WorkoutCompletionScreen extends StatefulWidget {
   final Duration stoppedDuration;
   final Duration selectedDuration;
   final String workoutName;
@@ -16,28 +20,118 @@ class WorkoutCompletionScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _WorkoutCompletionScreenState createState() =>
+      _WorkoutCompletionScreenState();
+}
+
+class _WorkoutCompletionScreenState extends State<WorkoutCompletionScreen> {
+  final AchievementService _achievementService = AchievementService();
+  final AuthService _authService = AuthService();
+  int _pointsEarned = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _updateUserWorkoutData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkAndShowAchievements();
+      if (widget.stoppedDuration < widget.selectedDuration) {
+        _showFeedbackModal();
+      }
+    });
+  }
+
+  Future<void> _updateUserWorkoutData() async {
+    // Calculate points
+    final points = (widget.stoppedDuration.inMinutes * 10).toInt();
+    setState(() {
+      _pointsEarned = points;
+    });
+
+    // Update user's total points
+    final User? currentUser = _authService.getCurrentUser();
+    if (currentUser != null) {
+      currentUser.workoutPoints = (currentUser.workoutPoints ?? 0) + points;
+      await _authService.updateUser(currentUser);
+    }
+  }
+
+  void _checkAndShowAchievements() async {
+    List<Achievement> unlockedAchievements =
+        await _achievementService.unlockAchievements(widget.stoppedDuration);
+
+    if (unlockedAchievements.isNotEmpty && mounted) {
+      // Calculate points from achievements
+      int achievementPoints = unlockedAchievements.fold(0, (sum, a) => sum + a.points);
+
+      // Update user's total points
+      final User? currentUser = _authService.getCurrentUser();
+      if (currentUser != null) {
+        currentUser.workoutPoints = (currentUser.workoutPoints ?? 0) + achievementPoints;
+        await _authService.updateUser(currentUser);
+      }
+      
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Achievement Unlocked!'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ...unlockedAchievements
+                    .map((a) => ListTile(
+                          leading: Icon(a.icon, color: Colors.amber),
+                          title: Text(a.title),
+                          subtitle: Text(a.description),
+                          trailing: Text('+${a.points} pts'),
+                        ))
+                    .toList(),
+                const SizedBox(height: 16),
+                Text(
+                  'Total Achievement Points: +$achievementPoints',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Awesome!'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  void _showFeedbackModal() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return ModalFeedbackScreen(
+          stoppedDuration: widget.stoppedDuration,
+          selectedDuration: widget.selectedDuration,
+        );
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    bool completed = stoppedDuration >= selectedDuration;
-    bool endedEarly = stoppedDuration < selectedDuration;
+    bool completed = widget.stoppedDuration >= widget.selectedDuration;
+    bool endedEarly = widget.stoppedDuration < widget.selectedDuration;
 
     // Calculate success rate percentage
     double successRate = endedEarly
-        ? (stoppedDuration.inSeconds / selectedDuration.inSeconds) * 100
+        ? (widget.stoppedDuration.inSeconds /
+                widget.selectedDuration.inSeconds) *
+            100
         : 100.0;
-
-    if (endedEarly) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return ModalFeedbackScreen(
-              stoppedDuration: stoppedDuration,
-              selectedDuration: selectedDuration,
-            );
-          },
-        );
-      });
-    }
 
     return Scaffold(
       appBar: AppBar(),
@@ -60,7 +154,7 @@ class WorkoutCompletionScreen extends StatelessWidget {
 
             // Workout title
             Text(
-              'Today\'s $workoutName',
+              'Today\'s ${widget.workoutName}',
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -78,7 +172,7 @@ class WorkoutCompletionScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      _displayTime(stoppedDuration),
+                      _displayTime(widget.stoppedDuration),
                       style: const TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
@@ -97,7 +191,7 @@ class WorkoutCompletionScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '100',
+                          '$_pointsEarned',
                           style: TextStyle(
                             fontSize: 50,
                             fontWeight: FontWeight.bold,
@@ -105,14 +199,14 @@ class WorkoutCompletionScreen extends StatelessWidget {
                           ),
                         ),
                         Icon(
-                          completed ? Icons.arrow_upward : Icons.arrow_downward,
+                          Icons.star,
                           color: endedEarly ? Colors.red : Colors.blue,
                           size: 50,
                         ),
                       ],
                     ),
                     const SizedBox(height: 5),
-                    const Text('Points', style: TextStyle(color: Colors.white)),
+                    const Text('Points Earned', style: TextStyle(color: Colors.white)),
                   ],
                 ),
               ],
@@ -128,7 +222,7 @@ class WorkoutCompletionScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      _displayTime(selectedDuration),
+                      _displayTime(widget.selectedDuration),
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
