@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'user_model.g.dart';
 
@@ -30,6 +31,7 @@ class User extends HiveObject {
 
   @HiveField(8)
   List<String>? selectedHealthConditions;
+
   @HiveField(9)
   String? fitnessLevel;
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../widgets/app_button.dart';
-import '../../services/auth_service.dart';
-import '../dashboard/dashboard_screen.dart';
-import 'signup_screen.dart';
+import 'package:exercise_behavior_change_app/widgets/app_button.dart';
+import 'package:exercise_behavior_change_app/services/auth_service.dart';
+import 'package:exercise_behavior_change_app/screens/dashboard/dashboard_screen.dart';
+import 'package:exercise_behavior_change_app/screens/auth/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: AppButton(
-                    text: 'Sign up with Apple',
+                    text: 'Login with Apple',
                     onPressed: () {
                       _handleSignUpWithApple(context);
                     },
@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: AppButton(
-                    text: 'Sign up with Google',
+                    text: 'Login with Google',
                     onPressed: () {
                       _handleSignUpWithGoogle(context);
                     },
@@ -242,17 +242,23 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
 
   Future<void> _handleLogin(BuildContext context) async {
     if (_validateForm()) {
-      final authService = AuthService();
-      final success = await authService.login(
-        _emailController.text,
-        _passwordController.text,
-        context,
-      );
+      try {
+        final authService = AuthService();
+        final success = await authService.login(
+          _emailController.text,
+          _passwordController.text,
+          context,
+        );
 
-      if (success && context.mounted) {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const DashboardScreen()),
-              (route) => false,
+        if (success && context.mounted) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                (route) => false,
+          );
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login failed: $e')),
         );
       }
     }
