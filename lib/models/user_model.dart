@@ -63,4 +63,54 @@ class User extends HiveObject {
   String? name;
 
   User(this.email, this.password, {this.gender, this.dateOfBirth, this.race, this.heightFeet,this.heightInches,this.weight, this.workoutPoints = 0, this.name});
+
+  // Add Firestore serialization methods
+  factory User.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    return User(
+      data['email'] ?? '',
+      data['password'] ?? '',
+      gender: data['gender'],
+      dateOfBirth: data['dateOfBirth'],
+      race: data['race'],
+      heightFeet: data['heightFeet'],
+      heightInches: data['heightInches'],
+      weight: data['weight'],
+      workoutPoints: data['workoutPoints'] ?? 0,
+      name: data['name'],
+    )
+      ..selectedHealthConditions = (data['selectedHealthConditions'] as List?)?.cast<String>()
+      ..fitnessLevel = data['fitnessLevel']
+      ..fitnessGoals = (data['fitnessGoals'] as List?)?.cast<String>()
+      ..workoutProgram = data['workoutProgram']
+      ..trackingFrequency = data['trackingFrequency']
+      ..dailyAvailability = (data['dailyAvailability'] as List?)?.cast<String>()
+      ..exercisePreferences = (data['exercisePreferences'] as List?)?.cast<String>()
+      ..exerciseLocations = (data['exerciseLocations'] as List?)?.cast<String>()
+      ..profileImagePath = data['profileImagePath'];
+  }
+
+  Map<String, dynamic> toFirestore() {
+    return {
+      'email': email,
+      'password': password,
+      'gender': gender,
+      'dateOfBirth': dateOfBirth,
+      'race': race,
+      'heightFeet': heightFeet,
+      'heightInches': heightInches,
+      'weight': weight,
+      'selectedHealthConditions': selectedHealthConditions,
+      'fitnessLevel': fitnessLevel,
+      'fitnessGoals': fitnessGoals,
+      'workoutProgram': workoutProgram,
+      'trackingFrequency': trackingFrequency,
+      'dailyAvailability': dailyAvailability,
+      'exercisePreferences': exercisePreferences,
+      'exerciseLocations': exerciseLocations,
+      'profileImagePath': profileImagePath,
+      'workoutPoints': workoutPoints,
+      'name': name,
+    };
+  }
 }
