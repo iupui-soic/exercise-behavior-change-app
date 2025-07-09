@@ -36,10 +36,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Build iOS (unsigned IPA)
-        run: |
-          flutter build ios --no-codesign --debug --no-tree-shake-icons
-          mkdir -p build/ios/ipa
-          xcodebuild -exportArchive -archivePath build/ios/archive/Runner.xcarchive -exportPath build/ios/ipa -exportOptionsPlist ios/Runner/ExportOptions.plist || true
+        run: flutter build ipa --no-codesign --debug --no-tree-shake-icons
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
