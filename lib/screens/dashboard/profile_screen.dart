@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
+import 'edit_profile_screen.dart';
+import 'account_settings_screen.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -8,13 +14,23 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // Sample user data - in a real app, this would come from a user service or database
-  final String userName = "John Doe";
-  final String userEmail = "jade.cooper@example.com";
-  final String memberSince = "May 2024";
+  // Get auth service
+  final AuthService _authService = AuthService();
+  
+  // User data
+  late User? currentUser;
+  
+  // Stats
   final int totalWorkouts = 42;
   final int achievementsEarned = 12;
   final double successRate = 87.5;
+
+  @override
+  void initState() {
+    super.initState();
+    // Get current user from auth service
+    currentUser = _authService.getCurrentUser();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,21 +64,48 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildProfileHeader() {
+    final String email = currentUser?.email ?? 'No email';
+    final String username = currentUser?.name ?? email.split('@').first;
+    final String displayName = username
+        .split(RegExp(r'[._-]'))
+        .map((word) => word.isNotEmpty ? '${word[0].toUpperCase()}${word.substring(1)}' : '')
+        .join(' ');
+    final String? profileImagePath = currentUser?.profileImagePath;
+
+    Future<void> _pickProfileImage() async {
+      final picker = ImagePicker();
+      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null && currentUser != null) {
+        setState(() {
+          currentUser!.profileImagePath = pickedFile.path;
+        });
+        await _authService.updateUser(currentUser!);
+      }
+    }
+
     return Center(
       child: Column(
         children: [
-          const CircleAvatar(
-            radius: 50,
-            backgroundColor: Color.fromARGB(255, 46, 196, 234),
-            child: Icon(
-              Icons.person,
-              size: 50,
-              color: Colors.black,
+          GestureDetector(
+            onTap: _pickProfileImage,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundColor: const Color.fromARGB(255, 46, 196, 234),
+              backgroundImage: (profileImagePath != null && profileImagePath.isNotEmpty)
+                  ? FileImage(File(profileImagePath))
+                  : null,
+              child: (profileImagePath == null || profileImagePath.isEmpty)
+                  ? const Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Colors.black,
+                    )
+                  : null,
             ),
           ),
           const SizedBox(height: 16),
           Text(
-            userName,
+            displayName,
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -72,18 +115,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            userEmail,
+            email,
             style: const TextStyle(
               fontSize: 16,
-              color: Color(0xFFB6BDCC),
-              fontFamily: 'Outfit',
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Member since $memberSince',
-            style: const TextStyle(
-              fontSize: 14,
               color: Color(0xFFB6BDCC),
               fontFamily: 'Outfit',
             ),
@@ -123,8 +157,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               _buildStatItem(
                 icon: Icons.star,
-                value: achievementsEarned.toString(),
-                label: 'Achievements',
+                value: (currentUser?.workoutPoints ?? 0).toString(),
+                label: 'Total Points',
               ),
               _buildStatItem(
                 icon: Icons.check_circle,
@@ -180,8 +214,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _buildMenuItem(
           icon: Icons.person_outline,
           title: 'Edit Profile',
+          onTap: () async {
+            // Navigate to edit profile screen
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const EditProfileScreen(),
+              ),
+            );
+            
+            // If changes were made, refresh the profile screen
+            if (result == true) {
+              setState(() {
+                currentUser = _authService.getCurrentUser();
+              });
+            }
+          },
+        ),
+        _buildMenuItem(
+          icon: Icons.settings,
+          title: 'Account Settings',
           onTap: () {
-            // Handle navigation to edit profile
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AccountSettingsScreen(),
+              ),
+            );
           },
         ),
         _buildMenuItem(

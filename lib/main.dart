@@ -4,6 +4,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'app.dart';
 import 'models/user_model.dart';
+import 'models/achievement_model.dart';
+import 'services/achievement_service.dart';
 import 'services/firebase_options.dart'; // Updated import path
 
 void main() async {
@@ -21,6 +23,10 @@ void main() async {
 
   // Register adapters
   Hive.registerAdapter(UserAdapter());
+  Hive.registerAdapter(AchievementAdapter());
+
+  // Initialize achievements
+  await AchievementService().initAchievements();
 
   // Run the app
   runApp(const MyApp());

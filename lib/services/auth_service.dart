@@ -33,22 +33,32 @@ class AuthService {
   // Login with email and password
   Future<bool> login(String email, String password, BuildContext context) async {
     try {
-      // Attempt Firebase login
-      final userCredential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      final userBox = await _getUsersBox();
 
-      if (userCredential.user != null) {
-        // Fetch user data from Firestore
-        await _fetchAndSetCurrentUser(userCredential.user!.uid);
+      // Find user with matching email
+      final user = userBox.get(email);
 
+      // Check if user exists
+      if (user == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No user found with this email.')),
+        );
+        return false;
+      }
+
+      // Check if password matches
+      if (user.password == password) {
+        currentUser = user;
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Logged in successfully')),
         );
         return true;
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Invalid password.')),
+        );
+        return false;
       }
-      return false;
     } on firebase_auth.FirebaseAuthException catch (e) {
       String message = 'Login failed';
 
@@ -74,35 +84,28 @@ class AuthService {
   // Register with email and password
   Future<bool> register(String name, String email, String password, BuildContext context) async {
     try {
-      // Create user in Firebase Auth
-      final userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+      final userBox = await _getUsersBox();
+
+      // Check if user already exists
+      final bool userExists = userBox.values.any((user) => user.email == email);
+
+      if (userExists) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('User with this email already exists')),
+        );
+        return false;
+      }
+
+      // Create and save new user
+      final user = User(email, password, name: name);
+      await userBox.put(email, user);
+      currentUser = user;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Account created successfully')),
       );
 
-      if (userCredential.user != null) {
-        // Update user profile with display name
-        await userCredential.user!.updateDisplayName(name);
-
-        // Create a User object with email
-        final user = User(email, '');
-
-        // Save user data to Firestore
-        await _firestore.collection('users').doc(userCredential.user!.uid).set({
-          'email': email,
-          'createdAt': FieldValue.serverTimestamp(),
-        });
-
-        // Set as current user
-        currentUser = user;
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Account created successfully')),
-        );
-
-        return true;
-      }
-      return false;
+      return true;
     } on firebase_auth.FirebaseAuthException catch (e) {
       String message = 'Registration failed';
 
