@@ -6,7 +6,9 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.0'
     }
 }
 
@@ -27,4 +29,16 @@ subprojects {
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+
+// Add this to handle Java version compatibility
+tasks.withType(JavaCompile) {
+    options.release = 8
+}
+
+// Configure Gradle JVM args to handle newer Java versions
+if (JavaVersion.current() >= JavaVersion.VERSION_17) {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += ["--enable-preview"]
+    }
 }

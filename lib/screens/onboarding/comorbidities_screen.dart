@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import 'goals_screen.dart';
 
@@ -14,20 +14,69 @@ class ComorbiditiesScreen extends StatefulWidget {
 class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
   bool? hasHealthCondition;
   List<String> selectedHealthConditions = [];
+  List<String> filteredHealthConditions = [];
+  final TextEditingController _searchController = TextEditingController();
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
 
-  // Sample health conditions for demo purposes
+  // Health conditions list
   final List<String> healthConditions = [
     'Hypertension',
-    'Diabetes',
+    'Diabetes Type 1',
+    'Diabetes Type 2',
     'Asthma',
     'Heart Disease',
     'Arthritis',
+    'Osteoarthritis',
+    'Rheumatoid Arthritis',
     'Back Pain',
+    'Chronic Back Pain',
     'Obesity',
     'Depression',
     'Anxiety',
+    'High Cholesterol',
+    'Thyroid Disorders',
+    'COPD',
+    'Sleep Apnea',
+    'Fibromyalgia',
+    'Chronic Fatigue Syndrome',
+    'Migraine',
     'Other'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredHealthConditions = healthConditions;
+    _loadUserData();
+    _searchController.addListener(_filterHealthConditions);
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  // Load existing user data if available
+  void _loadUserData() {
+    final currentUser = _authService.getCurrentUser();
+    if (currentUser != null && currentUser.selectedHealthConditions != null) {
+      setState(() {
+        selectedHealthConditions = List<String>.from(currentUser.selectedHealthConditions!);
+        hasHealthCondition = selectedHealthConditions.isNotEmpty;
+      });
+    }
+  }
+
+  void _filterHealthConditions() {
+    final query = _searchController.text.toLowerCase();
+    setState(() {
+      filteredHealthConditions = healthConditions
+          .where((condition) => condition.toLowerCase().contains(query))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +88,14 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Comorbidities',
+              'Health Conditions',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20.0),
 
             // Health conditions question
             const Text(
-              'Do you have any health conditions?',
+              'Do you have any health conditions or concerns?',
               style: TextStyle(fontSize: 18.0),
             ),
             const SizedBox(height: 10.0),
@@ -65,9 +114,13 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
                 onChanged: (value) {
                   setState(() {
                     hasHealthCondition = value == 'Yes';
+                    if (!hasHealthCondition!) {
+                      selectedHealthConditions.clear();
+                    }
                   });
                 },
                 isExpanded: true,
+                hint: const Text('Select an option'),
                 items: ['Yes', 'No']
                     .map((value) => DropdownMenuItem<String>(
                   value: value,
@@ -83,8 +136,8 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
             // Health conditions selection (shown if Yes is selected)
             if (hasHealthCondition == true) ...[
               const Text(
-                'Select appropriate options:',
-                style: TextStyle(fontSize: 18.0),
+                'Select all that apply:',
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 10.0),
 
@@ -95,6 +148,7 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextFormField(
+                  controller: _searchController,
                   decoration: const InputDecoration(
                     hintText: 'Search health conditions',
                     border: InputBorder.none,
@@ -103,24 +157,45 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
                 ),
               ),
 
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 15.0),
+
+              // Selected conditions count
+              if (selectedHealthConditions.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    '${selectedHealthConditions.length} condition(s) selected',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.grey[600],
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
 
               // Health conditions grid
-              Wrap(
-                spacing: 10.0,
-                runSpacing: 10.0,
-                children: healthConditions
-                    .map((condition) => _buildHealthConditionButton(condition))
-                    .toList(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Wrap(
+                    spacing: 8.0,
+                    runSpacing: 8.0,
+                    children: filteredHealthConditions
+                        .map((condition) => _buildHealthConditionButton(condition))
+                        .toList(),
+                  ),
+                ),
               ),
+            ] else ...[
+              const Spacer(),
             ],
 
-            const Spacer(),
+            const SizedBox(height: 20.0),
 
             // Next button
             AppButton(
               text: 'Next',
-              onPressed: () => _handleNext(context),
+              isLoading: _isLoading,
+              onPressed: _isFormValid() ? () => _handleNext(context) : null,
             ),
           ],
         ),
@@ -131,79 +206,93 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
   Widget _buildHealthConditionButton(String condition) {
     final isSelected = selectedHealthConditions.contains(condition);
 
-    return ElevatedButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         setState(() {
           toggleHealthCondition(condition);
         });
       },
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.grey.shade800,
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(9.0),
-          side: BorderSide(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          color: Colors.grey.shade800,
+          borderRadius: BorderRadius.circular(20.0),
+          border: Border.all(
             color: isSelected
                 ? const Color.fromARGB(255, 33, 233, 243)
                 : Colors.transparent,
+            width: 2.0,
           ),
         ),
-      ),
-      child: Text(
-        condition,
-        style: TextStyle(
-          color: isSelected ? Colors.cyan[200] : Colors.white,
+        child: Text(
+          condition,
+          style: TextStyle(
+            color: isSelected ? Colors.cyan[200] : Colors.white,
+            fontSize: 14.0,
+            fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+          ),
         ),
       ),
     );
   }
 
   void toggleHealthCondition(String condition) {
-    if (selectedHealthConditions.contains(condition)) {
-      selectedHealthConditions.remove(condition);
-    } else {
-      selectedHealthConditions.add(condition);
-    }
+    setState(() {
+      if (selectedHealthConditions.contains(condition)) {
+        selectedHealthConditions.remove(condition);
+      } else {
+        selectedHealthConditions.add(condition);
+      }
+    });
+  }
+
+  bool _isFormValid() {
+    return hasHealthCondition != null;
   }
 
   Future<void> _handleNext(BuildContext context) async {
+    if (!_isFormValid()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please answer the health conditions question')),
+      );
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
+      final currentUser = _authService.getCurrentUser();
 
-      // In a real implementation, you'd get the current user email from somewhere
-      // For now, we'll use a placeholder method
-      final String? currentUserEmail = await _getCurrentUserEmail();
+      if (currentUser != null) {
+        // Prepare health conditions list
+        final List<String> healthConditionsToSave = hasHealthCondition == true
+            ? selectedHealthConditions
+            : [];
 
-      if (currentUserEmail != null) {
-        final User? user = userBox.get(currentUserEmail);
+        // Create updated user with selected health conditions
+        final updatedUser = currentUser.copyWith(
+          selectedHealthConditions: healthConditionsToSave,
+        );
 
-        if (user != null) {
-          // Update the user object with selected health conditions
-          if (hasHealthCondition == true) {
-            user.selectedHealthConditions = selectedHealthConditions;
-          } else {
-            user.selectedHealthConditions = [];
-          }
+        // Update user in Firebase
+        await _authService.updateUser(updatedUser);
 
-          // Save the updated user object back to Hive
-          await user.save();
-
-          // Navigate to the next page
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const GoalsScreen(),
-              ),
-            );
-          }
-        } else {
-          // Handle case where user is null
-          if (context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('User not found')),
-            );
-          }
+        // Navigate to the next screen
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const GoalsScreen(),
+            ),
+          );
+        }
+      } else {
+        // Handle case where user is null
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('User session not found. Please log in again.')),
+          );
         }
       }
     } catch (e) {
@@ -213,17 +302,12 @@ class _ComorbiditiesScreenState extends State<ComorbiditiesScreen> {
           SnackBar(content: Text('Error saving health conditions: $e')),
         );
       }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
-  }
-
-  // Placeholder method to get current user email
-  // In a real implementation, this would come from your auth service
-  Future<String?> _getCurrentUserEmail() async {
-    // This is a placeholder implementation
-    final userBox = await Hive.openBox<User>('users');
-    if (userBox.isNotEmpty) {
-      return userBox.values.first.email;
-    }
-    return null;
   }
 }

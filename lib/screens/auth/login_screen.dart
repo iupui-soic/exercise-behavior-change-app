@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:exercise_behavior_change_app/widgets/app_button.dart';
-import 'package:exercise_behavior_change_app/services/auth_service.dart';
-import 'package:exercise_behavior_change_app/screens/dashboard/dashboard_screen.dart';
-import 'package:exercise_behavior_change_app/screens/auth/signup_screen.dart';
+import '../../widgets/app_button.dart';
+import '../../services/auth_service.dart';
+import '../dashboard/dashboard_screen.dart';
+import '../onboarding/demographics_screen.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      // Remove SafeArea here, but keep bottom padding
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                   child: AppButton(
                     text: 'Login with Apple',
                     onPressed: () {
-                      _handleSignUpWithApple(context);
+                      _handleSignInWithApple(context);
                     },
                     leadingIcon: const Icon(Icons.apple, color: Colors.black),
                   ),
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                   child: AppButton(
                     text: 'Login with Google',
                     onPressed: () {
-                      _handleSignUpWithGoogle(context);
+                      _handleSignInWithGoogle(context);
                     },
                     leadingIcon: const Icon(Icons.android, color: Colors.black),
                   ),
@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(height: 20),
           // Login link with EXTRA bottom padding
           Padding(
-            padding: const EdgeInsets.only(bottom: 36),  // Increased to 36px
+            padding: const EdgeInsets.only(bottom: 36),
             child: TextButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -86,25 +86,44 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _handleSignUpWithApple(BuildContext context) async {
+  Future<void> _handleSignInWithApple(BuildContext context) async {
     final authService = AuthService();
     final success = await authService.signInWithApple(context);
 
     if (success && context.mounted) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DashboardScreen()),
-            (route) => false,
-      );
+      await _navigateAfterAuth(context, authService);
     }
   }
 
-  Future<void> _handleSignUpWithGoogle(BuildContext context) async {
+  Future<void> _handleSignInWithGoogle(BuildContext context) async {
     final authService = AuthService();
     final success = await authService.signInWithGoogle(context);
 
     if (success && context.mounted) {
+      await _navigateAfterAuth(context, authService);
+    }
+  }
+
+  Future<void> _navigateAfterAuth(BuildContext context, AuthService authService) async {
+    // Get current user data
+    final currentUser = authService.getCurrentUser();
+
+    // Check if user has completed onboarding (has demographics data)
+    bool hasCompletedOnboarding = currentUser != null &&
+        currentUser.gender != null &&
+        currentUser.dateOfBirth != null &&
+        currentUser.race != null;
+
+    if (hasCompletedOnboarding) {
+      // User has completed onboarding, go to dashboard
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => const DashboardScreen()),
+            (route) => false,
+      );
+    } else {
+      // User needs to complete onboarding
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
             (route) => false,
       );
     }
@@ -139,7 +158,6 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      // Remove SafeArea, but keep padding
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -206,7 +224,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 36.0),  // Increased to 36px
+                  padding: const EdgeInsets.only(bottom: 36.0),
                   child: TextButton(
                     child: const Text(
                       'Don\'t have an account? Sign up',
@@ -246,10 +264,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
         );
 
         if (success && context.mounted) {
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const DashboardScreen()),
-                (route) => false,
-          );
+          await _navigateAfterAuth(context, authService);
         }
       } finally {
         if (mounted) {
@@ -258,6 +273,31 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           });
         }
       }
+    }
+  }
+
+  Future<void> _navigateAfterAuth(BuildContext context, AuthService authService) async {
+    // Get current user data
+    final currentUser = authService.getCurrentUser();
+
+    // Check if user has completed onboarding (has demographics data)
+    bool hasCompletedOnboarding = currentUser != null &&
+        currentUser.gender != null &&
+        currentUser.dateOfBirth != null &&
+        currentUser.race != null;
+
+    if (hasCompletedOnboarding) {
+      // User has completed onboarding, go to dashboard
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+            (route) => false,
+      );
+    } else {
+      // User needs to complete onboarding
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
+            (route) => false,
+      );
     }
   }
 

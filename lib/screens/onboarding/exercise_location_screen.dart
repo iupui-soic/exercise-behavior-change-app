@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import 'connect_friends_screen.dart';
 
@@ -13,8 +13,26 @@ class ExerciseLocationScreen extends StatefulWidget {
 
 class _ExerciseLocationScreenState extends State<ExerciseLocationScreen> {
   List<String> selectedLocations = [];
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
 
   final List<String> availableLocations = ['Home', 'YMCA', 'PlanetFitness'];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  // Load existing user data if available
+  void _loadUserData() {
+    final currentUser = _authService.getCurrentUser();
+    if (currentUser != null) {
+      setState(() {
+        selectedLocations = currentUser.exerciseLocations ?? [];
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +69,7 @@ class _ExerciseLocationScreenState extends State<ExerciseLocationScreen> {
             // Next button
             AppButton(
               text: 'Next',
+              isLoading: _isLoading,
               onPressed: () => _handleNext(context),
             ),
           ],
@@ -124,50 +143,50 @@ class _ExerciseLocationScreenState extends State<ExerciseLocationScreen> {
   }
 
   Future<void> _handleNext(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
+      final currentUser = _authService.getCurrentUser();
 
-      // In a real implementation, you'd get the current user email from somewhere
-      // For now, we'll use a placeholder method
-      final String? currentUserEmail = await _getCurrentUserEmail();
+      if (currentUser != null) {
+        // Create updated user with new exercise locations data
+        final updatedUser = currentUser.copyWith(
+          exerciseLocations: selectedLocations.isNotEmpty ? selectedLocations : null,
+        );
 
-      if (currentUserEmail != null) {
-        final User? user = userBox.get(currentUserEmail);
+        // Update user in Firebase
+        await _authService.updateUser(updatedUser);
 
-        if (user != null) {
-          // Update the user object with selected preferences
-          user.exerciseLocations = selectedLocations;
-
-          // Save the updated user object back to Hive
-          await user.save();
-
-          // Navigate to the next page
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const ConnectFriendsScreen(),
-              ),
-            );
-          }
+        // Navigate to the next screen
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ConnectFriendsScreen(),
+            ),
+          );
+        }
+      } else {
+        // Handle case where user is null
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('User session not found. Please log in again.')),
+          );
         }
       }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error saving locations: $e')),
+          SnackBar(content: Text('Error saving exercise locations: $e')),
         );
       }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
-  }
-
-  // Placeholder method to get current user email
-  // In a real implementation, this would come from your auth service
-  Future<String?> _getCurrentUserEmail() async {
-    // This is a placeholder implementation
-    final userBox = await Hive.openBox<User>('users');
-    if (userBox.isNotEmpty) {
-      return userBox.values.first.email;
-    }
-    return null;
   }
 }

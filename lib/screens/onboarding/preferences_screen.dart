@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import 'exercise_location_screen.dart';
 
@@ -14,6 +14,8 @@ class PreferencesScreen extends StatefulWidget {
 class _PreferencesScreenState extends State<PreferencesScreen> {
   List<String> selectedExercises = [];
   final TextEditingController _searchController = TextEditingController();
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
 
   // Sample exercises for demonstration
   final List<String> exercises = [
@@ -30,9 +32,25 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  // Load existing user data if available
+  void _loadUserData() {
+    final currentUser = _authService.getCurrentUser();
+    if (currentUser != null) {
+      setState(() {
+        selectedExercises = currentUser.exercisePreferences ?? [];
+      });
+    }
   }
 
   @override
@@ -116,6 +134,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             // Next button
             AppButton(
               text: 'Next',
+              isLoading: _isLoading,
               onPressed: () => _handleNext(context),
             ),
           ],
@@ -164,31 +183,36 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
   }
 
   Future<void> _handleNext(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
+      final currentUser = _authService.getCurrentUser();
 
-      // In a real implementation, you'd get the current user email from somewhere
-      // For now, we'll use a placeholder method
-      final String? currentUserEmail = await _getCurrentUserEmail();
+      if (currentUser != null) {
+        // Create updated user with new exercise preferences data
+        final updatedUser = currentUser.copyWith(
+          exercisePreferences: selectedExercises.isNotEmpty ? selectedExercises : null,
+        );
 
-      if (currentUserEmail != null) {
-        final User? user = userBox.get(currentUserEmail);
+        // Update user in Firebase
+        await _authService.updateUser(updatedUser);
 
-        if (user != null) {
-          // Update the user object with selected preferences
-          user.exercisePreferences = selectedExercises;
-
-          // Save the updated user object back to Hive
-          await user.save();
-
-          // Navigate to the next page
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const ExerciseLocationScreen(),
-              ),
-            );
-          }
+        // Navigate to the next screen
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ExerciseLocationScreen(),
+            ),
+          );
+        }
+      } else {
+        // Handle case where user is null
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('User session not found. Please log in again.')),
+          );
         }
       }
     } catch (e) {
@@ -197,17 +221,12 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
           SnackBar(content: Text('Error saving preferences: $e')),
         );
       }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
-  }
-
-  // Placeholder method to get current user email
-  // In a real implementation, this would come from your auth service
-  Future<String?> _getCurrentUserEmail() async {
-    // This is a placeholder implementation
-    final userBox = await Hive.openBox<User>('users');
-    if (userBox.isNotEmpty) {
-      return userBox.values.first.email;
-    }
-    return null;
   }
 }

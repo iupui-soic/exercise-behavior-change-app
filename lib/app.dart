@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Behavior Change Exercise App',
+      title: 'FitWisdom',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       home: const WelcomeScreen(),

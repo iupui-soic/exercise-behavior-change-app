@@ -1,7 +1,7 @@
+import 'package:fitwisdom/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:exercise_behavior_change_app/app.dart';
-import 'package:exercise_behavior_change_app/widgets/app_button.dart';
+import 'package:fitwisdom/widgets/app_button.dart';
 
 void main() {
   testWidgets('MyApp starts with welcome screen', (WidgetTester tester) async {

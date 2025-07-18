@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:label="Exercise Behavior Change App"
+            android:label="FitWisdom"
             android:name="${applicationName}"
             android:icon="@mipmap/launcher_icon">
         <activity

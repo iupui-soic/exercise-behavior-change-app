@@ -1,9 +1,8 @@
-# Exercise Behavior Change App
-An exercise recommendation app based on behavior change theory.
+# FitWisdom
+FitWisdom: Where Clinical Science Meets Personal Fitness. An exercise recommendation app based on behavior change theory.
 
 ## Getting Started
 * `flutter pub get`
-* Generate the Hive adapters - `flutter packages pub run build_runner build`
 * `flutter pub run`
 
 ## Codebase layout

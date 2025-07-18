@@ -1,59 +1,28 @@
-import 'package:hive/hive.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-part 'user_model.g.dart';
+class User {
+  final String uid;
+  final String email;
+  final String? gender;
+  final String? dateOfBirth;
+  final String? race;
+  final int? heightFeet;
+  final int? heightInches;
+  final int? weight;
+  final List<String>? selectedHealthConditions;
+  final String? fitnessLevel;
+  final List<String>? fitnessGoals;
+  final String? workoutProgram;
+  final String? trackingFrequency;
+  final List<String>? dailyAvailability;
+  final List<String>? exercisePreferences;
+  final List<String>? exerciseLocations;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
-@HiveType(typeId: 0)
-class User extends HiveObject {
-  @HiveField(0)
-  late String email;
-
-  @HiveField(1)
-  late String password;
-
-  @HiveField(2)
-  String? gender;
-
-  @HiveField(3)
-  String? dateOfBirth;
-
-  @HiveField(4)
-  String? race;
-
-  @HiveField(5)
-  int? heightFeet;
-
-  @HiveField(6)
-  int? heightInches;
-
-  @HiveField(7)
-  int? weight;
-
-  @HiveField(8)
-  List<String>? selectedHealthConditions;
-
-  @HiveField(9)
-  String? fitnessLevel;
-
-  @HiveField(10)
-  List<String>? fitnessGoals;
-
-  @HiveField(11)
-  String? workoutProgram;
-
-  @HiveField(12)
-  String? trackingFrequency;
-
-  @HiveField(13)
-  List<String>? dailyAvailability;
-
-  @HiveField(14)
-  List<String>? exercisePreferences;
-
-  @HiveField(15)
-  List<String>? exerciseLocations;
-
-  User(this.email, this.password, {
+  User({
+    required this.uid,
+    required this.email,
     this.gender,
     this.dateOfBirth,
     this.race,
@@ -67,54 +36,18 @@ class User extends HiveObject {
     this.trackingFrequency,
     this.dailyAvailability,
     this.exercisePreferences,
-    this.exerciseLocations
+    this.exerciseLocations,
+    this.createdAt,
+    this.updatedAt,
   });
-
-  // Factory to create from Firebase Auth user with Firestore data
-  factory User.fromFirebase(
-      String email, {
-        String? gender,
-        String? dateOfBirth,
-        String? race,
-        int? heightFeet,
-        int? heightInches,
-        int? weight,
-        List<String>? selectedHealthConditions,
-        String? fitnessLevel,
-        List<String>? fitnessGoals,
-        String? workoutProgram,
-        String? trackingFrequency,
-        List<String>? dailyAvailability,
-        List<String>? exercisePreferences,
-        List<String>? exerciseLocations,
-      }) {
-    return User(
-      email,
-      '', // We don't store the actual password
-      gender: gender,
-      dateOfBirth: dateOfBirth,
-      race: race,
-      heightFeet: heightFeet,
-      heightInches: heightInches,
-      weight: weight,
-      selectedHealthConditions: selectedHealthConditions,
-      fitnessLevel: fitnessLevel,
-      fitnessGoals: fitnessGoals,
-      workoutProgram: workoutProgram,
-      trackingFrequency: trackingFrequency,
-      dailyAvailability: dailyAvailability,
-      exercisePreferences: exercisePreferences,
-      exerciseLocations: exerciseLocations,
-    );
-  }
 
   // Create a User from Firestore document
   factory User.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>? ?? {};
 
     return User(
-      data['email'] ?? '',
-      '', // Password isn't stored in Firestore
+      uid: doc.id,
+      email: data['email'] ?? '',
       gender: data['gender'],
       dateOfBirth: data['dateOfBirth'],
       race: data['race'],
@@ -139,6 +72,8 @@ class User extends HiveObject {
       exerciseLocations: data['exerciseLocations'] != null
           ? List<String>.from(data['exerciseLocations'])
           : null,
+      createdAt: (data['createdAt'] as Timestamp?)?.toDate(),
+      updatedAt: (data['updatedAt'] as Timestamp?)?.toDate(),
     );
   }
 
@@ -160,7 +95,77 @@ class User extends HiveObject {
       'dailyAvailability': dailyAvailability,
       'exercisePreferences': exercisePreferences,
       'exerciseLocations': exerciseLocations,
+      'createdAt': createdAt ?? FieldValue.serverTimestamp(),
       'updatedAt': FieldValue.serverTimestamp(),
     };
+  }
+
+  // Copy with method for creating updated instances
+  User copyWith({
+    String? uid,
+    String? email,
+    String? gender,
+    String? dateOfBirth,
+    String? race,
+    int? heightFeet,
+    int? heightInches,
+    int? weight,
+    List<String>? selectedHealthConditions,
+    String? fitnessLevel,
+    List<String>? fitnessGoals,
+    String? workoutProgram,
+    String? trackingFrequency,
+    List<String>? dailyAvailability,
+    List<String>? exercisePreferences,
+    List<String>? exerciseLocations,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) {
+    return User(
+      uid: uid ?? this.uid,
+      email: email ?? this.email,
+      gender: gender ?? this.gender,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      race: race ?? this.race,
+      heightFeet: heightFeet ?? this.heightFeet,
+      heightInches: heightInches ?? this.heightInches,
+      weight: weight ?? this.weight,
+      selectedHealthConditions: selectedHealthConditions ?? this.selectedHealthConditions,
+      fitnessLevel: fitnessLevel ?? this.fitnessLevel,
+      fitnessGoals: fitnessGoals ?? this.fitnessGoals,
+      workoutProgram: workoutProgram ?? this.workoutProgram,
+      trackingFrequency: trackingFrequency ?? this.trackingFrequency,
+      dailyAvailability: dailyAvailability ?? this.dailyAvailability,
+      exercisePreferences: exercisePreferences ?? this.exercisePreferences,
+      exerciseLocations: exerciseLocations ?? this.exerciseLocations,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  // Helper method to check if user profile is complete
+  bool get isProfileComplete {
+    return gender != null &&
+        dateOfBirth != null &&
+        heightFeet != null &&
+        heightInches != null &&
+        weight != null &&
+        fitnessLevel != null;
+  }
+
+  // Helper method to get height in inches
+  int? get totalHeightInches {
+    if (heightFeet != null && heightInches != null) {
+      return (heightFeet! * 12) + heightInches!;
+    }
+    return null;
+  }
+
+  // Helper method to get height as formatted string
+  String? get heightString {
+    if (heightFeet != null && heightInches != null) {
+      return "${heightFeet!}'${heightInches!}\"";
+    }
+    return null;
   }
 }

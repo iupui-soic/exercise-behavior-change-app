@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import '../onboarding/demographics_screen.dart';
-import 'package:exercise_behavior_change_app/screens/auth/login_screen.dart';
-import 'package:exercise_behavior_change_app/utils/theme.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import '../dashboard/dashboard_screen.dart';
+import 'login_screen.dart';
+import '../../utils/theme.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -37,7 +38,6 @@ class _SignupScreenState extends State<SignupScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      // Following the pattern from the welcome screen
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -181,7 +181,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
 
-                            // Login link - with margin for safery
+                            // Login link - with margin for safety
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0, bottom: 5.0),
                               child: TextButton(
@@ -215,6 +215,31 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
+  Future<void> _navigateAfterAuth(BuildContext context) async {
+    // Get current user data
+    final currentUser = _authService.getCurrentUser();
+
+    // Check if user has completed onboarding (has demographics data)
+    bool hasCompletedOnboarding = currentUser != null &&
+        currentUser.gender != null &&
+        currentUser.dateOfBirth != null &&
+        currentUser.race != null;
+
+    if (hasCompletedOnboarding) {
+      // User has completed onboarding, go to dashboard
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+            (route) => false,
+      );
+    } else {
+      // User needs to complete onboarding
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
+            (route) => false,
+      );
+    }
+  }
+
   Future<void> _handleSignup(BuildContext context) async {
     // Validate form first
     if (!_formKey.currentState!.validate()) {
@@ -239,12 +264,8 @@ class _SignupScreenState extends State<SignupScreen> {
         final firebaseUser = _authService.firebaseUser;
 
         if (firebaseUser != null) {
-          // Navigate to demographics page
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => DemographicsScreen(userEmail: _emailController.text),
-            ),
-          );
+          // Use smart navigation - for new signups, they'll likely go to demographics
+          await _navigateAfterAuth(context);
         }
       }
     } catch (e) {
@@ -272,17 +293,11 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithApple(context);
 
       if (success && context.mounted) {
-        // Navigate to demographics page if it's a new user or straight to dashboard if returning
+        // Get the current user from Firebase
         final firebaseUser = _authService.firebaseUser;
         if (firebaseUser != null) {
-          // Check if user has completed demographics
-          final email = _authService.getCurrentUserEmail() ?? '';
-
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => DemographicsScreen(userEmail: email),
-            ),
-          );
+          // Use smart navigation
+          await _navigateAfterAuth(context);
         }
       }
     } catch (e) {
@@ -309,17 +324,11 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithGoogle(context);
 
       if (success && context.mounted) {
-        // Navigate to demographics page if it's a new user or straight to dashboard if returning
+        // Get the current user from Firebase
         final firebaseUser = _authService.firebaseUser;
         if (firebaseUser != null) {
-          // Check if user has completed demographics
-          final email = _authService.getCurrentUserEmail() ?? '';
-
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => DemographicsScreen(userEmail: email),
-            ),
-          );
+          // Use smart navigation
+          await _navigateAfterAuth(context);
         }
       }
     } catch (e) {

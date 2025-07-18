@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import 'preferences_screen.dart';
 
@@ -14,6 +14,8 @@ class ExerciseScreen extends StatefulWidget {
 class _ExerciseScreenState extends State<ExerciseScreen> {
   String selectedTrackingFrequency = '';
   List<String> selectedDays = [];
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
 
   final List<String> daysOfWeek = [
     'Monday',
@@ -24,6 +26,23 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
     'Saturday',
     'Sunday'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  // Load existing user data if available
+  void _loadUserData() {
+    final currentUser = _authService.getCurrentUser();
+    if (currentUser != null) {
+      setState(() {
+        selectedTrackingFrequency = currentUser.trackingFrequency ?? '';
+        selectedDays = currentUser.dailyAvailability ?? [];
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +118,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
             // Next button
             AppButton(
               text: 'Next',
+              isLoading: _isLoading,
               onPressed: () => _handleNext(context),
             ),
           ],
@@ -159,32 +179,37 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
   }
 
   Future<void> _handleNext(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
+      final currentUser = _authService.getCurrentUser();
 
-      // In a real implementation, you'd get the current user email from somewhere
-      // For now, we'll use a placeholder method
-      final String? currentUserEmail = await _getCurrentUserEmail();
+      if (currentUser != null) {
+        // Create updated user with new exercise preferences data
+        final updatedUser = currentUser.copyWith(
+          trackingFrequency: selectedTrackingFrequency.isNotEmpty ? selectedTrackingFrequency : null,
+          dailyAvailability: selectedDays.isNotEmpty ? selectedDays : null,
+        );
 
-      if (currentUserEmail != null) {
-        final User? user = userBox.get(currentUserEmail);
+        // Update user in Firebase
+        await _authService.updateUser(updatedUser);
 
-        if (user != null) {
-          // Update the user object with selected preferences
-          user.trackingFrequency = selectedTrackingFrequency;
-          user.dailyAvailability = selectedDays;
-
-          // Save the updated user object back to Hive
-          await user.save();
-
-          // Navigate to the next page
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const PreferencesScreen(),
-              ),
-            );
-          }
+        // Navigate to the next screen
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const PreferencesScreen(),
+            ),
+          );
+        }
+      } else {
+        // Handle case where user is null
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('User session not found. Please log in again.')),
+          );
         }
       }
     } catch (e) {
@@ -193,17 +218,12 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
           SnackBar(content: Text('Error saving exercise preferences: $e')),
         );
       }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
-  }
-
-  // Placeholder method to get current user email
-  // In a real implementation, this would come from your auth service
-  Future<String?> _getCurrentUserEmail() async {
-    // This is a placeholder implementation
-    final userBox = await Hive.openBox<User>('users');
-    if (userBox.isNotEmpty) {
-      return userBox.values.first.email;
-    }
-    return null;
   }
 }

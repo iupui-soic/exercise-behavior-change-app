@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import '../../utils/theme.dart';
 import 'physical_characteristics_screen.dart';
 
 class DemographicsScreen extends StatefulWidget {
-  final String userEmail;
-
-  const DemographicsScreen({Key? key, required this.userEmail}) : super(key: key);
+  const DemographicsScreen({Key? key}) : super(key: key);
 
   @override
   _DemographicsScreenState createState() => _DemographicsScreenState();
@@ -19,6 +18,15 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
   String? selectedDateOfBirth;
   String? selectedRace;
   final TextEditingController _dobController = TextEditingController();
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
+  bool _isLoadingUserData = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
 
   @override
   void dispose() {
@@ -26,9 +34,58 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
     super.dispose();
   }
 
+  // Load existing user data if available
+  Future<void> _loadUserData() async {
+    try {
+      // First check if Firebase user exists
+      final firebaseUser = firebase_auth.FirebaseAuth.instance.currentUser;
+
+      if (firebaseUser == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication error. Please log in again.')),
+          );
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        }
+        return;
+      }
+
+      // Fetch user data from Firestore
+      await _authService.fetchAndSetCurrentUser(firebaseUser.uid);
+
+      // Get the current user
+      final currentUser = _authService.getCurrentUser();
+
+      if (currentUser != null) {
+        setState(() {
+          selectedGender = currentUser.gender;
+          selectedDateOfBirth = currentUser.dateOfBirth;
+          selectedRace = currentUser.race;
+          _dobController.text = currentUser.dateOfBirth ?? '';
+        });
+      }
+
+    } catch (e) {
+      print('Error loading user data: $e');
+      // Continue anyway - they can still fill out the form
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoadingUserData = false;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    debugPrint('User email passed to DemographicsPage: ${widget.userEmail}');
+    if (_isLoadingUserData) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(),
@@ -62,7 +119,8 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
             // Next button
             AppButton(
               text: 'Next',
-              onPressed: () => _handleNext(context),
+              isLoading: _isLoading,
+              onPressed: _isFormValid() ? () => _handleNext(context) : null,
             ),
             const SizedBox(height: 8.0),
           ],
@@ -141,7 +199,9 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
           controller: _dobController,
           keyboardType: TextInputType.datetime,
           onChanged: (value) {
-            selectedDateOfBirth = value;
+            setState(() {
+              selectedDateOfBirth = value;
+            });
           },
           decoration: const InputDecoration(
             hintText: 'MM/DD/YYYY',
@@ -149,6 +209,22 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
           ),
+          onTap: () async {
+            // Optional: Add date picker
+            final DateTime? picked = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now().subtract(const Duration(days: 6570)), // 18 years ago
+              firstDate: DateTime(1900),
+              lastDate: DateTime.now(),
+            );
+            if (picked != null) {
+              final formattedDate = '${picked.month.toString().padLeft(2, '0')}/${picked.day.toString().padLeft(2, '0')}/${picked.year}';
+              setState(() {
+                _dobController.text = formattedDate;
+                selectedDateOfBirth = formattedDate;
+              });
+            }
+          },
         ),
       ],
     );
@@ -195,40 +271,88 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
     );
   }
 
+  bool _isFormValid() {
+    return selectedGender != null &&
+        selectedDateOfBirth != null &&
+        selectedDateOfBirth!.isNotEmpty &&
+        selectedRace != null;
+  }
+
   Future<void> _handleNext(BuildContext context) async {
+    if (!_isFormValid()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill in all required fields')),
+      );
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
-      final User? user = userBox.get(widget.userEmail);
+      // Get Firebase user first
+      final firebaseUser = firebase_auth.FirebaseAuth.instance.currentUser;
 
-      if (user != null) {
-        // Update the demographics data fields in the user object
-        user.gender = selectedGender;
-        user.dateOfBirth = selectedDateOfBirth;
-        user.race = selectedRace;
-
-        // Save the updated user object back to Hive
-        await user.save();
-
-        // Navigate to the next page
+      if (firebaseUser == null) {
         if (context.mounted) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const PhysicalCharacteristicsScreen(),
-            ),
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication error. Please log in again.')),
           );
+          Navigator.of(context).popUntil((route) => route.isFirst);
         }
+        return;
+      }
+
+      // Get current user or create new one
+      User? currentUser = _authService.getCurrentUser();
+
+      if (currentUser == null) {
+        // Create new user if none exists
+        currentUser = User(
+          uid: firebaseUser.uid,
+          email: firebaseUser.email ?? '',
+          gender: selectedGender,
+          dateOfBirth: selectedDateOfBirth,
+          race: selectedRace,
+          createdAt: DateTime.now(),
+        );
       } else {
-        // Handle the case where user is null
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('User not found for email: ${widget.userEmail}')),
+        // Update existing user
+        currentUser = currentUser.copyWith(
+          gender: selectedGender,
+          dateOfBirth: selectedDateOfBirth,
+          race: selectedRace,
+          updatedAt: DateTime.now(),
         );
       }
+
+      // Update user in Firebase
+      await _authService.updateUser(currentUser);
+
+      print('Demographics saved successfully for user: ${firebaseUser.uid}');
+
+      // Navigate to the next screen
+      if (context.mounted) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const PhysicalCharacteristicsScreen(),
+          ),
+        );
+      }
+
     } catch (e) {
-      // Handle any errors
+      print('Error saving demographics: $e');
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error saving demographics: $e')),
         );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
       }
     }
   }

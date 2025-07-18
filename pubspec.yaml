@@ -1,7 +1,5 @@
-name: exercise_behavior_change_app
-description: "Exercise Behavior Change App"
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
+name: fitwisdom
+description: "FitWisdom: Where Clinical Science Meets Personal Fitness"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
@@ -13,34 +11,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  carousel_slider: ^5.0.0
-  cloud_firestore: ^4.15.6
-  cupertino_icons: ^1.0.2
-  firebase_core: ^2.25.4
-  firebase_auth: ^4.17.6
-  google_sign_in: ^5.2.1
-  hive: ^2.0.4
-  hive_flutter: ^1.1.0
-  intl: ^0.17.0
-  logger: ^2.2.0
-  path_provider: ^2.0.1
-  protobuf: ^3.1.0
-  sign_in_with_apple: ^6.1.0
+  carousel_slider: ^5.1.1
+  cloud_firestore: ^5.6.11
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.15.1
+  firebase_auth: ^5.6.2
+  flutter_dotenv: ^5.1.0
+  google_sign_in: ^7.1.1
+  intl: ^0.20.2
+  logger: ^2.6.0
+  sign_in_with_apple: ^7.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.3.3
-  flutter_launcher_icons: ^0.13.1
-  hive_generator: ^2.0.0
-  mockito: ^5.4.2
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  build_runner: ^2.6.0
+  flutter_launcher_icons: ^0.14.4
+  mockito: ^5.4.5
+  flutter_lints: ^6.0.0
 
 
 flutter:
@@ -49,23 +37,15 @@ flutter:
       fonts:
         - asset: fonts/Outfit-Regular.ttf
         - asset: fonts/Outfit-Bold.ttf
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - .env
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "images/icon/icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 31

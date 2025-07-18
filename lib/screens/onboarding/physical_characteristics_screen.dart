@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import '../../models/user_model.dart';
+import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
 import 'comorbidities_screen.dart';
 
@@ -16,6 +17,15 @@ class _PhysicalCharacteristicsScreenState extends State<PhysicalCharacteristicsS
   int selectedHeightInches = 0;
   String weightValue = '';
   final TextEditingController _weightController = TextEditingController();
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
+  bool _isLoadingUserData = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
 
   @override
   void dispose() {
@@ -23,8 +33,59 @@ class _PhysicalCharacteristicsScreenState extends State<PhysicalCharacteristicsS
     super.dispose();
   }
 
+  // Load existing user data if available
+  Future<void> _loadUserData() async {
+    try {
+      // First check if Firebase user exists
+      final firebaseUser = firebase_auth.FirebaseAuth.instance.currentUser;
+
+      if (firebaseUser == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication error. Please log in again.')),
+          );
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        }
+        return;
+      }
+
+      // Fetch user data from Firestore if not already loaded
+      if (_authService.getCurrentUser() == null) {
+        await _authService.fetchAndSetCurrentUser(firebaseUser.uid);
+      }
+
+      final currentUser = _authService.getCurrentUser();
+      if (currentUser != null) {
+        setState(() {
+          selectedHeightFeet = currentUser.heightFeet ?? 0;
+          selectedHeightInches = currentUser.heightInches ?? 0;
+          if (currentUser.weight != null) {
+            weightValue = currentUser.weight.toString();
+            _weightController.text = weightValue;
+          }
+        });
+      }
+    } catch (e) {
+      print('Error loading user data: $e');
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoadingUserData = false;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_isLoadingUserData) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -89,6 +150,7 @@ class _PhysicalCharacteristicsScreenState extends State<PhysicalCharacteristicsS
             // Next button
             AppButton(
               text: 'Next',
+              isLoading: _isLoading,
               onPressed: () => _handleNext(context),
             ),
             const SizedBox(height: 20.0),
@@ -141,57 +203,82 @@ class _PhysicalCharacteristicsScreenState extends State<PhysicalCharacteristicsS
   }
 
   Future<void> _handleNext(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
-      final userBox = await Hive.openBox<User>('users');
-      // In a real implementation, you'd get the current user email from somewhere
-      // For now, we'll use a placeholder method
-      final String? currentUserEmail = await _getCurrentUserEmail();
+      // Get Firebase user first
+      final firebaseUser = firebase_auth.FirebaseAuth.instance.currentUser;
 
-      if (currentUserEmail != null) {
-        final User? user = userBox.get(currentUserEmail);
+      if (firebaseUser == null) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication error. Please log in again.')),
+          );
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        }
+        return;
+      }
 
-        if (user != null) {
-          user.heightFeet = selectedHeightFeet;
-          user.heightInches = selectedHeightInches;
-          if (weightValue.isNotEmpty) {
-            user.weight = int.parse(weightValue);
-          }
-          await user.save();
+      final currentUser = _authService.getCurrentUser();
 
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const ComorbiditiesScreen(),
-              ),
-            );
+      if (currentUser != null) {
+        int? parsedWeight;
+        if (weightValue.isNotEmpty) {
+          parsedWeight = int.tryParse(weightValue);
+          if (parsedWeight == null) {
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Please enter a valid weight')),
+              );
+            }
+            return;
           }
-        } else {
-          // Handle case where user is null
-          if (context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('User not found')),
-            );
-          }
+        }
+
+        // Create updated user with new physical characteristics data
+        final updatedUser = currentUser.copyWith(
+          heightFeet: selectedHeightFeet,
+          heightInches: selectedHeightInches,
+          weight: parsedWeight,
+          updatedAt: DateTime.now(),
+        );
+
+        // Update user in Firebase
+        await _authService.updateUser(updatedUser);
+
+        print('Physical characteristics saved successfully for user: ${firebaseUser.uid}');
+
+        // Navigate to the next screen
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ComorbiditiesScreen(),
+            ),
+          );
+        }
+      } else {
+        // Handle case where user is null
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('User session not found. Please log in again.')),
+          );
         }
       }
     } catch (e) {
-      // Handle errors
+      print('Error saving physical characteristics: $e');
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error saving physical characteristics: $e')),
         );
       }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
-  }
-
-  // Placeholder method to get current user email
-  // In a real implementation, this would come from your auth service
-  Future<String?> _getCurrentUserEmail() async {
-    // This is a placeholder implementation
-    final userBox = await Hive.openBox<User>('users');
-    if (userBox.isNotEmpty) {
-      return userBox.values.first.email;
-    }
-    return null;
   }
 }

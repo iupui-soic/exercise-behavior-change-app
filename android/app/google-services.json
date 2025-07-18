@@ -1,50 +1,49 @@
 {
   "project_info": {
-    "project_number": "698761088482",
-    "project_id": "exercise-behavior-change-app",
-    "storage_bucket": "exercise-behavior-change-app.firebasestorage.app"
+    "project_number": "362653385954",
+    "project_id": "fitwisdom-app",
+    "storage_bucket": "fitwisdom-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:698761088482:android:93ce0596c10390c4e33dbb",
+        "mobilesdk_app_id": "1:362653385954:android:f9283c1cbacc6d7759cabb",
         "android_client_info": {
-          "package_name": "edu.iu.indianapolis.luddy.plhi.exercise_behavior_change_app.android"
+          "package_name": "edu.iu.indianapolis.luddy.plhi.fitwisdom.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "698761088482-1eik7mq6n5uhlieqqr3oc3cqjpmlpqe5.apps.googleusercontent.com",
+          "client_id": "362653385954-707pp59ohe7mt4grithe4o5jhaf60t6e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "edu.iu.indianapolis.luddy.plhi.exercise_behavior_change_app.android",
-            "certificate_hash": "242d71c9ab047e1848dfbada10365d514c71c325"
+            "package_name": "edu.iu.indianapolis.luddy.plhi.fitwisdom.android",
+            "certificate_hash": "22c0ace2e7f943e0a2c4a211ffab6dd4ee747bf4"
           }
         },
         {
-          "client_id": "698761088482-3vncch58t2u2hgjp29ubq325brc171j3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "edu.iu.indianapolis.luddy.plhi.exercise_behavior_change_app.android",
-            "certificate_hash": "8fa11a7ab05c9058daf90054cae476203ff8d71d"
-          }
-        },
-        {
-          "client_id": "698761088482-29okaa7bofcm7e2e0v0r5m0sdctdbk50.apps.googleusercontent.com",
+          "client_id": "362653385954-vcujc4hird3eds603qv19asq6d911t89.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBIzNynqGjetISdR4xtnS3ZkgzoPhtZAjo"
+          "current_key": "AIzaSyC5OPyFKslS53mTdPv89i0ynzcVNluvuRU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "698761088482-29okaa7bofcm7e2e0v0r5m0sdctdbk50.apps.googleusercontent.com",
+              "client_id": "362653385954-vcujc4hird3eds603qv19asq6d911t89.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "362653385954-1psdqebaelqklccfv5d3qu7fgis47q3f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.iu.indianapolis.luddy.plhi.fitwisdom"
+              }
             }
           ]
         }

@@ -17,18 +17,18 @@ platform :ios do
       scheme: "Runner",
       export_method: "development",
       output_directory: "./build",
-      output_name: "BehaviorChangeExerciseApp.ipa"
+      output_name: "FitWisdom.ipa"
     )
 
     # Upload to GitHub
     github_release = set_github_release(
-      repository_name: "YOUR_GITHUB_USERNAME/exercise_behavior_change_app",
+      repository_name: "YOUR_GITHUB_USERNAME/fitwisdom",
       api_token: ENV["GITHUB_TOKEN"],
       name: "v#{get_version_number}-#{get_build_number}",
       tag_name: "v#{get_version_number}-#{get_build_number}",
       description: "Release v#{get_version_number}-#{get_build_number}",
       commitish: "main",
-      upload_assets: ["build/BehaviorChangeExerciseApp.ipa"]
+      upload_assets: ["build/FitWisdom.ipa"]
     )
 
     # Clean up
