@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import '../../services/auth_service.dart';
+import '../../models/user_model.dart';
 import '../../widgets/app_button.dart';
 import '../onboarding/demographics_screen.dart';
-import '../dashboard/dashboard_screen.dart';
 import 'login_screen.dart';
 import '../../utils/theme.dart';
 
@@ -215,31 +215,6 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Future<void> _navigateAfterAuth(BuildContext context) async {
-    // Get current user data
-    final currentUser = _authService.getCurrentUser();
-
-    // Check if user has completed onboarding (has demographics data)
-    bool hasCompletedOnboarding = currentUser != null &&
-        currentUser.gender != null &&
-        currentUser.dateOfBirth != null &&
-        currentUser.race != null;
-
-    if (hasCompletedOnboarding) {
-      // User has completed onboarding, go to dashboard
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DashboardScreen()),
-            (route) => false,
-      );
-    } else {
-      // User needs to complete onboarding
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
-            (route) => false,
-      );
-    }
-  }
-
   Future<void> _handleSignup(BuildContext context) async {
     // Validate form first
     if (!_formKey.currentState!.validate()) {
@@ -264,8 +239,14 @@ class _SignupScreenState extends State<SignupScreen> {
         final firebaseUser = _authService.firebaseUser;
 
         if (firebaseUser != null) {
-          // Use smart navigation - for new signups, they'll likely go to demographics
-          await _navigateAfterAuth(context);
+          // Navigate to demographics page - AuthService will provide user data
+          // Use pushAndRemoveUntil to clear the navigation stack
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => const DemographicsScreen(),
+            ),
+                (route) => false,
+          );
         }
       }
     } catch (e) {
@@ -293,11 +274,41 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithApple(context);
 
       if (success && context.mounted) {
-        // Get the current user from Firebase
+        // Extract and store user information from Apple account
         final firebaseUser = _authService.firebaseUser;
         if (firebaseUser != null) {
-          // Use smart navigation
-          await _navigateAfterAuth(context);
+          // Create user model with Apple account information
+          final userName = firebaseUser.displayName ?? '';
+          final userEmail = firebaseUser.email ?? '';
+
+          // Get current user or create new one with Apple account data
+          var currentUser = _authService.getCurrentUser();
+          if (currentUser == null) {
+            // Create new user with Apple account information
+            currentUser = User(
+              uid: firebaseUser.uid,
+              name: userName,
+              email: userEmail,
+              createdAt: DateTime.now(),
+            );
+          } else {
+            // Update existing user with Apple account information if needed
+            currentUser = currentUser.copyWith(
+              name: userName.isNotEmpty ? userName : currentUser.name,
+              email: userEmail.isNotEmpty ? userEmail : currentUser.email,
+            );
+          }
+
+          // Save/update user data
+          await _authService.updateUser(currentUser);
+
+          // Navigate to demographics page
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => const DemographicsScreen(),
+            ),
+                (route) => false,
+          );
         }
       }
     } catch (e) {
@@ -324,11 +335,41 @@ class _SignupScreenState extends State<SignupScreen> {
       final success = await _authService.signInWithGoogle(context);
 
       if (success && context.mounted) {
-        // Get the current user from Firebase
+        // Extract and store user information from Google account
         final firebaseUser = _authService.firebaseUser;
         if (firebaseUser != null) {
-          // Use smart navigation
-          await _navigateAfterAuth(context);
+          // Create user model with Google account information
+          final userName = firebaseUser.displayName ?? '';
+          final userEmail = firebaseUser.email ?? '';
+
+          // Get current user or create new one with Google account data
+          var currentUser = _authService.getCurrentUser();
+          if (currentUser == null) {
+            // Create new user with Google account information
+            currentUser = User(
+              uid: firebaseUser.uid,
+              name: userName,
+              email: userEmail,
+              createdAt: DateTime.now(),
+            );
+          } else {
+            // Update existing user with Google account information if needed
+            currentUser = currentUser.copyWith(
+              name: userName.isNotEmpty ? userName : currentUser.name,
+              email: userEmail.isNotEmpty ? userEmail : currentUser.email,
+            );
+          }
+
+          // Save/update user data
+          await _authService.updateUser(currentUser);
+
+          // Navigate to demographics page
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => const DemographicsScreen(),
+            ),
+                (route) => false,
+          );
         }
       }
     } catch (e) {

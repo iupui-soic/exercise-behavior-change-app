@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/app_button.dart';
 import '../../services/auth_service.dart';
-import '../dashboard/dashboard_screen.dart';
+import '../../models/user_model.dart';
 import '../onboarding/demographics_screen.dart';
 import 'signup_screen.dart';
 
@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                   child: AppButton(
                     text: 'Login with Apple',
                     onPressed: () {
-                      _handleSignInWithApple(context);
+                      _handleSignUpWithApple(context);
                     },
                     leadingIcon: const Icon(Icons.apple, color: Colors.black),
                   ),
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                   child: AppButton(
                     text: 'Login with Google',
                     onPressed: () {
-                      _handleSignInWithGoogle(context);
+                      _handleSignUpWithGoogle(context);
                     },
                     leadingIcon: const Icon(Icons.android, color: Colors.black),
                   ),
@@ -86,42 +86,83 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _handleSignInWithApple(BuildContext context) async {
+  Future<void> _handleSignUpWithApple(BuildContext context) async {
     final authService = AuthService();
     final success = await authService.signInWithApple(context);
 
     if (success && context.mounted) {
-      await _navigateAfterAuth(context, authService);
+      // Extract and store user information from Apple account
+      final firebaseUser = authService.firebaseUser;
+      if (firebaseUser != null) {
+        // Create user model with Apple account information
+        final userName = firebaseUser.displayName ?? '';
+        final userEmail = firebaseUser.email ?? '';
+
+        // Get current user or create new one with Apple account data
+        var currentUser = authService.getCurrentUser();
+        if (currentUser == null) {
+          // Create new user with Apple account information
+          currentUser = User(
+            uid: firebaseUser.uid,
+            name: userName,
+            email: userEmail,
+            createdAt: DateTime.now(),
+          );
+        } else {
+          // Update existing user with Apple account information if needed
+          currentUser = currentUser.copyWith(
+            name: userName.isNotEmpty ? userName : currentUser.name,
+            email: userEmail.isNotEmpty ? userEmail : currentUser.email,
+          );
+        }
+
+        // Save/update user data
+        await authService.updateUser(currentUser);
+      }
+
+      // Navigate to demographics screen
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
+            (route) => false,
+      );
     }
   }
 
-  Future<void> _handleSignInWithGoogle(BuildContext context) async {
+  Future<void> _handleSignUpWithGoogle(BuildContext context) async {
     final authService = AuthService();
     final success = await authService.signInWithGoogle(context);
 
     if (success && context.mounted) {
-      await _navigateAfterAuth(context, authService);
-    }
-  }
+      // Extract and store user information from Google account
+      final firebaseUser = authService.firebaseUser;
+      if (firebaseUser != null) {
+        // Create user model with Google account information
+        final userName = firebaseUser.displayName ?? '';
+        final userEmail = firebaseUser.email ?? '';
 
-  Future<void> _navigateAfterAuth(BuildContext context, AuthService authService) async {
-    // Get current user data
-    final currentUser = authService.getCurrentUser();
+        // Get current user or create new one with Google account data
+        var currentUser = authService.getCurrentUser();
+        if (currentUser == null) {
+          // Create new user with Google account information
+          currentUser = User(
+            uid: firebaseUser.uid,
+            name: userName,
+            email: userEmail,
+            createdAt: DateTime.now(),
+          );
+        } else {
+          // Update existing user with Google account information if needed
+          currentUser = currentUser.copyWith(
+            name: userName.isNotEmpty ? userName : currentUser.name,
+            email: userEmail.isNotEmpty ? userEmail : currentUser.email,
+          );
+        }
 
-    // Check if user has completed onboarding (has demographics data)
-    bool hasCompletedOnboarding = currentUser != null &&
-        currentUser.gender != null &&
-        currentUser.dateOfBirth != null &&
-        currentUser.race != null;
+        // Save/update user data
+        await authService.updateUser(currentUser);
+      }
 
-    if (hasCompletedOnboarding) {
-      // User has completed onboarding, go to dashboard
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DashboardScreen()),
-            (route) => false,
-      );
-    } else {
-      // User needs to complete onboarding
+      // Navigate to demographics screen
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => const DemographicsScreen()),
             (route) => false,
@@ -264,7 +305,11 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
         );
 
         if (success && context.mounted) {
-          await _navigateAfterAuth(context, authService);
+          // Navigate to demographics screen instead of dashboard
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const DemographicsScreen()),
+                (route) => false,
+          );
         }
       } finally {
         if (mounted) {
@@ -273,31 +318,6 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
           });
         }
       }
-    }
-  }
-
-  Future<void> _navigateAfterAuth(BuildContext context, AuthService authService) async {
-    // Get current user data
-    final currentUser = authService.getCurrentUser();
-
-    // Check if user has completed onboarding (has demographics data)
-    bool hasCompletedOnboarding = currentUser != null &&
-        currentUser.gender != null &&
-        currentUser.dateOfBirth != null &&
-        currentUser.race != null;
-
-    if (hasCompletedOnboarding) {
-      // User has completed onboarding, go to dashboard
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DashboardScreen()),
-            (route) => false,
-      );
-    } else {
-      // User needs to complete onboarding
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const DemographicsScreen()),
-            (route) => false,
-      );
     }
   }
 

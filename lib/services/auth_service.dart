@@ -16,7 +16,6 @@ class AuthService {
   final firebase_auth.FirebaseAuth _auth = firebase_auth.FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Current user
   User? currentUser;
 
   // Google Sign In initialization flag
@@ -70,7 +69,6 @@ class AuthService {
     }
   }
 
-  // Register with email and password
   Future<bool> register(String name, String email, String password, BuildContext context) async {
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
@@ -82,10 +80,10 @@ class AuthService {
         // Update display name
         await userCredential.user!.updateDisplayName(name);
 
-        // Create user document in Firestore
         final user = User(
-          email: email,
           uid: userCredential.user!.uid,
+          name: name,
+          email: email,
           createdAt: DateTime.now(),
         );
 
@@ -179,7 +177,7 @@ class AuthService {
           await _createUserDocument(
             userCredential.user!.uid,
             credential.email ?? userCredential.user!.email ?? '',
-            fullName,
+            fullName ?? userCredential.user!.displayName,
           );
 
           if (fullName != null) {
@@ -210,11 +208,11 @@ class AuthService {
     }
   }
 
-  // Create user document in Firestore
   Future<void> _createUserDocument(String uid, String email, String? displayName) async {
     final user = User(
-      email: email,
       uid: uid,
+      name: displayName ?? '', // ADDED: Store the display name
+      email: email,
       createdAt: DateTime.now(),
     );
 
@@ -222,7 +220,6 @@ class AuthService {
     currentUser = user; // Set the current user immediately
   }
 
-  // Fetch user data from Firestore - NOW PUBLIC
   Future<void> fetchAndSetCurrentUser(String uid) async {
     try {
       final doc = await _firestore.collection('users').doc(uid).get();
@@ -235,8 +232,9 @@ class AuthService {
         final firebaseUser = _auth.currentUser;
         if (firebaseUser != null) {
           currentUser = User(
-            email: firebaseUser.email ?? '',
             uid: firebaseUser.uid,
+            name: firebaseUser.displayName ?? '',
+            email: firebaseUser.email ?? '',
             createdAt: DateTime.now(),
           );
           // Save this basic user to Firestore
@@ -247,6 +245,10 @@ class AuthService {
     } catch (e) {
       developer.log('Error fetching user data: $e');
     }
+  }
+
+  Future<void> signOut() async {
+    await logout();
   }
 
   // Logout
@@ -267,7 +269,6 @@ class AuthService {
     }
   }
 
-  // Update user
   Future<void> updateUser(User user) async {
     try {
       if (firebaseUser != null) {
@@ -294,7 +295,6 @@ class AuthService {
     }
   }
 
-  // Utility methods
   User? getCurrentUser() {
     developer.log('getCurrentUser called, current user: ${currentUser?.uid}');
     return currentUser;

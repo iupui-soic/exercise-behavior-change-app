@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
   final String uid;
+  final String? name;
   final String email;
+  final String? profileImageUrl;
   final String? gender;
   final String? dateOfBirth;
   final String? race;
@@ -22,7 +24,9 @@ class User {
 
   User({
     required this.uid,
+    this.name,
     required this.email,
+    this.profileImageUrl,
     this.gender,
     this.dateOfBirth,
     this.race,
@@ -47,7 +51,9 @@ class User {
 
     return User(
       uid: doc.id,
+      name: data['name'],
       email: data['email'] ?? '',
+      profileImageUrl: data['profileImageUrl'],
       gender: data['gender'],
       dateOfBirth: data['dateOfBirth'],
       race: data['race'],
@@ -80,7 +86,9 @@ class User {
   // Convert to map for Firestore
   Map<String, dynamic> toFirestore() {
     return {
+      'name': name,
       'email': email,
+      'profileImageUrl': profileImageUrl,
       'gender': gender,
       'dateOfBirth': dateOfBirth,
       'race': race,
@@ -103,7 +111,9 @@ class User {
   // Copy with method for creating updated instances
   User copyWith({
     String? uid,
+    String? name,
     String? email,
+    String? profileImageUrl,
     String? gender,
     String? dateOfBirth,
     String? race,
@@ -123,7 +133,9 @@ class User {
   }) {
     return User(
       uid: uid ?? this.uid,
+      name: name ?? this.name,
       email: email ?? this.email,
+      profileImageUrl: profileImageUrl ?? this.profileImageUrl,
       gender: gender ?? this.gender,
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,
       race: race ?? this.race,
@@ -145,7 +157,9 @@ class User {
 
   // Helper method to check if user profile is complete
   bool get isProfileComplete {
-    return gender != null &&
+    return name != null &&
+        name!.isNotEmpty &&
+        gender != null &&
         dateOfBirth != null &&
         heightFeet != null &&
         heightInches != null &&
@@ -167,5 +181,26 @@ class User {
       return "${heightFeet!}'${heightInches!}\"";
     }
     return null;
+  }
+
+  // Helper method to get display name (falls back to email if name is empty)
+  String get displayName {
+    if (name != null && name!.isNotEmpty) {
+      return name!;
+    }
+    return email.split('@').first; // Use part before @ as fallback
+  }
+
+  // Helper method to get user initials for avatar
+  String get initials {
+    if (name != null && name!.isNotEmpty) {
+      final parts = name!.trim().split(' ');
+      if (parts.length >= 2) {
+        return '${parts.first[0].toUpperCase()}${parts.last[0].toUpperCase()}';
+      } else {
+        return parts.first[0].toUpperCase();
+      }
+    }
+    return email[0].toUpperCase();
   }
 }

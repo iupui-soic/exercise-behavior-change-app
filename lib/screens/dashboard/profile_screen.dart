@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../services/auth_service.dart';
+import '../../models/user_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -8,16 +10,71 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // Sample user data - in a real app, this would come from a user service or database
-  final String userName = "John Doe";
-  final String userEmail = "jade.cooper@example.com";
-  final String memberSince = "May 2024";
-  final int totalWorkouts = 42;
-  final int achievementsEarned = 12;
-  final double successRate = 87.5;
+  final AuthService _authService = AuthService();
+  User? _currentUser;
+  bool _isLoading = true;
+
+  // TODO: Default values for stats - these would typically come from a workout/activity service
+  final int totalWorkouts = 0; // TODO: This should be fetched from workout history
+  final int achievementsEarned = 0; // TODO: This should be fetched from achievements service
+  final double successRate = 0.0; // TODO: This should be calculated from workout completion
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    try {
+      final user = _authService.getCurrentUser();
+      setState(() {
+        _currentUser = user;
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      // Handle error - maybe show a snackbar
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error loading user data: $e')),
+        );
+      }
+    }
+  }
+
+  String _formatMemberSince() {
+    if (_currentUser?.createdAt != null) {
+      final date = _currentUser!.createdAt!;
+      final months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      return '${months[date.month - 1]} ${date.year}';
+    }
+    return 'Recently';
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: const Text('Profile'),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 46, 196, 234)),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -48,16 +105,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildProfileHeader() {
+    final userName = _currentUser?.displayName ?? 'User';
+    final userEmail = _currentUser?.email ?? 'No email';
+    final memberSince = _formatMemberSince();
+
     return Center(
       child: Column(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 50,
-            backgroundColor: Color.fromARGB(255, 46, 196, 234),
-            child: Icon(
-              Icons.person,
-              size: 50,
-              color: Colors.black,
+            backgroundColor: const Color.fromARGB(255, 46, 196, 234),
+            child: _currentUser?.profileImageUrl != null
+                ? ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.network(
+                _currentUser!.profileImageUrl!,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.person,
+                    size: 50,
+                    color: Colors.black,
+                  );
+                },
+              ),
+            )
+                : Text(
+              _currentUser?.initials ?? 'U',
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ),
           const SizedBox(height: 16),
@@ -128,7 +209,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               _buildStatItem(
                 icon: Icons.check_circle,
-                value: '$successRate%',
+                value: '${successRate.toStringAsFixed(1)}%',
                 label: 'Success Rate',
               ),
             ],
@@ -181,28 +262,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
           icon: Icons.person_outline,
           title: 'Edit Profile',
           onTap: () {
-            // Handle navigation to edit profile
+            // Navigate to edit profile screen
+            // Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen()));
           },
         ),
         _buildMenuItem(
           icon: Icons.fitness_center,
           title: 'My Workout History',
           onTap: () {
-            // Handle navigation to workout history
+            // Navigate to workout history screen
           },
         ),
         _buildMenuItem(
           icon: Icons.star_outline,
           title: 'My Achievements',
           onTap: () {
-            // Handle navigation to achievements
+            // Navigate to achievements screen
           },
         ),
         _buildMenuItem(
           icon: Icons.timeline,
           title: 'My Statistics',
           onTap: () {
-            // Handle navigation to statistics
+            // Navigate to statistics screen
           },
         ),
       ],
@@ -217,7 +299,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           icon: Icons.notifications_none,
           title: 'Notifications',
           onTap: () {
-            // Handle navigation to notifications settings
+            // Navigate to notifications settings
           },
         ),
         _buildMenuItem(
@@ -225,14 +307,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: 'Language',
           value: 'English',
           onTap: () {
-            // Handle navigation to language settings
+            // Navigate to language settings
           },
         ),
         _buildMenuItem(
           icon: Icons.accessibility_new,
           title: 'Workout Preferences',
           onTap: () {
-            // Handle navigation to workout preferences
+            // Navigate to workout preferences
           },
         ),
       ],
@@ -247,21 +329,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           icon: Icons.privacy_tip_outlined,
           title: 'Privacy Policy',
           onTap: () {
-            // Handle navigation to privacy policy
+            // Navigate to privacy policy
           },
         ),
         _buildMenuItem(
           icon: Icons.article_outlined,
           title: 'Terms of Use',
           onTap: () {
-            // Handle navigation to terms of use
+            // Navigate to terms of use
           },
         ),
         _buildMenuItem(
           icon: Icons.help_outline,
           title: 'Help & Support',
           onTap: () {
-            // Handle navigation to help and support
+            // Navigate to help and support
           },
         ),
         _buildMenuItem(
@@ -269,11 +351,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: 'Log Out',
           titleColor: Colors.red,
           onTap: () {
-            // Handle logout
+            _handleLogout();
           },
         ),
       ],
     );
+  }
+
+  Future<void> _handleLogout() async {
+    // Show confirmation dialog
+    final bool? confirm = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF1E2021),
+          title: const Text(
+            'Log Out',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: const Text(
+            'Are you sure you want to log out?',
+            style: TextStyle(color: Color(0xFFB6BDCC)),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: Color(0xFFB6BDCC)),
+              ),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text(
+                'Log Out',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      try {
+        await _authService.signOut();
+        if (mounted) {
+          // Navigate back to login screen
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            '/login', // Adjust route name as needed
+                (route) => false,
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error logging out: $e')),
+          );
+        }
+      }
+    }
   }
 
   Widget _buildSection({
